@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-credentials-systems";
+const assetVersion = "20260518-beyond-card-stack";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -181,9 +181,9 @@ const renderBeyondStack = () => `
     <div class="beyond-frame beyond-frame--trail">
       <span class="beyond-sun"></span>
       <span class="beyond-path"></span>
-      <span class="bike-dot bike-dot--one"></span>
-      <span class="bike-dot bike-dot--two"></span>
-      <span class="bike-dot bike-dot--three"></span>
+      <span class="mountain mountain--back"></span>
+      <span class="mountain mountain--front"></span>
+      <span class="bike-rider"></span>
     </div>
     <div class="beyond-frame beyond-frame--route">
       <span class="beyond-route-line"></span>
@@ -192,16 +192,11 @@ const renderBeyondStack = () => `
       <span class="beyond-route-dot beyond-route-dot--three"></span>
     </div>
     <div class="beyond-frame beyond-frame--pages">
-      <span class="system-river"></span>
-      <span class="system-route system-route--one"></span>
-      <span class="system-route system-route--two"></span>
-      <span class="system-route system-route--three"></span>
-      <span class="system-block system-block--one"></span>
-      <span class="system-block system-block--two"></span>
-      <span class="system-node system-node--one"></span>
-      <span class="system-node system-node--two"></span>
-      <span class="system-node system-node--three"></span>
-      <span class="system-node system-node--four"></span>
+      <span class="chess-board"></span>
+      <span class="chess-piece chess-piece--king"></span>
+      <span class="chess-piece chess-piece--knight"></span>
+      <span class="chess-piece chess-piece--pawn"></span>
+      <span class="chess-line"></span>
     </div>
   </div>`;
 

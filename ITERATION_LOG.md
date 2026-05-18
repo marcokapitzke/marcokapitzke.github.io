@@ -268,3 +268,20 @@ Completed changes:
 - Reworked the section as a dark institutional band with subtle grid texture, glassy cards, and staggered scroll-in animation.
 - Added vector logo assets for Infineon, Max Planck, Fraunhofer, and a crisp local FCI mark.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 18: Beyond Card Stack Order
+
+Feedback received:
+
+- The Beyond cards still felt too abstract and should follow a precise order.
+- The furthest/back card should be darker and show a chess or strategic-thinking motif.
+- The middle card should show a solar system.
+- The front card should show biking, with a mountain/ascent feeling.
+
+Completed changes:
+
+- Reordered the visual stack with explicit depth: dark chess/strategy card in back, orbital solar-system card in the middle, and mountain biking card in front.
+- Rebuilt the front card as a sunset mountain scene with a cyclist silhouette and ridge path.
+- Rebuilt the back card as a chessboard with pieces and a strategic analysis line.
+- Adjusted card sizes and positions so all three motifs remain visible at once.
+- Updated the asset version for GitHub Pages cache busting.
