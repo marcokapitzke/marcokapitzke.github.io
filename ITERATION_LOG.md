@@ -361,3 +361,16 @@ Completed changes:
 - Reduced the fade on surrounding cards and affiliation marks so the section still feels calm and readable during hover.
 - Added a thin animated accent line inside the active card for a precise, understated signal.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 24: Unframed Morph Animation
+
+Feedback received:
+
+- The cube-to-sphere animation works well, but the extra box around it makes the Data & Visual Thinking section feel too much like a widget.
+
+Completed changes:
+
+- Removed the visible border, boxed background, inner guide circle, and bottom accent line from the morph animation container.
+- Kept the cube-to-sphere canvas interaction unchanged so the animation now sits directly in the section, closer to the Positioning network treatment.
+- Added a mobile min-height adjustment for the morph canvas so the unframed visual remains proportioned on small screens.
+- Updated the asset version for GitHub Pages cache busting.
