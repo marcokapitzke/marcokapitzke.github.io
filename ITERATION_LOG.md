@@ -348,3 +348,16 @@ Completed changes:
 - Added a subtle section background wash during card focus/hover, keeping the effect calm and institutional.
 - Made leadership cards keyboard-focusable and added a small interaction controller so hover, tap, and keyboard activation all resolve to the same visual state.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 23: DeepMind-Style Hover Calibration
+
+Feedback received:
+
+- The Leadership & Community hover should feel closer to the quieter Google DeepMind "Start building" card treatment than the stronger McKinsey-style background takeover.
+
+Completed changes:
+
+- Recalibrated the active leadership card from a dark takeover to a lighter product-card focus state with a soft green analytical tint.
+- Reduced the fade on surrounding cards and affiliation marks so the section still feels calm and readable during hover.
+- Added a thin animated accent line inside the active card for a precise, understated signal.
+- Updated the asset version for GitHub Pages cache busting.
