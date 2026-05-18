@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-polish";
+const assetVersion = "20260518-typefix";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -217,7 +217,7 @@ ${JSON.stringify(
           <div class="signal-panel" data-signature>
             <div class="signal-panel__top">
               <span>${escapeHtml(profile.hero.journeyIntro)}</span>
-              <span>Hover the nodes</span>
+              <span>Science · data · operations</span>
             </div>
             <canvas data-signal-canvas width="760" height="560" aria-hidden="true"></canvas>
             <p class="journey-caption" data-journey-caption>${escapeHtml(profile.hero.journeyNodes[0].detail)}</p>
