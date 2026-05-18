@@ -258,8 +258,8 @@ export const profile = {
         "Ongoing first-author work combining broadband fluorescence upconversion and femtosecond transient absorption to separate solvent relaxation and reabsorption effects in donor-acceptor chromophores.",
       href: "",
       visual: "dans",
-      visualTitle: "DANS",
-      visualNote: "solvation & reabsorption"
+      visualTitle: "In prep",
+      visualNote: "DANS dynamics"
     },
     {
       type: "Co-author · accepted",
@@ -270,7 +270,7 @@ export const profile = {
       href: "",
       visual: "jacs",
       visualTitle: "JACS",
-      visualNote: "accepted 2026"
+      visualNote: "ACS · accepted 2026"
     },
     {
       type: "VIP Paper · first author",
@@ -281,8 +281,8 @@ export const profile = {
         "This paper improves how broadband ultrafast fluorescence measurements are calibrated and compared, making the method more reliable across different experimental setups. It introduces a three-angle approach and validates the calibration through independent cross-setup comparison.",
       href: "https://doi.org/10.1002/cptc.202400398",
       visual: "signal",
-      visualTitle: "FLUPS",
-      visualNote: "better-calibrated spectra"
+      visualTitle: "Wiley",
+      visualNote: "ChemPhotoChem · 2025"
     },
     {
       type: "Textbook",
@@ -304,8 +304,8 @@ export const profile = {
         "Work on how covalent functionalization can tune the electronic and optical properties of monolayer MoS2, a 2D material relevant to nanoscale optoelectronics.",
       href: "https://doi.org/10.1039/D2TC00391K",
       visual: "materials",
-      visualTitle: "MoS2",
-      visualNote: "2D materials"
+      visualTitle: "RSC",
+      visualNote: "J. Mater. Chem. C"
     }
   ],
   leadershipMarks: [

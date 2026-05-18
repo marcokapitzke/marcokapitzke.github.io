@@ -468,3 +468,19 @@ Completed changes:
 - Kept AI present but more understated: practical AI questions, models, and tools close to the operating question.
 - Tightened the Infineon, Columbia, FLUPS, textbook, research output, JCF, publication, leadership, and Beyond the Work copy.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 31: Publication Label Accuracy
+
+Feedback received:
+
+- The publication graphics should not use method or material names as if they were publishers or venue labels.
+- ChemPhotoChem should read as a Wiley / Chemistry Europe venue rather than "FLUPS."
+- Journal of Materials Chemistry C should read as RSC rather than "MoS2."
+
+Completed changes:
+
+- Updated the manuscript tile from "DANS" to "In prep" with "DANS dynamics" as the supporting line.
+- Kept "JACS" as the primary accepted-paper label and clarified the supporting line as "ACS · accepted 2026."
+- Changed the ChemPhotoChem tile from "FLUPS" to "Wiley" with "ChemPhotoChem · 2025."
+- Changed the Journal of Materials Chemistry C tile from "MoS2" to "RSC" with "J. Mater. Chem. C."
+- Updated the asset version for GitHub Pages cache busting.
