@@ -74,7 +74,7 @@ async function main() {
   );
 
   for (const ref of localRefs) {
-    await assertFile(ref);
+    await assertFile(ref.split("?")[0]);
   }
 
   const ids = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]));

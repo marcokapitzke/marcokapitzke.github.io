@@ -1,6 +1,8 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
+const assetVersion = "20260518-refine";
+
 const escapeHtml = (value = "") =>
   String(value)
     .replaceAll("&", "&amp;")
@@ -125,8 +127,8 @@ const page = `<!doctype html>
     <meta property="og:description" content="${escapeHtml(profile.description)}">
     <meta property="og:image" content="public/og-card.svg">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="src/styles.css">
+    <link rel="icon" href="public/favicon.svg?v=${assetVersion}" type="image/svg+xml">
+    <link rel="stylesheet" href="src/styles.css?v=${assetVersion}">
     <script type="application/ld+json">
 ${JSON.stringify(
   {
@@ -192,7 +194,7 @@ ${JSON.stringify(
       <section class="hero section-shell" id="top" aria-labelledby="hero-title">
         <div class="hero__content reveal">
           <div class="profile-lockup">
-            <img src="${escapeHtml(profile.portraitPath)}" alt="Portrait of Marco A. Kapitzke" width="112" height="112">
+            <img src="${escapeHtml(profile.portraitPath)}?v=${assetVersion}" alt="Portrait of Marco A. Kapitzke" width="112" height="112">
             <div>
               <p class="eyebrow">${escapeHtml(profile.hero.eyebrow)}</p>
               <p>${escapeHtml(profile.hero.identity)}</p>
@@ -334,7 +336,7 @@ ${JSON.stringify(
       </div>
     </footer>
 
-    <script type="module" src="src/main.js"></script>
+    <script type="module" src="src/main.js?v=${assetVersion}"></script>
   </body>
 </html>
 `;
