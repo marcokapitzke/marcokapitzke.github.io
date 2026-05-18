@@ -234,3 +234,19 @@ Completed changes:
 - Built matching cube and sphere point sets so the same observations reorganize into a different representation.
 - Added smooth hover morphing, subtle floating rotation, cube guide edges, and sphere guide rings.
 - Adjusted the section copy so it refers to representation, structure, and transformation rather than a generic chart.
+
+## Iteration 16: Beyond Work Visual Grounding
+
+Feedback received:
+
+- Keep the stacked Beyond cards, but make the imagery less purely abstract.
+- Preserve the planetary-system feeling in the middle card.
+- Make the top card connect more clearly to movement, cycling, hills, and ambition.
+- Keep the darker bottom card palette while giving it a more recognizable system/process/map quality.
+
+Completed changes:
+
+- Reworked the top Beyond card into a topographic hill-route composition with three small cyclist markers moving toward a summit point.
+- Refined the middle card into a quieter orbital/planetary system.
+- Rebuilt the bottom card as a dark city/process-map panel with a river-like systems line, routes, nodes, and block structure.
+- Updated the asset version for GitHub Pages cache busting.

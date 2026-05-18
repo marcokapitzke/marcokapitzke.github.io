@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-morph-cube-sphere";
+const assetVersion = "20260518-beyond-visuals";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -174,6 +174,9 @@ const renderBeyondStack = () => `
     <div class="beyond-frame beyond-frame--trail">
       <span class="beyond-sun"></span>
       <span class="beyond-path"></span>
+      <span class="bike-dot bike-dot--one"></span>
+      <span class="bike-dot bike-dot--two"></span>
+      <span class="bike-dot bike-dot--three"></span>
     </div>
     <div class="beyond-frame beyond-frame--route">
       <span class="beyond-route-line"></span>
@@ -182,13 +185,16 @@ const renderBeyondStack = () => `
       <span class="beyond-route-dot beyond-route-dot--three"></span>
     </div>
     <div class="beyond-frame beyond-frame--pages">
-      <span class="optic-beam"></span>
-      <span class="molecule-bond molecule-bond--one"></span>
-      <span class="molecule-bond molecule-bond--two"></span>
-      <span class="molecule-atom molecule-atom--one"></span>
-      <span class="molecule-atom molecule-atom--two"></span>
-      <span class="molecule-atom molecule-atom--three"></span>
-      <span class="molecule-atom molecule-atom--four"></span>
+      <span class="system-river"></span>
+      <span class="system-route system-route--one"></span>
+      <span class="system-route system-route--two"></span>
+      <span class="system-route system-route--three"></span>
+      <span class="system-block system-block--one"></span>
+      <span class="system-block system-block--two"></span>
+      <span class="system-node system-node--one"></span>
+      <span class="system-node system-node--two"></span>
+      <span class="system-node system-node--three"></span>
+      <span class="system-node system-node--four"></span>
     </div>
   </div>`;
 

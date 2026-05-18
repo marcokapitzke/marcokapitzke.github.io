@@ -1663,69 +1663,136 @@ h3 {
   height: 188px;
   transform: rotate(-5deg);
   background:
-    radial-gradient(circle at 18% 68%, rgba(168, 92, 58, 0.34) 0 5px, transparent 6px),
-    radial-gradient(circle at 43% 38%, rgba(217, 231, 223, 0.72) 0 4px, transparent 5px),
-    radial-gradient(circle at 73% 54%, rgba(47, 111, 94, 0.62) 0 5px, transparent 6px),
-    linear-gradient(130deg, transparent 0 46%, rgba(217, 231, 223, 0.22) 46.2% 46.9%, transparent 47.2%),
-    linear-gradient(32deg, transparent 0 52%, rgba(168, 92, 58, 0.3) 52.2% 53%, transparent 53.4%),
-    repeating-linear-gradient(90deg, rgba(217, 231, 223, 0.08) 0 1px, transparent 1px 24px),
-    repeating-linear-gradient(0deg, rgba(217, 231, 223, 0.06) 0 1px, transparent 1px 24px),
-    linear-gradient(135deg, #111413, #263b36 62%, #e5ece5);
+    radial-gradient(ellipse at 74% 22%, transparent 0 19px, rgba(47, 111, 94, 0.24) 20px 21px, transparent 22px 38px, rgba(47, 111, 94, 0.16) 39px 40px, transparent 41px 64px),
+    radial-gradient(ellipse at 26% 72%, transparent 0 32px, rgba(47, 111, 94, 0.16) 33px 34px, transparent 35px 58px, rgba(47, 111, 94, 0.11) 59px 60px, transparent 61px 90px),
+    radial-gradient(ellipse at 76% 26%, rgba(168, 92, 58, 0.2), transparent 5rem),
+    repeating-linear-gradient(102deg, rgba(47, 111, 94, 0.12) 0 1px, transparent 1px 18px),
+    linear-gradient(135deg, #fffdf6, #eaf1e8);
 }
 
 .beyond-frame--trail::before,
 .beyond-frame--trail::after {
   content: "";
   position: absolute;
-  inset: 18% 12% 18% 10%;
-  height: auto;
-  background:
-    linear-gradient(112deg, transparent 0 49%, rgba(217, 231, 223, 0.52) 49.3% 50%, transparent 50.4%),
-    linear-gradient(22deg, transparent 0 39%, rgba(47, 111, 94, 0.54) 39.3% 40%, transparent 40.4%),
-    linear-gradient(154deg, transparent 0 57%, rgba(168, 92, 58, 0.48) 57.3% 58%, transparent 58.4%);
-  border: 1px solid rgba(217, 231, 223, 0.14);
-  border-radius: 50%;
-  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+.beyond-frame--trail::before {
+  left: 0.8rem;
+  right: 1rem;
+  bottom: 1rem;
+  height: 104px;
+  border: 1px solid rgba(47, 111, 94, 0.12);
+  border-top-color: rgba(47, 111, 94, 0.28);
+  border-left-color: rgba(47, 111, 94, 0.2);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 58% 42% 0 0;
+  transform: rotate(-9deg);
 }
 
 .beyond-frame--trail::after {
-  inset: auto 12% 20% 12%;
-  height: 54px;
-  border: 0;
-  border-radius: 0;
-  opacity: 0.78;
+  right: 2.85rem;
+  top: 1.25rem;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(168, 92, 58, 0.38);
+  border-radius: 50%;
   background:
-    linear-gradient(90deg, transparent 0 8%, rgba(217, 231, 223, 0.58) 8% 10%, transparent 10% 17%, rgba(168, 92, 58, 0.64) 17% 19%, transparent 19% 31%, rgba(217, 231, 223, 0.52) 31% 33%, transparent 33% 46%, rgba(47, 111, 94, 0.62) 46% 48%, transparent 48% 62%, rgba(168, 92, 58, 0.55) 62% 64%, transparent 64% 78%, rgba(217, 231, 223, 0.5) 78% 80%, transparent 80%),
-    linear-gradient(9deg, transparent 0 49%, rgba(217, 231, 223, 0.54) 49.5% 50.5%, transparent 51%);
-  transform: none;
+    radial-gradient(circle, rgba(168, 92, 58, 0.72) 0 4px, transparent 5px);
+  box-shadow: 0 0 0 10px rgba(168, 92, 58, 0.06);
 }
 
 .beyond-path {
   position: absolute;
-  left: 12%;
-  right: 11%;
-  bottom: 33%;
+  left: 10%;
+  right: 15%;
+  top: 35%;
   width: auto;
-  height: 34%;
+  height: 44%;
   border: 0;
-  border-top: 2px solid rgba(217, 231, 223, 0.8);
-  border-right: 2px solid rgba(217, 231, 223, 0.5);
-  border-radius: 46% 54% 42% 0;
-  transform: rotate(-7deg);
+  border-top: 2.5px solid rgba(47, 111, 94, 0.68);
+  border-right: 2px solid rgba(47, 111, 94, 0.5);
+  border-radius: 54% 44% 42% 0;
+  transform: rotate(-18deg);
+}
+
+.beyond-path::before {
+  content: "";
+  position: absolute;
+  left: 18%;
+  top: 46%;
+  width: 48%;
+  height: 1.5px;
+  border-top: 2px solid rgba(47, 111, 94, 0.42);
+  border-radius: 50%;
+  transform: rotate(16deg);
 }
 
 .beyond-sun {
   position: absolute;
-  right: 17%;
-  top: 24%;
-  width: 12px;
-  height: 12px;
+  right: 18%;
+  top: 25%;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background: rgba(168, 92, 58, 0.86);
+  background: var(--rust);
   box-shadow:
-    -86px 50px 0 rgba(217, 231, 223, 0.76),
-    -132px 26px 0 rgba(47, 111, 94, 0.68),
-    0 0 0 9px rgba(168, 92, 58, 0.12);
+    0 0 0 8px rgba(168, 92, 58, 0.1),
+    -56px 38px 0 rgba(47, 111, 94, 0.24),
+    -108px 64px 0 rgba(47, 111, 94, 0.18);
+}
+
+.bike-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #1e2c29;
+  box-shadow:
+    -7px 8px 0 -1px rgba(47, 111, 94, 0.64),
+    7px 8px 0 -1px rgba(47, 111, 94, 0.64),
+    0 0 0 6px rgba(255, 255, 255, 0.48);
+}
+
+.bike-dot::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 6px;
+  width: 25px;
+  height: 1.5px;
+  background: rgba(38, 59, 54, 0.62);
+  transform: rotate(-16deg);
+}
+
+.bike-dot::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: -7px;
+  width: 1px;
+  height: 12px;
+  background: rgba(38, 59, 54, 0.44);
+  transform: rotate(21deg);
+}
+
+.bike-dot--one {
+  left: 25%;
+  top: 56%;
+  transform: rotate(-18deg) scale(0.95);
+}
+
+.bike-dot--two {
+  left: 46%;
+  top: 44%;
+  transform: rotate(-24deg) scale(0.88);
+}
+
+.bike-dot--three {
+  left: 66%;
+  top: 31%;
+  transform: rotate(-29deg) scale(0.78);
 }
 
 .beyond-frame--route {
@@ -1735,19 +1802,34 @@ h3 {
   height: 164px;
   transform: rotate(4deg);
   background:
-    linear-gradient(rgba(47, 111, 94, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(47, 111, 94, 0.08) 1px, transparent 1px),
-    linear-gradient(135deg, #fbfbf7, #eef4ee);
-  background-size: 24px 24px, 24px 24px, auto;
+    radial-gradient(circle at 50% 50%, rgba(47, 111, 94, 0.08), transparent 68%),
+    linear-gradient(rgba(47, 111, 94, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(47, 111, 94, 0.065) 1px, transparent 1px),
+    linear-gradient(135deg, #fbfbf7, #edf4ed);
+  background-size: auto, 24px 24px, 24px 24px, auto;
 }
 
 .beyond-route-line {
   position: absolute;
-  inset: 28% 13% 24% 12%;
-  border-top: 2px solid rgba(47, 111, 94, 0.58);
-  border-right: 2px solid rgba(47, 111, 94, 0.58);
-  border-radius: 48% 50% 42% 0;
-  transform: rotate(-16deg);
+  inset: 18% 20%;
+  border: 1.5px solid rgba(47, 111, 94, 0.36);
+  border-radius: 50%;
+  transform: rotate(-18deg);
+}
+
+.beyond-route-line::before,
+.beyond-route-line::after {
+  content: "";
+  position: absolute;
+  inset: 18% -10%;
+  border: 1px solid rgba(168, 92, 58, 0.22);
+  border-radius: 50%;
+}
+
+.beyond-route-line::after {
+  inset: -18% 17%;
+  border-color: rgba(94, 90, 127, 0.18);
+  transform: rotate(42deg);
 }
 
 .beyond-route-dot {
@@ -1760,20 +1842,20 @@ h3 {
 }
 
 .beyond-route-dot--one {
-  left: 18%;
-  top: 57%;
+  left: 25%;
+  top: 56%;
 }
 
 .beyond-route-dot--two {
-  left: 51%;
-  top: 42%;
+  left: 50%;
+  top: 45%;
   background: var(--rust);
   box-shadow: 0 0 0 6px rgba(168, 92, 58, 0.12);
 }
 
 .beyond-route-dot--three {
-  right: 16%;
-  top: 28%;
+  right: 24%;
+  top: 30%;
 }
 
 .beyond-frame--pages {
@@ -1785,10 +1867,11 @@ h3 {
   place-items: center;
   transform: rotate(-1.4deg);
   background:
-    radial-gradient(circle at 78% 22%, rgba(168, 92, 58, 0.16), transparent 22%),
-    radial-gradient(circle at 22% 78%, rgba(47, 111, 94, 0.14), transparent 24%),
-    linear-gradient(90deg, transparent 0 47%, rgba(47, 111, 94, 0.1) 47% 48%, transparent 48%),
-    linear-gradient(135deg, #fffdf6, #f3f5ee);
+    radial-gradient(circle at 24% 72%, rgba(47, 111, 94, 0.42), transparent 18%),
+    radial-gradient(circle at 78% 28%, rgba(168, 92, 58, 0.32), transparent 18%),
+    repeating-linear-gradient(90deg, rgba(217, 231, 223, 0.07) 0 1px, transparent 1px 25px),
+    repeating-linear-gradient(0deg, rgba(217, 231, 223, 0.055) 0 1px, transparent 1px 25px),
+    linear-gradient(135deg, #111413, #263b36 70%, #17201d);
 }
 
 .beyond-frame--pages span {
@@ -1798,107 +1881,148 @@ h3 {
 .beyond-frame--pages::before {
   content: "";
   position: absolute;
-  right: 2.35rem;
-  top: 2rem;
-  width: 58px;
-  height: 58px;
-  border: 1.5px solid rgba(94, 90, 127, 0.36);
+  inset: 0.85rem 1rem 1.1rem 1rem;
+  width: auto;
+  height: auto;
+  border: 1px solid rgba(217, 231, 223, 0.12);
   background:
-    linear-gradient(126deg, transparent 0 48%, rgba(255, 255, 255, 0.72) 48% 52%, transparent 52%),
-    linear-gradient(34deg, transparent 0 46%, rgba(47, 111, 94, 0.2) 46% 51%, transparent 51%);
-  clip-path: polygon(50% 0, 100% 88%, 0 88%);
-  transform: rotate(8deg);
+    linear-gradient(118deg, transparent 0 41%, rgba(217, 231, 223, 0.22) 41.5% 42.5%, transparent 43%),
+    linear-gradient(32deg, transparent 0 49%, rgba(217, 231, 223, 0.16) 49.4% 50.2%, transparent 50.6%),
+    linear-gradient(150deg, transparent 0 57%, rgba(168, 92, 58, 0.33) 57.5% 58.5%, transparent 59%),
+    linear-gradient(78deg, transparent 0 31%, rgba(47, 111, 94, 0.36) 31.3% 32.2%, transparent 32.6%);
+  opacity: 0.88;
+  transform: rotate(-2deg);
 }
 
 .beyond-frame--pages::after {
   content: "";
   position: absolute;
-  left: 1.45rem;
-  top: 1.15rem;
-  width: 86px;
-  height: 86px;
-  border: 1.8px solid rgba(47, 111, 94, 0.5);
-  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
-  opacity: 0.82;
+  right: 1.35rem;
+  bottom: 1.02rem;
+  width: 70px;
+  height: 46px;
+  border: 1px solid rgba(217, 231, 223, 0.22);
+  background:
+    linear-gradient(90deg, transparent 0 47%, rgba(217, 231, 223, 0.18) 47% 49%, transparent 49%),
+    linear-gradient(0deg, transparent 0 45%, rgba(217, 231, 223, 0.14) 45% 47%, transparent 47%);
+  clip-path: none;
+  opacity: 0.9;
 }
 
-.optic-beam {
-  left: 0.9rem;
-  right: 0.8rem;
-  top: 4.35rem;
-  height: 2.5px;
-  background: linear-gradient(90deg, rgba(168, 92, 58, 0), rgba(168, 92, 58, 0.88) 42%, rgba(47, 111, 94, 0.42));
-  transform: rotate(-8deg);
+.system-river {
+  left: 0.65rem;
+  right: 0.55rem;
+  top: 4.3rem;
+  height: 28px;
+  border-top: 2px solid rgba(118, 176, 159, 0.72);
+  border-bottom: 1px solid rgba(118, 176, 159, 0.24);
+  border-radius: 50%;
+  transform: rotate(-11deg);
 }
 
-.optic-beam::before,
-.optic-beam::after {
+.system-river::before,
+.system-river::after {
   content: "";
   position: absolute;
-  left: 44%;
-  width: 42%;
   height: 1px;
-  background: rgba(47, 111, 94, 0.42);
+  background: rgba(217, 231, 223, 0.22);
   transform-origin: left center;
 }
 
-.optic-beam::before {
-  transform: rotate(-18deg);
+.system-river::before {
+  left: 22%;
+  top: -8px;
+  width: 56%;
+  transform: rotate(-24deg);
 }
 
-.optic-beam::after {
-  transform: rotate(20deg);
+.system-river::after {
+  left: 14%;
+  bottom: 3px;
+  width: 62%;
+  transform: rotate(19deg);
 }
 
-.molecule-bond {
-  left: 3.9rem;
-  top: 4.7rem;
-  width: 106px;
-  height: 1.8px;
-  background: rgba(47, 111, 94, 0.5);
+.system-route {
+  height: 1.2px;
+  background: rgba(217, 231, 223, 0.35);
   transform-origin: left center;
 }
 
-.molecule-bond--one {
-  transform: rotate(28deg);
+.system-route--one {
+  left: 2.5rem;
+  top: 3.35rem;
+  width: 156px;
+  transform: rotate(29deg);
 }
 
-.molecule-bond--two {
-  transform: rotate(-31deg) translate(46px, 20px);
+.system-route--two {
+  left: 3.1rem;
+  top: 6.7rem;
+  width: 142px;
+  background: rgba(168, 92, 58, 0.58);
+  transform: rotate(-24deg);
 }
 
-.molecule-atom {
-  width: 22px;
-  height: 22px;
-  border: 1px solid rgba(47, 111, 94, 0.5);
+.system-route--three {
+  left: 5.75rem;
+  top: 2.8rem;
+  width: 96px;
+  background: rgba(217, 231, 223, 0.2);
+  transform: rotate(83deg);
+}
+
+.system-block {
+  border: 1px solid rgba(217, 231, 223, 0.14);
+  background: rgba(217, 231, 223, 0.025);
+}
+
+.system-block--one {
+  left: 6.85rem;
+  top: 4.85rem;
+  width: 78px;
+  height: 36px;
+}
+
+.system-block--two {
+  left: 8.85rem;
+  top: 2.3rem;
+  width: 46px;
+  height: 58px;
+}
+
+.system-node {
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(217, 231, 223, 0.48);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.76);
-  box-shadow: 0 0 0 7px rgba(47, 111, 94, 0.05);
+  background: rgba(217, 231, 223, 0.82);
+  box-shadow: 0 0 0 6px rgba(217, 231, 223, 0.06);
 }
 
-.molecule-atom--one {
+.system-node--one {
   left: 3.45rem;
-  top: 4.12rem;
-  background: rgba(47, 111, 94, 0.22);
+  top: 4.3rem;
+  background: rgba(47, 111, 94, 0.96);
 }
 
-.molecule-atom--two {
-  left: 8rem;
-  top: 6.05rem;
+.system-node--two {
+  left: 7.9rem;
+  top: 6rem;
 }
 
-.molecule-atom--three {
-  left: 10.8rem;
-  top: 3.25rem;
-  background: rgba(168, 92, 58, 0.22);
+.system-node--three {
+  left: 10.65rem;
+  top: 3.35rem;
+  background: rgba(168, 92, 58, 0.95);
 }
 
-.molecule-atom--four {
+.system-node--four {
   right: 3rem;
-  top: 5.1rem;
+  top: 5.3rem;
   width: 12px;
   height: 12px;
-  background: rgba(94, 90, 127, 0.22);
+  background: rgba(94, 90, 127, 0.95);
 }
 
 .beyond-stack:hover .beyond-frame--trail {
