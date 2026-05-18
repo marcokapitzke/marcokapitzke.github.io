@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-award-visuals-v2";
+const assetVersion = "20260518-pattern-hero";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -317,33 +317,41 @@ ${JSON.stringify(
 
     <main id="main">
       <section class="hero section-shell" id="top" aria-labelledby="hero-title">
-        <div class="hero__content reveal">
+        <div class="hero__intro reveal">
           <div class="profile-lockup">
-            <img src="${escapeHtml(profile.portraitPath)}?v=${assetVersion}" alt="Portrait of Marco A. Kapitzke" width="112" height="112">
+            <img src="${escapeHtml(profile.portraitPath)}?v=${assetVersion}" alt="Portrait of Marco A. Kapitzke" width="132" height="132">
             <div>
               <p class="eyebrow">${escapeHtml(profile.hero.eyebrow)}</p>
               <p>${escapeHtml(profile.hero.identity)}</p>
             </div>
           </div>
           <h1 id="hero-title">${escapeHtml(profile.hero.headline)}</h1>
-          <p class="hero__lead">${escapeHtml(profile.hero.lead)}</p>
-          <p class="hero__secondary">${escapeHtml(profile.hero.secondary)}</p>
-          <div class="hero__actions" aria-label="Primary actions">
-            <a class="button button-primary" href="mailto:${escapeHtml(profile.email)}">Reach out</a>
-            <a class="button button-secondary" href="${escapeHtml(profile.linkedIn)}" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="button button-secondary" href="${escapeHtml(profile.cvPath)}">Download CV</a>
-          </div>
+          <a class="scroll-cue" href="#opening-thread" aria-label="Scroll to introduction">
+            <span>Scroll</span>
+          </a>
         </div>
 
-        <div class="hero__visual reveal" style="--delay: 140ms">
-        <div class="signal-panel" data-signature>
-            <div class="signal-panel__top">
-              <span>${escapeHtml(profile.hero.journeyIntro)}</span>
-              <span>Optics · data · semiconductors</span>
+        <div class="hero__continuation" id="opening-thread">
+          <div class="hero__content reveal">
+            <p class="hero__lead">${escapeHtml(profile.hero.lead)}</p>
+            <p class="hero__secondary">${escapeHtml(profile.hero.secondary)}</p>
+            <div class="hero__actions" aria-label="Primary actions">
+              <a class="button button-primary" href="mailto:${escapeHtml(profile.email)}">Reach out</a>
+              <a class="button button-secondary" href="${escapeHtml(profile.linkedIn)}" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="button button-secondary" href="${escapeHtml(profile.cvPath)}">Download CV</a>
             </div>
-            <canvas data-signal-canvas width="760" height="560" aria-hidden="true"></canvas>
-            <p class="journey-caption" data-journey-caption>${escapeHtml(profile.hero.journeyNodes[0].detail)}</p>
-            <div class="signal-labels" aria-label="Interactive journey nodes">${renderJourneyNodes(profile.hero.journeyNodes)}
+          </div>
+
+          <div class="hero__visual reveal" style="--delay: 140ms">
+            <div class="signal-panel" data-signature>
+              <div class="signal-panel__top">
+                <span>${escapeHtml(profile.hero.journeyIntro)}</span>
+                <span>Optics · data · semiconductors</span>
+              </div>
+              <canvas data-signal-canvas width="760" height="560" aria-hidden="true"></canvas>
+              <p class="journey-caption" data-journey-caption>${escapeHtml(profile.hero.journeyNodes[0].detail)}</p>
+              <div class="signal-labels" aria-label="Interactive journey nodes">${renderJourneyNodes(profile.hero.journeyNodes)}
+              </div>
             </div>
           </div>
         </div>

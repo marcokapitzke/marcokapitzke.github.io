@@ -142,3 +142,17 @@ Completed changes:
 - Made focus-card diagrams larger and more legible: data fit, wafer map, molecular lattice, and decision curve.
 - Rebuilt the data sketch with larger plotting area, arrow axes, no axis titles, and slower point / fit animation.
 - Strengthened the Beyond front card with a visible optics, molecule, and prism sketch.
+
+## Iteration 10: Pattern-Led Opening
+
+Feedback received:
+
+- The site should open with a stronger first impression: identity, current role, and the headline only.
+- The surrounding pattern should feel like a real visual system rather than scattered decoration.
+- The D. E. Shaw homepage reference is useful because the background field supports a single confident sentence before the content unfolds.
+
+Completed changes:
+
+- Rebuilt the hero into a full first viewport with only Marco's name, identity, portrait, and headline visible.
+- Moved the explanatory copy, CTAs, and interactive path map into the next scroll section.
+- Reworked the ambient canvas into a fuller field of connected points that remains subtle across the site and responds to scroll with line/stroke changes.

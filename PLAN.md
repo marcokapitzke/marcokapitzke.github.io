@@ -167,6 +167,12 @@ Rationale: the workspace has Node available but no npm/yarn/pnpm. A zero-depende
 - Enlarge the data sketch, replace axis labels with proper arrow axes, and slow the point / curve animation.
 - Make the Professional Focus and Beyond visual layers more legible as topic-specific sketches.
 
+### Loop 11: Pattern-Led First Impression
+
+- Reframe the first viewport around a single strong introduction: name, current identity, and the reflective headline.
+- Move supporting copy, CTAs, and the path interaction below the first scroll so the opening breathes.
+- Turn the ambient particle system into a fuller, site-wide connected field that feels intentional and analytical instead of decorative.
+
 ## Validation Checklist
 
 - [x] `node src/render.mjs` completes successfully.

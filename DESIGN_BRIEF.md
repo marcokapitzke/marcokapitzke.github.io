@@ -33,6 +33,8 @@ The tone should be calm, precise, warm, understated, and human.
 - Use real affiliation logos sparingly where they clarify community and institutional context, while keeping the surrounding typography calm.
 - Give the "Beyond the work" section a small editorial visual layer so the personal section feels composed rather than empty or purely text-based.
 - Add one restrained scroll-reactive ambient graphic near the opening: dots resolving briefly into lines and fading as the page moves from introduction into content.
+- Let the opening behave like a first impression rather than a dashboard: identity and one strong statement first, then details after the first scroll.
+- The ambient pattern should be a coherent field of connected points that suggests analytical systems, not isolated decorative dots.
 - Keep the portrait warm and slightly larger, but avoid making the hero feel like a social profile.
 - Do not frame the portrait with a heavy white ring; the photo itself should do the humanizing work.
 - Use award marks where they help credibility, but scale them like editorial marks rather than loud badges.

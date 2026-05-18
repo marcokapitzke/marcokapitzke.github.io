@@ -47,40 +47,31 @@ function setupScrollConstellation() {
   let frame = 0;
   let rafId = 0;
 
-  const points = [
-    { x: 0.06, y: 0.2, r: 1.7, tone: "green" },
-    { x: 0.13, y: 0.12, r: 1.3, tone: "ink" },
-    { x: 0.17, y: 0.36, r: 1.9, tone: "rust" },
-    { x: 0.23, y: 0.24, r: 1.4, tone: "green" },
-    { x: 0.29, y: 0.15, r: 1.6, tone: "violet" },
-    { x: 0.33, y: 0.42, r: 1.8, tone: "ink" },
-    { x: 0.39, y: 0.29, r: 1.4, tone: "green" },
-    { x: 0.45, y: 0.11, r: 1.8, tone: "rust" },
-    { x: 0.49, y: 0.5, r: 1.5, tone: "green" },
-    { x: 0.55, y: 0.24, r: 2, tone: "ink" },
-    { x: 0.6, y: 0.39, r: 1.4, tone: "green" },
-    { x: 0.64, y: 0.13, r: 1.5, tone: "violet" },
-    { x: 0.7, y: 0.28, r: 1.9, tone: "rust" },
-    { x: 0.75, y: 0.48, r: 1.5, tone: "green" },
-    { x: 0.81, y: 0.18, r: 1.7, tone: "ink" },
-    { x: 0.88, y: 0.34, r: 1.4, tone: "green" },
-    { x: 0.94, y: 0.22, r: 1.8, tone: "violet" },
-    { x: 0.1, y: 0.58, r: 1.5, tone: "green" },
-    { x: 0.21, y: 0.66, r: 1.4, tone: "ink" },
-    { x: 0.31, y: 0.61, r: 1.6, tone: "rust" },
-    { x: 0.42, y: 0.7, r: 1.3, tone: "green" },
-    { x: 0.53, y: 0.63, r: 1.7, tone: "violet" },
-    { x: 0.67, y: 0.68, r: 1.4, tone: "green" },
-    { x: 0.79, y: 0.61, r: 1.6, tone: "ink" },
-    { x: 0.91, y: 0.66, r: 1.4, tone: "rust" }
-  ];
-
   const tones = {
     green: "47, 111, 94",
     rust: "168, 92, 58",
     violet: "94, 90, 127",
     ink: "23, 23, 22"
   };
+
+  const points = Array.from({ length: 72 }, (_, index) => {
+    const columns = 12;
+    const col = index % columns;
+    const row = Math.floor(index / columns);
+    const rowOffset = row % 2 ? 0.038 : 0;
+    const x = (col + 0.48) / columns + rowOffset;
+    const y = (row + 0.38) / 6.65;
+    const toneOrder = ["green", "ink", "green", "rust", "violet", "green"];
+
+    return {
+      x: Math.min(x, 0.97),
+      y,
+      r: 1.05 + ((index * 7) % 8) * 0.13,
+      tone: toneOrder[index % toneOrder.length],
+      phase: index * 0.83,
+      depth: 0.7 + (index % 5) * 0.16
+    };
+  });
 
   function resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -94,21 +85,24 @@ function setupScrollConstellation() {
 
   function draw() {
     const progress = Math.min(window.scrollY / Math.max(window.innerHeight * 0.82, 520), 1);
-    const fade = Math.max(0, 1 - progress * 1.34);
+    const fade = Math.max(0.32, 0.9 - progress * 0.52);
     const lineIn = Math.min(Math.max((progress - 0.12) / 0.34, 0), 1);
     const lineOut = Math.max(0, 1 - Math.max(progress - 0.58, 0) / 0.36);
-    const restingMesh = Math.max(0, 0.28 - progress * 0.22);
-    const lineOpacity = Math.max(restingMesh, lineIn * lineOut);
+    const restingMesh = Math.max(0.12, 0.26 - progress * 0.12);
+    const lineOpacity = Math.max(restingMesh, lineIn * lineOut * 0.9);
 
     document.documentElement.style.setProperty("--constellation-opacity", String(fade * 0.62));
     context.clearRect(0, 0, width, height);
 
     const positioned = points.map((point, index) => {
-      const drift = prefersReducedMotion ? 0 : Math.sin(frame * 0.008 + index * 1.7) * 7;
+      const drift = prefersReducedMotion ? 0 : Math.sin(frame * 0.006 + point.phase) * 7 * point.depth;
       return {
         ...point,
-        px: point.x * width + drift + progress * (index % 2 ? -36 : 34),
-        py: point.y * height - progress * height * 0.22 + Math.cos(frame * 0.007 + index) * 5
+        px: point.x * width + drift + progress * (index % 2 ? -26 : 28) * point.depth,
+        py:
+          point.y * height -
+          progress * height * 0.12 * point.depth +
+          Math.cos(frame * 0.005 + point.phase) * 4
       };
     });
 
@@ -118,11 +112,11 @@ function setupScrollConstellation() {
           const a = positioned[i];
           const b = positioned[j];
           const distance = Math.hypot(a.px - b.px, a.py - b.py);
-          const threshold = Math.min(width, height) * 0.22;
+          const threshold = Math.min(width, height) * 0.18;
           if (distance > threshold) continue;
 
           context.beginPath();
-          context.strokeStyle = `rgba(47, 111, 94, ${lineOpacity * Math.max(0.055, 0.34 - distance / threshold * 0.24)})`;
+          context.strokeStyle = `rgba(47, 111, 94, ${lineOpacity * Math.max(0.04, 0.26 - distance / threshold * 0.2)})`;
           context.lineWidth = 1;
           context.moveTo(a.px, a.py);
           context.lineTo(b.px, b.py);
@@ -131,7 +125,7 @@ function setupScrollConstellation() {
       }
     }
 
-    const streak = lineOpacity * 30;
+    const streak = lineIn * lineOut * 34;
     positioned.forEach((point, index) => {
       const tone = tones[point.tone] || tones.green;
 
