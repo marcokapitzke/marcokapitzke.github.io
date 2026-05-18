@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-selected-work-images";
+const assetVersion = "20260518-copy-standard-pass";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -379,7 +379,7 @@ ${renderSystemsThread()}
             <div class="signal-panel" data-signature>
               <div class="signal-panel__top">
                 <span>${escapeHtml(profile.hero.journeyIntro)}</span>
-                <span>Optics · data · semiconductors</span>
+                <span>Instrumentation · data · AI · markets</span>
               </div>
               <canvas data-signal-canvas width="760" height="560" aria-hidden="true"></canvas>
               <p class="journey-caption" data-journey-caption>${escapeHtml(profile.hero.journeyNodes[0].detail)}</p>
@@ -455,7 +455,7 @@ ${renderSystemsThread()}
       <section class="section-shell" id="work" aria-labelledby="work-title">
         <div class="section-heading reveal">
           <span>Selected Work</span>
-          <h2 id="work-title">Where the way of thinking became instruments, tools, decisions, and community.</h2>
+          <h2 id="work-title">Where the thinking had to work in practice.</h2>
         </div>
         <div class="work-grid">
           ${renderSelectedWork(profile.selectedWork)}

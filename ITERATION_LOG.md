@@ -422,3 +422,20 @@ Completed changes:
 - Adjusted the community image crop so the mobile hover state shows more of the person-to-person poster discussion rather than only the poster center.
 - Updated local and deployed image credits for both new public/CC assets.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 28: High-Standard Copy Pass
+
+Feedback received:
+
+- The page should read as credible for very selective quant, high-tech, MBB, and QuantumBlack-style audiences while staying first-person, precise, and non-braggy.
+- The hero path line, instrumentation node, professional focus copy, and AI signal needed sharper wording.
+- The site should keep a Google-like communication standard: clear, deliberate, and show-don't-tell.
+
+Completed changes:
+
+- Reworked the hero lead and secondary line to connect materials, experiments, business processes, markets, and decisions more naturally.
+- Replaced the weaker “Optics · data · semiconductors” line with “Instrumentation · data · AI · markets.”
+- Changed the instrumentation node from “patience” to data quality and tightened the data node around model-readiness.
+- Added understated AI language in the hero, positioning, professional focus, and Infineon analytics copy without making AI the whole story.
+- Tightened the Positioning, Professional Focus, Data & Visual Thinking, Selected Work, Publications, Beyond, and Contact copy for a more selective, institutional tone.
+- Updated the asset version for GitHub Pages cache busting.

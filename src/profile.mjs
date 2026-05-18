@@ -9,37 +9,37 @@ export const profile = {
   portraitPath: "public/portrait-marco-512.jpg",
   title: "Marco A. Kapitzke | Science, Data, Systems & Business",
   description:
-    "Marco A. Kapitzke works across physical chemistry, data analysis, semiconductor systems, business translation, and analytical decision-making.",
+    "Marco A. Kapitzke works across physical chemistry, semiconductor analytics, AI-aware data work, business translation, and analytical decision-making.",
   hero: {
     eyebrow: "Marco A. Kapitzke",
     identity:
       "MBA Fellow at Collège des Ingénieurs · Manufacturing Analytics at Infineon · Doctoral Candidate in Physical Chemistry",
     headline: "I like complex systems, and making them understandable.",
     lead:
-      "I work on problems where careful analysis changes how people understand a system - whether that system is a material, an experiment, a business process, or a market.",
+      "I work on problems where careful analysis turns complexity into something people can test, discuss, and act on - from materials and experiments to business processes, markets, and decisions.",
     secondary:
-      "My path has moved from ultrafast spectroscopy and 2D quantum materials into semiconductor analytics, business questions, and systems where technical detail has to translate into decisions.",
+      "My path has moved from ultrafast spectroscopy and 2D quantum materials into semiconductor analytics, AI-enabled data work, and company missions where technical depth has to become useful for decisions.",
     journeyIntro: "From chemistry to systems",
     journeyNodes: [
       {
         label: "Physical chemistry",
         detail:
-          "I started with light-driven molecular and material processes where structure, energy, and time all matter."
+          "I started in physical chemistry, studying light-driven processes in materials where structure, energy, and time all matter."
       },
       {
         label: "Instrumentation",
         detail:
-          "Building ultrafast fluorescence instrumentation taught me to connect optics, mechanics, electronics, software, and patience."
+          "Building ultrafast fluorescence instrumentation trained me to connect optics, mechanics, electronics, software, and data quality in one system."
       },
       {
-        label: "Data systems",
+        label: "Data & AI",
         detail:
-          "I developed Python analysis tools because experiments only become useful when the signal is reliable, calibrated, and readable."
+          "I developed Python analysis tools because experiments only become useful when the signal is reliable, calibrated, and readable enough for models."
       },
       {
         label: "Semiconductors",
         detail:
-          "At Infineon, the system became a fab: wafer processes, material flows, databases, and front-end operational decisions."
+          "At Infineon, the system became a fab: wafer processes, material flows, databases, automation, and front-end operational decisions."
       },
       {
         label: "Business & markets",
@@ -51,14 +51,14 @@ export const profile = {
   about: {
     headline: "The common thread is not a field. It is a way of looking.",
     paragraphs: [
-      "I am drawn to systems that are technically demanding but still need to become understandable to people who make decisions. That can mean an optical experiment, a semiconductor process, a dataset, or a strategic question.",
-      "In research, I learned to build instruments, test assumptions, and make noisy signals trustworthy. In analytics and business settings, I apply the same mindset to systems where data, operations, markets, and people have to be understood together.",
-      "I care about clarity, but not in the shallow sense of simplifying everything. The work I enjoy most keeps the depth intact while making the next step easier to see."
+      "I am drawn to systems that are technically demanding but still need to become understandable to people who make decisions. That can mean an optical experiment, a fab process, a model, or a market question.",
+      "In research, I learned to build instruments, test assumptions, and make noisy signals trustworthy. In analytics and business settings, I apply the same discipline to systems where data, operations, AI use cases, markets, and people have to be understood together.",
+      "I care about clarity, but not in the shallow sense of reducing the problem until it becomes false. The work I enjoy most keeps the depth intact while making the next step easier to see."
     ],
     principles: [
       "Careful analysis before confident conclusions",
-      "Technical depth translated into usable decisions",
-      "Collaboration that makes difficult work easier to discuss"
+      "Models and tools that survive contact with real data",
+      "Technical depth translated into decisions people can use"
     ]
   },
   credentials: {
@@ -69,7 +69,7 @@ export const profile = {
         icon: "public/logo-cdi.png",
         href: "https://www.cdi.eu/",
         text:
-          "MBA Fellow, selected for a fully funded multinational program in Paris, Munich, and Turin"
+          "MBA Fellow in a fully funded multinational program built around company missions, leadership, and entrepreneurial thinking in Paris, Munich, and Turin"
       },
       {
         mark: "HU",
@@ -156,15 +156,15 @@ export const profile = {
   },
   focus: [
     {
-      title: "Data analytics and decision systems",
+      title: "Data, AI, and decision systems",
       text:
-        "I like using data to make complex systems more observable, especially when the answer has to be useful beyond the analysis itself.",
+        "I like analytics that makes complex systems more observable: data pipelines, models, visualizations, and AI tools that stay close to the operating question.",
       visual: "data"
     },
     {
-      title: "Semiconductor and operating systems",
+      title: "Semiconductor front-end systems",
       text:
-        "At Infineon, I work close to front-end operations, wafer-level process steps, fab databases, and material-consumption questions.",
+        "At Infineon, I work close to wafer-level process steps, fab databases, material-consumption questions, and the operating logic behind scalable analytics.",
       visual: "semiconductor"
     },
     {
@@ -176,14 +176,14 @@ export const profile = {
     {
       title: "Business, markets, and leadership",
       text:
-        "The MBA adds a practical layer: turning technical understanding into choices that matter for teams, operating models, markets, and strategy.",
+        "The MBA adds a practical layer: identifying which analysis matters, who needs it, and how it changes execution, operating models, markets, and strategy.",
       visual: "business"
     }
   ],
   visualThinking: {
     headline: "I care about how insight is seen, not only how it is computed.",
     text:
-      "For me, visual thinking is part of the analysis itself. A strong representation does not decorate a result; it helps people see what changed, where uncertainty remains, and why the next question matters. I like the moment when a complex pattern becomes something a scientist, operator, or strategist can point to, challenge, and use.",
+      "Good analysis is not finished when the model runs. It has to make the structure of a problem visible: what changed, what is uncertain, which comparison matters, and what decision follows. I care about visual work because a strong representation lets other people inspect the reasoning, not just accept the conclusion.",
     notes: []
   },
   selectedWork: [
@@ -192,7 +192,7 @@ export const profile = {
       title: "Manufacturing analytics in semiconductor front-end operations",
       period: "Since 02/2026 · Munich",
       text:
-        "I am working on the data foundations behind scalable fab analytics: integrating information from multiple databases, improving transparency, and developing statistical views of how material usage connects to wafer-level process steps. In a fab, better-connected data supports automation, cost transparency, and faster operational decisions.",
+        "I work on the data foundations behind scalable fab analytics: connecting databases, improving transparency, and building statistical views of material usage across wafer-level process steps. In front-end operations, clean data is not cosmetic; it supports automation, AI use cases, cost visibility, and faster decisions in a system where small errors compound quickly.",
       visual: "infineon",
       insight: "Fab databases -> wafer-level process steps -> material allocation logic",
       tags: ["Fab data", "Process understanding", "Material allocation"]
@@ -202,7 +202,7 @@ export const profile = {
       title: "Ultrafast fluorescence instrumentation",
       period: "04/2022 - 12/2025 · Berlin",
       text:
-        "I helped build an ultrafast fluorescence upconversion spectroscopy setup, an instrument that makes extremely fast light-driven molecular processes visible on time scales that conventional measurements cannot resolve. Building it meant bringing optical precision, timing control, experimental design, and analysis software into one working system.",
+        "I helped build an ultrafast fluorescence upconversion spectroscopy setup, an instrument that makes extremely fast light-driven molecular processes visible on time scales that conventional measurements cannot resolve. Building it meant bringing optical precision, timing control, calibration, experimental design, and analysis software into one working system.",
       visual: "flups",
       insight: "Optical alignment, delay control, broadband calibration, Python analysis",
       tags: ["Ultrafast spectroscopy", "Instrumentation", "Python analysis"]
@@ -212,7 +212,7 @@ export const profile = {
       title: "2D quantum materials and cleanroom work",
       period: "02/2024 - 05/2024 · New York City",
       text:
-        "At Columbia, I worked with 2D quantum materials, systems where atomic-scale structure can shape optical and electronic behavior. That matters because as conventional device scaling becomes harder, atomic-scale control offers ways to engineer material properties beyond standard silicon electronics. The cleanroom work also sharpened my sense of precision in fabrication, handling, and experimental discipline.",
+        "At Columbia, I worked with 2D quantum materials, systems where atomic-scale structure can shape optical and electronic behavior. That matters because as conventional device scaling approaches physical limits, atomic-scale control is one route to engineering material properties beyond standard silicon electronics. The cleanroom work also sharpened my sense of precision in fabrication, handling, and experimental discipline.",
       visual: "columbia",
       insight: "Cleanroom discipline, 2D sample handling, optical characterization",
       tags: ["2D materials", "Cleanroom", "Raman spectroscopy"]
@@ -222,7 +222,7 @@ export const profile = {
       title: "Mathe in der (Bio-)Chemie I",
       period: "Published 2024",
       text:
-        "Writing the textbook was a different kind of technical work: taking mathematics that often feels abstract and making it usable for students who need it in chemistry and biochemistry. According to my CV, the book reached more than 10,000 students across Germany within one year.",
+        "Writing the textbook was another form of technical discipline: making abstract mathematics usable for chemistry and biochemistry students without diluting the ideas. According to my CV, the book reached more than 10,000 students across Germany within one year.",
       visual: "textbook",
       insight: "Analysis made usable through examples, structure, and student-tested explanations",
       tags: ["Textbook author", "Teaching", "10,000+ students"]
@@ -266,7 +266,7 @@ export const profile = {
       title: "Accepted Journal of the American Chemical Society paper",
       venue: "Journal of the American Chemical Society, 2026",
       note:
-        "Accepted co-author paper in one of chemistry's leading journals, connected to my broader work in physical and materials chemistry.",
+        "Accepted co-author work in one of chemistry's leading journals. I list it briefly until the final bibliographic details are public.",
       href: "",
       visual: "jacs",
       visualTitle: "JACS",
@@ -352,7 +352,7 @@ export const profile = {
   beyond: {
     headline: "What keeps me curious",
     text:
-      "Outside the main professional thread, I reset through movement: running, cycling, hiking, sports, and the gym. I am planning a half marathon next year. I also read widely because the world keeps becoming more interesting once you look closely: markets, game theory, sustainability, visual communication, fantasy, and the craft of writing.",
+      "Outside the main professional thread, I reset through movement: running, cycling, hiking, sports, and the gym. I am planning a half marathon next year. I also read widely across markets, game theory, sustainability, visual communication, fiction, and writing. What keeps me curious is the same impulse as in research: when you look closely enough, almost any system becomes deeper than it first appeared.",
     interests: [
       "using data to gain insight",
       "capital markets",
@@ -368,7 +368,7 @@ export const profile = {
   contact: {
     headline: "If something here connects, I would be glad to hear from you.",
     text:
-      "I like talking with people who are building, analyzing, investing in, or simply trying to understand interesting systems. Especially when science, data, operations, strategy, or markets meet, a good conversation is often the best place to start."
+      "I enjoy conversations with people who are building, analyzing, investing in, or trying to understand complex systems. If something here connects with a role, collaboration, venture idea, or open question, I would be glad to talk."
   },
   sources: [
     {
