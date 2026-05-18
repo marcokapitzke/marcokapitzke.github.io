@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MAK monogram">
+  <rect width="64" height="64" rx="8" fill="#171716"/>
+  <path d="M13 45V19h6l9 14 9-14h6v26h-6V29L29 41h-2l-8-12v16h-6Z" fill="#f7f7f2"/>
+  <path d="M47 45h-6l8-26h6l8 26h-6l-1.5-5.5h-7L47 45Zm3-10h4l-2-7-2 7Z" fill="#8fc1ad"/>
+</svg>

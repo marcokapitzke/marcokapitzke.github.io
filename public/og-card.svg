@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Marco A. Kapitzke</title>
+  <desc id="desc">Professional profile card for Marco A. Kapitzke.</desc>
+  <rect width="1200" height="630" fill="#f7f7f2"/>
+  <path d="M0 498h1200v132H0z" fill="#171716"/>
+  <g fill="none" stroke="#d7ddd7" stroke-width="1">
+    <path d="M75 72h1050M75 132h1050M75 192h1050M75 252h1050M75 312h1050M75 372h1050M75 432h1050"/>
+    <path d="M120 42v420M240 42v420M360 42v420M480 42v420M600 42v420M720 42v420M840 42v420M960 42v420M1080 42v420"/>
+  </g>
+  <path d="M120 352C238 304 300 178 420 218c108 36 109 164 225 162 121-2 157-144 274-171 79-18 131 20 191 63" fill="none" stroke="#2f6f5e" stroke-width="9" stroke-linecap="round"/>
+  <path d="M152 420c127-24 208-86 331-59 120 27 167 114 302 75 128-36 185-132 293-118" fill="none" stroke="#a85c3a" stroke-width="5" stroke-linecap="round" opacity=".86"/>
+  <circle cx="420" cy="218" r="15" fill="#2f6f5e"/>
+  <circle cx="645" cy="380" r="15" fill="#2f6f5e"/>
+  <circle cx="919" cy="209" r="15" fill="#2f6f5e"/>
+  <text x="80" y="132" fill="#171716" font-family="Arial, Helvetica, sans-serif" font-size="30">MBA Fellow &amp; Doctoral Candidate</text>
+  <text x="80" y="214" fill="#171716" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700">Marco A. Kapitzke</text>
+  <text x="80" y="286" fill="#3f403d" font-family="Arial, Helvetica, sans-serif" font-size="34">Scientific depth for analytical systems and business execution.</text>
+  <text x="80" y="566" fill="#f7f7f2" font-family="Arial, Helvetica, sans-serif" font-size="28">Physical chemistry · Manufacturing analytics · Semiconductor operations</text>
+</svg>

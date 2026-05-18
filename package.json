@@ -1,0 +1,11 @@
+{
+  "name": "marco-kapitzke-personal-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node src/render.mjs",
+    "check": "node scripts/validate-site.mjs",
+    "dev": "python3 -m http.server 4173"
+  }
+}
