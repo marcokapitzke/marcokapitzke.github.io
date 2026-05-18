@@ -207,3 +207,16 @@ Completed changes:
 - Added a subtle moving point along the opening constellation path so the hero pattern reads as a journey through connected systems.
 - Added a direct `visual-thinking` section anchor so the systems thread can track the data visualization moment precisely.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 14: Route Variation in Opening Pattern
+
+Feedback received:
+
+- The orange path in the hero pattern was good, but it repeated the same route forever.
+- The moving point should follow different paths so the opening system feels more alive and less mechanical.
+
+Completed changes:
+
+- Replaced the single fixed hero route with five route variations.
+- Each route now fades in, carries the moving point across the constellation, fades out, and then yields to the next route.
+- Updated the asset version for GitHub Pages cache busting.

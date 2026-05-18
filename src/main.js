@@ -99,6 +99,15 @@ function setupScrollConstellation() {
     };
   });
 
+  const routeVariants = [
+    [5, 18, 31, 45, 59, 73, 88, 102],
+    [11, 22, 34, 47, 60, 72, 84, 96],
+    [1, 15, 30, 42, 56, 69, 83, 98],
+    [8, 21, 35, 49, 62, 76, 88, 100],
+    [3, 14, 28, 43, 57, 73, 87, 102]
+  ];
+  const routeDuration = 420;
+
   function resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     width = window.innerWidth;
@@ -151,17 +160,23 @@ function setupScrollConstellation() {
       }
     }
 
-    const route = [5, 18, 31, 45, 59, 73, 88, 102]
+    const routeFrame = frame % routeDuration;
+    const routePhase = routeFrame / routeDuration;
+    const routeIndex = Math.floor(frame / routeDuration) % routeVariants.length;
+    const routeOpacity =
+      Math.min(routePhase / 0.1, 1, Math.max(0, (1 - routePhase) / 0.14)) * fade;
+    const routeProgress = Math.min(routePhase / 0.86, 1);
+    const route = routeVariants[routeIndex]
       .map((index) => positioned[index])
       .filter(Boolean);
 
-    if (route.length > 1) {
+    if (route.length > 1 && routeOpacity > 0.01) {
       context.beginPath();
       route.forEach((point, index) => {
         if (index === 0) context.moveTo(point.px, point.py);
         else context.lineTo(point.px, point.py);
       });
-      context.strokeStyle = `rgba(219, 154, 118, ${fade * 0.34})`;
+      context.strokeStyle = `rgba(219, 154, 118, ${routeOpacity * 0.34})`;
       context.lineWidth = 1.4;
       context.stroke();
 
@@ -175,7 +190,7 @@ function setupScrollConstellation() {
         return sum + length;
       }, 0);
 
-      let traveled = ((frame * 0.0025) % 1) * totalLength;
+      let traveled = routeProgress * totalLength;
       for (let index = 1; index < route.length; index += 1) {
         const segmentLength = segmentLengths[index - 1];
         if (traveled > segmentLength) {
@@ -190,11 +205,11 @@ function setupScrollConstellation() {
         const y = previous.py + (point.py - previous.py) * ratio;
 
         context.beginPath();
-        context.fillStyle = `rgba(251, 251, 248, ${fade * 0.88})`;
+        context.fillStyle = `rgba(251, 251, 248, ${routeOpacity * 0.88})`;
         context.arc(x, y, 3.2, 0, Math.PI * 2);
         context.fill();
         context.beginPath();
-        context.strokeStyle = `rgba(219, 154, 118, ${fade * 0.44})`;
+        context.strokeStyle = `rgba(219, 154, 118, ${routeOpacity * 0.44})`;
         context.arc(x, y, 8.5, 0, Math.PI * 2);
         context.stroke();
         break;

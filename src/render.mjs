@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-systems-thread";
+const assetVersion = "20260518-route-variations";
 
 const escapeHtml = (value = "") =>
   String(value)
