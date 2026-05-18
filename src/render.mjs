@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-beyond-visuals";
+const assetVersion = "20260518-credentials-systems";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -113,17 +113,24 @@ const renderCredentialItems = (items) =>
       const icon = iconSrc
         ? `<img src="${iconSrc}" alt="" loading="lazy" decoding="async">`
         : "";
-
-      return `
-        <li>
+      const label = escapeHtml(item.label);
+      const text = escapeHtml(item.text);
+      const content = `
           <span class="credential-mark credential-mark--${escapeHtml(slugify(item.mark))} credential-mark--${escapeHtml(slugify(item.label))}" aria-hidden="true">
             ${icon}
             <b>${escapeHtml(item.mark)}</b>
           </span>
           <span>
-            <strong>${escapeHtml(item.label)}</strong>
-            ${escapeHtml(item.text)}
-          </span>
+            <strong>${label}</strong>
+            ${text}
+          </span>`;
+      const itemBody = item.href
+        ? `<a class="credential-item" href="${escapeHtml(item.href)}"${linkAttributes(item.href)}>${content}</a>`
+        : `<div class="credential-item">${content}</div>`;
+
+      return `
+        <li>
+          ${itemBody}
         </li>`;
     })
     .join("");
@@ -377,12 +384,16 @@ ${renderSystemsThread()}
       <section class="section-shell credentials-section" aria-labelledby="credentials-title">
         <div class="section-heading reveal">
           <span>Education & Awards</span>
-          <h2 id="credentials-title">A path across research, business, and international work.</h2>
+          <h2 id="credentials-title">A path across research, high-tech industry, business, and international work.</h2>
         </div>
         <div class="credentials-strip reveal">
           <div>
             <span>Education</span>
             <ul>${renderCredentialItems(profile.credentials.education)}</ul>
+          </div>
+          <div>
+            <span>High-tech & research</span>
+            <ul>${renderCredentialItems(profile.credentials.highTech)}</ul>
           </div>
           <div>
             <span>Awards</span>

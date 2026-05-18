@@ -67,6 +67,7 @@ export const profile = {
         mark: "CDI",
         label: "Collège des Ingénieurs",
         icon: "public/logo-cdi.png",
+        href: "https://www.cdi.eu/",
         text:
           "MBA Fellow, selected for a fully funded multinational program in Paris, Munich, and Turin"
       },
@@ -74,19 +75,45 @@ export const profile = {
         mark: "HU",
         label: "Humboldt-Universität zu Berlin",
         icon: "public/logo-hu-berlin.svg",
+        href: "https://www.hu-berlin.de/en",
         text: "Doctoral Candidate in Physical Chemistry"
       },
       {
         mark: "CU",
         label: "Columbia University",
         icon: "public/logo-columbia.png",
+        href: "https://www.columbia.edu/",
         text: "Visiting Researcher in New York City"
       },
       {
         mark: "FU",
         label: "Freie Universität Berlin",
         icon: "public/logo-fu-berlin.png",
+        href: "https://www.fu-berlin.de/en/",
         text: "B.Sc. and M.Sc. Chemistry"
+      }
+    ],
+    highTech: [
+      {
+        mark: "IFX",
+        label: "Infineon Technologies",
+        icon: "public/logo-infineon.svg",
+        href: "https://www.infineon.com/",
+        text: "Manufacturing analytics in semiconductor front-end operations"
+      },
+      {
+        mark: "MPG",
+        label: "Fritz Haber Institute, Max Planck Society",
+        icon: "public/logo-max-planck.svg",
+        href: "https://www.fhi.mpg.de/",
+        text: "Research internship in a basic-research environment for physical chemistry"
+      },
+      {
+        mark: "FhG",
+        label: "Fraunhofer IPK",
+        icon: "public/logo-fraunhofer.svg",
+        href: "https://www.ipk.fraunhofer.de/",
+        text: "Applied research internship at the interface of technology and industry"
       }
     ],
     awards: [
@@ -94,24 +121,28 @@ export const profile = {
         mark: "MLP",
         label: "STEM Scholarship",
         icon: "public/logo-mlp.png",
+        href: "https://mlp.de/",
         text: "MLP, 2025"
       },
       {
         mark: "HU",
         label: "Graduate School Grants",
         icon: "public/logo-hu-berlin.svg",
+        href: "https://www.hu-berlin.de/en/promovierende-en/finanzierung_promotion-en",
         text: "Research support in 2023 and 2024"
       },
       {
         mark: "FCI",
         label: "Kekulé Fellowship",
-        icon: "public/logo-fci.png",
+        icon: "public/logo-fci.svg",
+        href: "https://www.vci.de/fonds/stipendien/kekule-stipendium/seiten.jsp",
         text: "Fonds der Chemischen Industrie, 2022"
       },
       {
         mark: "ERG",
         label: "Deutschlandstipendium",
         icon: "public/logo-erg.png",
+        href: "https://www.fu-berlin.de/sites/erg/ernst-reuter-stiftung/Spenden-und-Stiften/foerderprogramme/index.html",
         text: "Ernst-Reuter-Gesellschaft / FU Berlin, 2020"
       }
     ]

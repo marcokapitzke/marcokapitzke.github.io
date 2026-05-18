@@ -250,3 +250,21 @@ Completed changes:
 - Refined the middle card into a quieter orbital/planetary system.
 - Rebuilt the bottom card as a dark city/process-map panel with a river-like systems line, routes, nodes, and block structure.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 17: Credentials and High-Tech Track
+
+Feedback received:
+
+- The Education & Awards section felt less engaging than the rest of the site.
+- Add high-tech / research environments: Infineon Technologies, Fritz Haber Institute / Max Planck Society, and Fraunhofer IPK.
+- Make institution marks react on hover and link to the relevant official pages.
+- Improve award-logo sharpness, especially the FCI / Kekulé Fellowship mark.
+- Consider a stronger section treatment and scroll-in motion.
+
+Completed changes:
+
+- Added a third credentials track: High-tech & research.
+- Added clickable institutional cards for education, high-tech research environments, and awards.
+- Reworked the section as a dark institutional band with subtle grid texture, glassy cards, and staggered scroll-in animation.
+- Added vector logo assets for Infineon, Max Planck, Fraunhofer, and a crisp local FCI mark.
+- Updated the asset version for GitHub Pages cache busting.
