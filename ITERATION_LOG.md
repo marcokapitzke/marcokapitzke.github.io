@@ -319,3 +319,18 @@ Completed changes:
 - Preserved the stacked-card interaction and restrained institutional palette, while making each card’s content legible at the displayed size.
 - Added the generated assets to site validation and image credits.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 21: Credentials Motion and ZEISS
+
+Feedback received:
+
+- The Education & Awards band should keep the darker institutional feel, but be slightly lighter so it is distinct from the top and bottom dark sections.
+- Items should appear more progressively while scrolling through education, high-tech industry, and awards.
+- The high-tech track was missing ZEISS; add the Strategic Projects team experience above Fritz Haber Institute.
+
+Completed changes:
+
+- Lightened the credentials band into a green-charcoal institutional tone while preserving contrast.
+- Added ZEISS to the High-tech industry & research column, linked to the official ZEISS site with a local SVG mark.
+- Added a scroll-linked credential reveal for browsers that support view timelines, with the existing stagger as fallback.
+- Updated validation, credits, and the asset version for GitHub Pages cache busting.

@@ -15,6 +15,7 @@ const requiredFiles = [
   "public/beyond-biking.jpg",
   "public/beyond-solar.jpg",
   "public/beyond-chess.jpg",
+  "public/logo-zeiss.svg",
   "public/work-infineon.jpg",
   "public/work-flups.jpg",
   "public/work-columbia.jpg",

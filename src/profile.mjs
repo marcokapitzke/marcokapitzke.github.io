@@ -102,6 +102,13 @@ export const profile = {
         text: "Manufacturing analytics in semiconductor front-end operations"
       },
       {
+        mark: "ZEISS",
+        label: "ZEISS",
+        icon: "public/logo-zeiss.svg",
+        href: "https://www.zeiss.com/",
+        text: "Strategic Projects team in a high-tech optics environment"
+      },
+      {
         mark: "MPG",
         label: "Fritz Haber Institute, Max Planck Society",
         icon: "public/logo-max-planck.svg",

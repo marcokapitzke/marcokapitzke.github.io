@@ -37,3 +37,8 @@ This site uses a small set of locally hosted editorial hover images in the Selec
 
 - `public/beyond-chess.jpg`
   Generated for this website with OpenAI image generation from a prompt for a readable chessboard strategy scene with real pieces and subtle analytical overlays.
+
+## Institutional Marks
+
+- `public/logo-zeiss.svg`
+  Source: [Zeiss logo.svg](https://commons.wikimedia.org/wiki/File:Zeiss_logo.svg), Wikimedia Commons. Used as an institutional mark for the credentials section.

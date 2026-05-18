@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-beyond-image-stack";
+const assetVersion = "20260518-credentials-zeiss";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -377,7 +377,7 @@ ${renderSystemsThread()}
             <ul>${renderCredentialItems(profile.credentials.education)}</ul>
           </div>
           <div>
-            <span>High-tech & research</span>
+            <span>High-tech industry & research</span>
             <ul>${renderCredentialItems(profile.credentials.highTech)}</ul>
           </div>
           <div>

@@ -804,10 +804,10 @@ h3 {
   padding-bottom: 5.2rem;
   color: var(--paper);
   background:
-    radial-gradient(circle at 12% 18%, rgba(47, 111, 94, 0.28), transparent 24rem),
-    radial-gradient(circle at 86% 22%, rgba(168, 92, 58, 0.18), transparent 23rem),
-    linear-gradient(135deg, #111413, #18211e 62%, #101413);
-  box-shadow: 0 0 0 100vmax #111413;
+    radial-gradient(circle at 12% 18%, rgba(79, 136, 119, 0.28), transparent 24rem),
+    radial-gradient(circle at 86% 22%, rgba(189, 124, 89, 0.18), transparent 23rem),
+    linear-gradient(135deg, #25322f, #20302b 58%, #192520);
+  box-shadow: 0 0 0 100vmax #20302b;
   clip-path: inset(0 -100vmax);
 }
 
@@ -1798,15 +1798,26 @@ a.credential-item:focus-visible .credential-mark img {
 }
 
 .credential-mark--ifx,
+.credential-mark--zeiss,
 .credential-mark--mpg,
 .credential-mark--fhg {
   border-radius: 10px;
 }
 
 .credential-mark--ifx img,
+.credential-mark--zeiss img,
 .credential-mark--fhg img {
   max-width: 88%;
   max-height: 58%;
+}
+
+.credential-mark--zeiss {
+  background: #141e8c;
+}
+
+.credential-mark--zeiss img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .credential-mark--mpg img {
@@ -1879,6 +1890,15 @@ a.credential-item:focus-visible .credential-mark img {
 
   .credentials-strip.reveal.is-visible > div:nth-child(3) li:nth-child(4) .credential-item {
     animation-delay: 280ms;
+  }
+
+  @supports (animation-timeline: view()) {
+    .credentials-strip.reveal.is-visible .credential-item {
+      animation: credential-scroll-in linear both;
+      animation-timeline: view();
+      animation-range: entry 6% cover 34%;
+      animation-delay: 0ms;
+    }
   }
 }
 
@@ -2195,6 +2215,20 @@ a.credential-item:focus-visible .credential-mark img {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes credential-scroll-in {
+  from {
+    opacity: 0;
+    translate: 0 24px;
+    scale: 0.985;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
   }
 }
 
