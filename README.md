@@ -79,6 +79,8 @@ node src/render.mjs
 
 Update `public/CV_MK-13.pdf` whenever the CV changes.
 
+Selected-work hover images are credited in `IMAGE_CREDITS.md` and on `image-credits.html`.
+
 ## Public References Used
 
 - Collège des Ingénieurs Fellows page

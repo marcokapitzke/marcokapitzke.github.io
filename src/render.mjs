@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-beyond-card-stack";
+const assetVersion = "20260518-selected-work-detail";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -54,13 +54,14 @@ const renderSelectedWork = (items) =>
   items
     .map(
       (item, index) => `
-        <article class="work-card reveal" style="--delay: ${index * 60}ms">
+        <article class="work-card work-card--${escapeHtml(item.visual || "default")} reveal" tabindex="0" style="--delay: ${index * 60}ms">
           <div class="work-card__meta">
             <span>${escapeHtml(item.kicker)}</span>
             <time>${escapeHtml(item.period)}</time>
           </div>
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.text)}</p>
+          ${item.insight ? `<p class="work-card__insight">${escapeHtml(item.insight)}</p>` : ""}
           <div class="tag-row" aria-label="Relevant themes">${renderTags(item.tags)}</div>
         </article>`
     )
@@ -492,6 +493,7 @@ ${renderSystemsThread()}
         <div class="footer-links" aria-label="Footer links">
           <a href="mailto:${escapeHtml(profile.email)}">Email</a>
           <a href="${escapeHtml(profile.linkedIn)}" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="image-credits.html">Image credits</a>
           <a href="#top">Back to top</a>
         </div>
       </div>

@@ -285,3 +285,20 @@ Completed changes:
 - Rebuilt the back card as a chessboard with pieces and a strategic analysis line.
 - Adjusted card sizes and positions so all three motifs remain visible at once.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 19: Selected Work Depth
+
+Feedback received:
+
+- The Selected Work section should reward closer inspection, especially for technically sophisticated readers.
+- Hover visuals should behave more like the SciStyle reference: real, sharp, contextual imagery appears behind the relevant item.
+- Backgrounds should be subtle and editorial, not decorative AI-looking graphs or meaningless constructed visuals.
+- Each work item should include a small detail that signals the actual technical substance behind the role or project.
+
+Completed changes:
+
+- Added locally hosted hover imagery for semiconductor wafers, ultrafast optics, cleanroom work, mathematical teaching, research exchange, and scientific community work.
+- Added a compact technical “signal line” to each card that appears on hover, giving technically minded readers a second layer to notice.
+- Kept the default card state quiet and readable, then moved into darker editorial image overlays on hover.
+- Added public image credits in both `IMAGE_CREDITS.md` and a deployed `image-credits.html` page linked from the footer.
+- Updated the asset version for GitHub Pages cache busting.

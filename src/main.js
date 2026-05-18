@@ -896,12 +896,51 @@ function setupMorphCanvas() {
   window.addEventListener("beforeunload", () => cancelAnimationFrame(rafId));
 }
 
+function setupWorkCards() {
+  const cards = [...document.querySelectorAll(".work-card")];
+  if (!cards.length) return;
+
+  function clearActive(except = null) {
+    cards.forEach((card) => {
+      if (card !== except) card.classList.remove("is-active");
+    });
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener("pointerenter", () => clearActive(card));
+
+    card.addEventListener("click", () => {
+      const wasActive = card.classList.contains("is-active");
+      clearActive(card);
+      card.classList.toggle("is-active", !wasActive);
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        card.classList.remove("is-active");
+        return;
+      }
+
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      const wasActive = card.classList.contains("is-active");
+      clearActive(card);
+      card.classList.toggle("is-active", !wasActive);
+    });
+  });
+
+  document.addEventListener("pointerdown", (event) => {
+    if (!event.target.closest(".work-card")) clearActive();
+  });
+}
+
 setupNavigation();
 setupReveal();
 setupScrollConstellation();
 setupSignalCanvas();
 setupNetworkCanvas();
 setupMorphCanvas();
+setupWorkCards();
 updateProgress();
 updateActiveNav();
 updateSystemsThread();

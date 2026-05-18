@@ -186,6 +186,8 @@ export const profile = {
       period: "Since 02/2026 · Munich",
       text:
         "I am working on the data foundations behind scalable fab analytics: integrating information from multiple databases, improving transparency, and developing statistical views of how material usage connects to wafer-level process steps.",
+      visual: "infineon",
+      insight: "Fab databases -> wafer-level process steps -> material allocation logic",
       tags: ["Fab data", "Process understanding", "Material allocation"]
     },
     {
@@ -194,6 +196,8 @@ export const profile = {
       period: "04/2022 - 12/2025 · Berlin",
       text:
         "I helped build an ultrafast fluorescence upconversion spectroscopy setup, an instrument that makes extremely fast light-driven molecular processes visible on time scales that conventional measurements cannot resolve. Building it meant aligning optical precision, experimental design, software, and persistence into one working system.",
+      visual: "flups",
+      insight: "Optical alignment, delay control, broadband calibration, Python analysis",
       tags: ["Ultrafast spectroscopy", "Instrumentation", "Python analysis"]
     },
     {
@@ -202,6 +206,8 @@ export const profile = {
       period: "02/2024 - 05/2024 · New York City",
       text:
         "At Columbia, I worked with 2D quantum materials, systems where atomic-scale structure can shape optical and electronic behavior. The cleanroom work gave me a different appreciation for precision: not only in data, but in fabrication, sample handling, and experimental discipline.",
+      visual: "columbia",
+      insight: "Cleanroom discipline, 2D sample handling, optical characterization",
       tags: ["2D materials", "Cleanroom", "Raman spectroscopy"]
     },
     {
@@ -210,6 +216,8 @@ export const profile = {
       period: "Published 2024",
       text:
         "Writing the textbook was a different kind of technical work: taking mathematics that often feels abstract and making it usable for students who need it in chemistry and biochemistry. According to my CV, the book reached more than 10,000 students across Germany within one year.",
+      visual: "textbook",
+      insight: "Analysis made usable through examples, structure, and student-tested explanations",
       tags: ["Textbook author", "Teaching", "10,000+ students"]
     },
     {
@@ -218,6 +226,8 @@ export const profile = {
       period: "2022 - 2026",
       text:
         "My research became most valuable when it moved into shared tools, conference discussions, publications, funded projects, and collaborations with groups in Berlin, Jyväskylä, the United States, and Finland.",
+      visual: "research",
+      insight: "Tools, talks, papers, funding, and cross-setup comparison",
       tags: ["3 publications", "7 presentations", "EUR 65K+ funding", "International collaboration"]
     },
     {
@@ -226,6 +236,8 @@ export const profile = {
       period: "04/2019 - 12/2025 · Berlin",
       text:
         "I spent several years helping build scientific community through JCF Berlin: organizing events, supporting students, working on the forum's digital presence, and taking on media and committee responsibilities.",
+      visual: "community",
+      insight: "Events, mentoring, media leadership, web presence, scientific committee work",
       tags: ["Community", "Mentoring", "Digital presence"]
     }
   ],

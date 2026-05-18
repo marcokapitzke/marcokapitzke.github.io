@@ -3,6 +3,8 @@ import { profile } from "../src/profile.mjs";
 
 const requiredFiles = [
   "index.html",
+  "image-credits.html",
+  "IMAGE_CREDITS.md",
   "src/profile.mjs",
   "src/render.mjs",
   "src/main.js",
@@ -10,6 +12,12 @@ const requiredFiles = [
   "public/favicon.svg",
   "public/og-card.svg",
   "public/portrait-marco-512.jpg",
+  "public/work-infineon.jpg",
+  "public/work-flups.jpg",
+  "public/work-columbia.jpg",
+  "public/work-textbook.jpg",
+  "public/work-research.jpg",
+  "public/work-community.jpg",
   "public/CV_MK-13.pdf",
   "README.md",
   "PLAN.md",
