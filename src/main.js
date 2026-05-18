@@ -202,6 +202,18 @@ function setupSignalCanvas() {
     });
   }
 
+  function nodeIndexFromPointer(event) {
+    const rect = canvas.getBoundingClientRect();
+    const pointerX = event.clientX - rect.left;
+    const pointerY = event.clientY - rect.top;
+
+    return nodes.findIndex((node, index) => {
+      const x = node.x * width;
+      const y = node.y * height + Math.sin(frame * 0.018 + index) * 4;
+      return Math.hypot(pointerX - x, pointerY - y) < 34;
+    });
+  }
+
   function draw() {
     context.clearRect(0, 0, width, height);
     drawGrid();
@@ -231,6 +243,19 @@ function setupSignalCanvas() {
     button.addEventListener("click", () => setJourney(index));
   });
 
+  function setJourneyFromCanvasPointer(event) {
+    const nodeIndex = nodeIndexFromPointer(event);
+    canvas.style.cursor = nodeIndex >= 0 ? "pointer" : "default";
+    if (nodeIndex >= 0 && nodeIndex !== activeJourney) setJourney(nodeIndex);
+  }
+
+  canvas.addEventListener("pointermove", setJourneyFromCanvasPointer);
+  canvas.addEventListener("click", setJourneyFromCanvasPointer);
+
+  canvas.addEventListener("pointerleave", () => {
+    canvas.style.cursor = "default";
+  });
+
   window.addEventListener("resize", () => {
     resize();
     if (prefersReducedMotion) draw();
@@ -243,9 +268,134 @@ function setupSignalCanvas() {
   window.addEventListener("beforeunload", () => cancelAnimationFrame(rafId));
 }
 
+function setupNetworkCanvas() {
+  const canvas = document.querySelector("[data-network-canvas]");
+  if (!canvas) return;
+
+  const context = canvas.getContext("2d");
+  const field = canvas.closest("[data-network-field]");
+  let width = 0;
+  let height = 0;
+  let frame = 0;
+  let rafId = 0;
+  let isExpanded = false;
+
+  const points = [
+    { x: 0.16, y: 0.22, vx: 0.18, vy: 0.12, color: "#2f6f5e", radius: 4.6 },
+    { x: 0.36, y: 0.18, vx: -0.12, vy: 0.18, color: "#a85c3a", radius: 3.8 },
+    { x: 0.68, y: 0.22, vx: 0.13, vy: -0.1, color: "#5e5a7f", radius: 4.2 },
+    { x: 0.82, y: 0.42, vx: -0.18, vy: 0.11, color: "#2f6f5e", radius: 4.8 },
+    { x: 0.58, y: 0.56, vx: 0.14, vy: 0.16, color: "#a85c3a", radius: 3.9 },
+    { x: 0.26, y: 0.62, vx: -0.16, vy: -0.12, color: "#5e5a7f", radius: 4.4 },
+    { x: 0.44, y: 0.78, vx: 0.12, vy: -0.18, color: "#2f6f5e", radius: 3.7 },
+    { x: 0.76, y: 0.76, vx: -0.1, vy: -0.16, color: "#a85c3a", radius: 4.1 }
+  ];
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = Math.floor(rect.width);
+    height = Math.floor(rect.height);
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function drawLinks() {
+    const closeThreshold = Math.min(width, height) * 0.42;
+
+    for (let i = 0; i < points.length; i += 1) {
+      for (let j = i + 1; j < points.length; j += 1) {
+        const a = points[i];
+        const b = points[j];
+        const ax = a.x * width;
+        const ay = a.y * height;
+        const bx = b.x * width;
+        const by = b.y * height;
+        const distance = Math.hypot(ax - bx, ay - by);
+        const shouldConnect = isExpanded || distance < closeThreshold;
+
+        if (!shouldConnect) continue;
+
+        const opacity = isExpanded
+          ? Math.max(0.08, 0.2 - distance / Math.max(width, height) * 0.12)
+          : Math.max(0.04, 0.28 - distance / closeThreshold * 0.24);
+
+        context.beginPath();
+        context.strokeStyle = `rgba(47, 111, 94, ${opacity})`;
+        context.lineWidth = isExpanded ? 1.15 : 1;
+        context.moveTo(ax, ay);
+        context.lineTo(bx, by);
+        context.stroke();
+      }
+    }
+  }
+
+  function drawPoints() {
+    points.forEach((point, index) => {
+      const x = point.x * width;
+      const y = point.y * height;
+      const pulse = 1 + Math.sin(frame * 0.032 + index) * 0.08;
+
+      context.beginPath();
+      context.fillStyle = "rgba(255, 255, 255, 0.74)";
+      context.arc(x, y, point.radius * 3.2 * pulse, 0, Math.PI * 2);
+      context.fill();
+
+      context.beginPath();
+      context.fillStyle = point.color;
+      context.arc(x, y, point.radius * pulse, 0, Math.PI * 2);
+      context.fill();
+    });
+  }
+
+  function updatePoints() {
+    if (prefersReducedMotion) return;
+
+    points.forEach((point) => {
+      point.x += point.vx / width;
+      point.y += point.vy / height;
+
+      if (point.x < 0.08 || point.x > 0.92) point.vx *= -1;
+      if (point.y < 0.12 || point.y > 0.88) point.vy *= -1;
+    });
+  }
+
+  function draw() {
+    context.clearRect(0, 0, width, height);
+    drawLinks();
+    drawPoints();
+    updatePoints();
+
+    frame += prefersReducedMotion ? 0 : 1;
+    if (!prefersReducedMotion) rafId = requestAnimationFrame(draw);
+  }
+
+  field?.addEventListener("pointerenter", () => {
+    isExpanded = true;
+    if (prefersReducedMotion) draw();
+  });
+
+  field?.addEventListener("pointerleave", () => {
+    isExpanded = false;
+    if (prefersReducedMotion) draw();
+  });
+
+  window.addEventListener("resize", () => {
+    resize();
+    if (prefersReducedMotion) draw();
+  });
+
+  resize();
+  draw();
+
+  window.addEventListener("beforeunload", () => cancelAnimationFrame(rafId));
+}
+
 setupNavigation();
 setupReveal();
 setupSignalCanvas();
+setupNetworkCanvas();
 updateProgress();
 updateActiveNav();
 

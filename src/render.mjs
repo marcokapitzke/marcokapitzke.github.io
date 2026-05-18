@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-photo15";
+const assetVersion = "20260518-network";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -42,7 +42,7 @@ const renderFocus = (items) =>
   items
     .map(
       (item, index) => `
-        <article class="focus-card reveal" style="--delay: ${index * 70}ms">
+        <article class="focus-card focus-card--${escapeHtml(item.visual)} reveal" style="--delay: ${index * 70}ms">
           <span class="card-index">0${index + 1}</span>
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.text)}</p>
@@ -135,37 +135,13 @@ const renderMarkList = (items) =>
     )
     .join("");
 
-const renderOpticsStudy = () => `
-  <div class="optics-study" aria-hidden="true">
-    <svg viewBox="0 0 340 250" role="img">
-      <defs>
-        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z"></path>
-        </marker>
-        <linearGradient id="signalGradient" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0%" stop-color="#a85c3a"></stop>
-          <stop offset="55%" stop-color="#2f6f5e"></stop>
-          <stop offset="100%" stop-color="#5e5a7f"></stop>
-        </linearGradient>
-      </defs>
-      <path class="optic-ray optic-ray--one" d="M 18 92 C 70 84, 96 105, 126 123 S 188 154, 244 128"></path>
-      <path class="optic-ray optic-ray--two" d="M 18 128 C 72 122, 98 119, 126 123 S 188 98, 244 118"></path>
-      <path class="optic-ray optic-ray--three" d="M 18 164 C 72 160, 96 134, 126 123 S 190 132, 244 108"></path>
-      <ellipse class="optic-lens" cx="128" cy="124" rx="17" ry="70"></ellipse>
-      <circle class="optic-sample" cx="244" cy="118" r="14"></circle>
-      <path class="optic-signal" d="M 254 118 C 278 100, 282 144, 300 126 S 324 112, 330 130"></path>
-      <g class="field-arrows">
-        <path d="M 60 204 l 23 -10"></path>
-        <path d="M 112 207 l 20 -18"></path>
-        <path d="M 166 204 l 18 -22"></path>
-        <path d="M 220 207 l 23 -12"></path>
-        <path d="M 274 204 l 20 -18"></path>
-      </g>
-    </svg>
-    <div class="optics-study__caption">
-      <span>pulse</span>
-      <span>sample</span>
-      <span>signal</span>
+const renderNetworkField = () => `
+  <div class="network-field" data-network-field aria-hidden="true">
+    <canvas data-network-canvas width="660" height="430"></canvas>
+    <div class="network-field__labels">
+      <span>science</span>
+      <span>data</span>
+      <span>operations</span>
     </div>
   </div>`;
 
@@ -196,8 +172,10 @@ const renderDataSketch = () => `
       <circle cx="444" cy="119" r="4"></circle>
     </g>
     <text x="48" y="286">raw observations</text>
-    <text x="215" y="286">calibrated signal</text>
-    <text x="344" y="286">decision window</text>
+    <text x="215" y="286">model fit</text>
+    <text x="344" y="286">decision range</text>
+    <text class="axis-label" x="250" y="310">process variable</text>
+    <text class="axis-label axis-label--y" x="18" y="156">response / signal</text>
   </svg>`;
 
 const renderSources = (items) =>
@@ -322,7 +300,7 @@ ${JSON.stringify(
         <div class="section-kicker reveal">
           <span>Positioning</span>
           <p>Science, analytics, manufacturing, materials, and leadership.</p>
-          ${renderOpticsStudy()}
+          ${renderNetworkField()}
         </div>
         <div class="section-copy reveal">
           <h2 id="about-title">${escapeHtml(profile.about.headline)}</h2>

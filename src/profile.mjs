@@ -112,29 +112,33 @@ export const profile = {
     {
       title: "Data-driven process understanding",
       text:
-        "I like using data to make complex processes more observable, especially when the answer has to be useful beyond the analysis itself."
+        "I like using data to make complex processes more observable, especially when the answer has to be useful beyond the analysis itself.",
+      visual: "data"
     },
     {
       title: "Semiconductor manufacturing analytics",
       text:
-        "At Infineon, I work close to front-end operations, wafer-level process steps, fab databases, and material-consumption questions."
+        "At Infineon, I work close to front-end operations, wafer-level process steps, fab databases, and material-consumption questions.",
+      visual: "semiconductor"
     },
     {
       title: "Physical chemistry and materials",
       text:
-        "My research background spans ultrafast spectroscopy, excited-state dynamics, fluorescence upconversion, and 2D quantum materials."
+        "My research background spans ultrafast spectroscopy, excited-state dynamics, fluorescence upconversion, and 2D quantum materials.",
+      visual: "materials"
     },
     {
       title: "Business translation",
       text:
-        "The MBA adds a practical layer: turning technical understanding into choices that matter for teams, operations, and markets."
+        "The MBA adds a practical layer: turning technical understanding into choices that matter for teams, operations, and markets.",
+      visual: "business"
     }
   ],
   visualThinking: {
     headline: "I care about how insight is seen, not only how it is computed.",
     text:
-      "Good analysis has a visual discipline to it. The display should be exact enough for technical work, calm enough for decisions, and honest about uncertainty. I like data work where the shape of the problem becomes visible without making the reader fight the chart.",
-    notes: ["signal", "context", "comparison", "decision"]
+      "Good analysis has a visual discipline to it. The chart should show what was observed, what was modeled, and where uncertainty matters. I like data work where a technical pattern becomes visible enough for someone else to question it, trust it, and act on it.",
+    notes: ["observed data", "model fit", "uncertainty", "decision range"]
   },
   selectedWork: [
     {
