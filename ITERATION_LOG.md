@@ -42,3 +42,33 @@ Planned changes:
 - Replaced the heavier portrait source with a 512px optimized crop for web use.
 - Added a subtle data and visual thinking band to show that analytical work also has a communication and display layer.
 - Kept the site close to the existing foundation while making the visual and narrative system more memorable.
+
+## Iteration 5: Path Interaction and Scientific Visual Refinement
+
+Feedback received:
+
+- The hero path should use stronger words such as instrumentation, data analytics, and semiconductors.
+- The site should not display descriptive instruction text that came from the prompt.
+- The hero interaction should respond from the bottom path controls, not from hovering the canvas itself.
+- The positioning section needs a meaningful visual in the left column, ideally related to optics, signals, or data.
+- Education, publications, and leadership should feel more editorial and visual, using refined marks or image-like artifacts where appropriate.
+- The data visualization section should communicate the shape and uncertainty of an analysis more clearly.
+
+Planned changes:
+
+- Rename the hero path and journey nodes.
+- Remove free-hover canvas behavior and bind state changes to the numbered path buttons.
+- Add a quiet optics / vector-field visual to the positioning section.
+- Convert education and awards into compact institutional timeline items.
+- Redesign publication thumbnails as venue/book/science visual marks.
+- Add leadership affiliation marks for JCF Berlin, GDCh, and FU Berlin.
+- Rebuild, validate, browser-check, commit, and push.
+
+Completed changes:
+
+- Updated the visible path to "This is my path" with stronger labels: physical chemistry, instrumentation, data analytics, semiconductors, and business.
+- Removed free-hover behavior from the canvas; the numbered controls now own the journey state.
+- Added an optics / signal sketch to the positioning column and a more meaningful data sketch for visual thinking.
+- Turned education and awards into compact marked items.
+- Reworked publication visuals into editorial venue and science cards.
+- Added affiliation marks for JCF Berlin, GDCh, and FU Berlin.

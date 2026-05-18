@@ -40,11 +40,13 @@ The hero interaction should connect:
 
 - physical chemistry
 - instrumentation
-- data tools
-- manufacturing analytics
+- data analytics
+- semiconductors
 - business translation
 
-Hovering or focusing journey nodes should reveal short fragments of the path. The interaction should remain calm, intelligent, and professional.
+The visible node controls should read like a confident path, not like instructions or prompt language. Hovering or focusing the numbered controls should reveal short fragments of the path and update the visual. The canvas itself should not behave like a toy; the interaction belongs to the bottom path bar.
+
+The positioning section should use the empty left column for a quiet scientific/data visual inspired by optics, signal extraction, and analytical display. It should support the copy about seeing systems clearly.
 
 ## Content Priorities
 
@@ -53,7 +55,9 @@ Hovering or focusing journey nodes should reveal short fragments of the path. Th
 - Frame the Springer textbook as technical translation and teaching craft, not just a reach metric.
 - Rewrite publications / presentations / collaborations as knowledge traveling beyond one bench.
 - Improve Publications & Writing hierarchy and remove filler copy.
+- Use more meaningful publication visuals: typographic venue marks, a textbook-cover treatment, and small scientific motifs rather than generic category icons.
 - Make education and awards more visible without allowing them to dominate.
+- Treat education and awards as a path through institutions and fellowships, using refined typographic marks rather than generic list styling.
 - Rewrite contact / CTA in first person and make the reason to reach out clear.
 - Add a subtle "Beyond the work" section for interests and human texture.
 - Remove floating bottom links that are not meaningful on their own.

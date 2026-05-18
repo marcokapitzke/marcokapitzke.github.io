@@ -23,11 +23,12 @@ The guiding idea is **"making complex systems understandable."** The site should
    - First-person headline about complex systems and useful insight
    - CTAs: email, LinkedIn, download CV
    - Small portrait image
-   - Signature interaction: a meaningful journey map from physical chemistry to manufacturing analytics and business translation
+   - Signature interaction: a meaningful path map from physical chemistry through instrumentation, data analytics, semiconductors, and business translation
 
 2. **About / Positioning**
    - Explain the bridge between science, manufacturing analytics, materials, management, and people
    - Warm, precise copy that avoids inflated claims
+   - Add a quiet optics / vector-field visual in the left column so the section feels intentionally balanced
 
 3. **Professional Focus**
    - Manufacturing analytics
@@ -49,6 +50,7 @@ The guiding idea is **"making complex systems understandable."** The site should
    - JACS accepted co-author work, 2026
    - J. Mater. Chem. C, 2022
    - SpringerNature textbook, 2024
+   - Publication visuals should feel like small editorial artifacts: venue marks, a book-cover thumbnail treatment, and scientific motifs with the point of each item visible
 
 6. **Leadership & Community**
    - JCF Berlin roles, events, web administration, media leadership
@@ -69,6 +71,7 @@ The guiding idea is **"making complex systems understandable."** The site should
 - **Typography:** modern system sans-serif for body, editorial serif accents for labels, captions, and reflective statements
 - **Palette:** mostly white background, graphite ink, muted green accent, restrained rust highlight, fine neutral borders
 - **Motion:** scroll reveal, subtle hover lift, progress rail, hero canvas movement respecting reduced-motion preferences
+- **Signature interaction:** numbered path controls update the hero graph; hovering the raw canvas does not change the content
 - **UI rules:** semantic HTML, accessible contrast, visible focus states, no heavy gradients, no template-like cards, no decorative blobs
 
 ## Technical Stack
@@ -125,6 +128,14 @@ Rationale: the workspace has Node available but no npm/yarn/pnpm. A zero-depende
 - Optimize the supplied portrait into a small web-ready asset.
 - Add a restrained data / visual thinking section to signal taste in analytical display.
 - Keep the site close to the refined foundation while making it more memorable and human.
+
+### Loop 6: Path, Optics, and Editorial Artifacts
+
+- Replace prompt-like hero labels with stronger professional themes.
+- Make the hero visual respond only to the numbered path bar.
+- Add a meaningful optics / signal visual to the positioning column.
+- Make education, awards, publications, and leadership marks more intentional and less list-like.
+- Strengthen the data visualization section so it shows observation, calibration, uncertainty, and decision context.
 
 ## Validation Checklist
 

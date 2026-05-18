@@ -11,8 +11,8 @@
     <meta property="og:description" content="Marco A. Kapitzke works across physical chemistry, data analysis, semiconductor manufacturing analytics, and business translation.">
     <meta property="og:image" content="public/og-card.svg">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" href="public/favicon.svg?v=20260518-typefix" type="image/svg+xml">
-    <link rel="stylesheet" href="src/styles.css?v=20260518-typefix">
+    <link rel="icon" href="public/favicon.svg?v=20260518-pathviz" type="image/svg+xml">
+    <link rel="stylesheet" href="src/styles.css?v=20260518-pathviz">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -76,7 +76,7 @@
       <section class="hero section-shell" id="top" aria-labelledby="hero-title">
         <div class="hero__content reveal">
           <div class="profile-lockup">
-            <img src="public/portrait-marco-512.jpg?v=20260518-typefix" alt="Portrait of Marco A. Kapitzke" width="112" height="112">
+            <img src="public/portrait-marco-512.jpg?v=20260518-pathviz" alt="Portrait of Marco A. Kapitzke" width="112" height="112">
             <div>
               <p class="eyebrow">Marco A. Kapitzke</p>
               <p>MBA Fellow at Collège des Ingénieurs · Manufacturing Analytics at Infineon · Doctoral Candidate in Physical Chemistry</p>
@@ -93,29 +93,29 @@
         </div>
 
         <div class="hero__visual reveal" style="--delay: 140ms">
-          <div class="signal-panel" data-signature>
+        <div class="signal-panel" data-signature>
             <div class="signal-panel__top">
-              <span>From molecule to manufacturing</span>
-              <span>Science · data · operations</span>
+              <span>This is my path</span>
+              <span>Optics · data · semiconductors</span>
             </div>
             <canvas data-signal-canvas width="760" height="560" aria-hidden="true"></canvas>
-            <p class="journey-caption" data-journey-caption>I started by studying light-driven molecular and material processes at very short time scales.</p>
+            <p class="journey-caption" data-journey-caption>I started with light-driven molecular and material processes where structure, energy, and time all matter.</p>
             <div class="signal-labels" aria-label="Interactive journey nodes">
-        <button class="journey-node" type="button" data-journey-index="0" data-journey-detail="I started by studying light-driven molecular and material processes at very short time scales.">
+        <button class="journey-node" type="button" data-journey-index="0" data-journey-detail="I started with light-driven molecular and material processes where structure, energy, and time all matter.">
           <span>01</span>
-          Chemistry
+          Physical chemistry
         </button>
-        <button class="journey-node" type="button" data-journey-index="1" data-journey-detail="Building an ultrafast fluorescence setup taught me to connect optics, mechanics, electronics, software, and patience.">
+        <button class="journey-node" type="button" data-journey-index="1" data-journey-detail="Building ultrafast fluorescence instrumentation taught me to connect optics, mechanics, electronics, software, and patience.">
           <span>02</span>
-          Instruments
+          Instrumentation
         </button>
-        <button class="journey-node" type="button" data-journey-index="2" data-journey-detail="I developed Python analysis tools because experiments only become useful when the signal is reliable and readable.">
+        <button class="journey-node" type="button" data-journey-index="2" data-journey-detail="I developed Python analysis tools because experiments only become useful when the signal is reliable, calibrated, and readable.">
           <span>03</span>
-          Data tools
+          Data analytics
         </button>
-        <button class="journey-node" type="button" data-journey-index="3" data-journey-detail="At Infineon, the system became a fab: databases, wafers, process steps, materials, and operational decisions.">
+        <button class="journey-node" type="button" data-journey-index="3" data-journey-detail="At Infineon, the system became a fab: wafer processes, material flows, databases, and front-end operational decisions.">
           <span>04</span>
-          Fab systems
+          Semiconductors
         </button>
         <button class="journey-node" type="button" data-journey-index="4" data-journey-detail="The MBA adds the translation layer: which analysis matters, who needs it, and how it changes execution.">
           <span>05</span>
@@ -130,6 +130,39 @@
         <div class="section-kicker reveal">
           <span>Positioning</span>
           <p>Science, analytics, manufacturing, materials, and leadership.</p>
+
+  <div class="optics-study" aria-hidden="true">
+    <svg viewBox="0 0 340 250" role="img">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z"></path>
+        </marker>
+        <linearGradient id="signalGradient" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="#a85c3a"></stop>
+          <stop offset="55%" stop-color="#2f6f5e"></stop>
+          <stop offset="100%" stop-color="#5e5a7f"></stop>
+        </linearGradient>
+      </defs>
+      <path class="optic-ray optic-ray--one" d="M 18 92 C 70 84, 96 105, 126 123 S 188 154, 244 128"></path>
+      <path class="optic-ray optic-ray--two" d="M 18 128 C 72 122, 98 119, 126 123 S 188 98, 244 118"></path>
+      <path class="optic-ray optic-ray--three" d="M 18 164 C 72 160, 96 134, 126 123 S 190 132, 244 108"></path>
+      <ellipse class="optic-lens" cx="128" cy="124" rx="17" ry="70"></ellipse>
+      <circle class="optic-sample" cx="244" cy="118" r="14"></circle>
+      <path class="optic-signal" d="M 254 118 C 278 100, 282 144, 300 126 S 324 112, 330 130"></path>
+      <g class="field-arrows">
+        <path d="M 60 204 l 23 -10"></path>
+        <path d="M 112 207 l 20 -18"></path>
+        <path d="M 166 204 l 18 -22"></path>
+        <path d="M 220 207 l 23 -12"></path>
+        <path d="M 274 204 l 20 -18"></path>
+      </g>
+    </svg>
+    <div class="optics-study__caption">
+      <span>pulse</span>
+      <span>sample</span>
+      <span>signal</span>
+    </div>
+  </div>
         </div>
         <div class="section-copy reveal">
           <h2 id="about-title">The common thread is not a field. It is a way of looking.</h2>
@@ -142,17 +175,73 @@
 
       <section class="section-shell credentials-section" aria-labelledby="credentials-title">
         <div class="section-heading reveal">
-          <span>Current Thread</span>
+          <span>Education & Awards</span>
           <h2 id="credentials-title">A path across research, business, and international work.</h2>
         </div>
         <div class="credentials-strip reveal">
           <div>
             <span>Education</span>
-            <ul><li>MBA Fellow at Collège des Ingénieurs, selected for a fully funded multinational program in Paris, Munich, and Turin</li><li>Doctoral Candidate in Physical Chemistry at Humboldt-Universität zu Berlin</li><li>Visiting Researcher at Columbia University, New York City</li><li>B.Sc. &amp; M.Sc. Chemistry at Freie Universität Berlin</li></ul>
+            <ul>
+        <li>
+          <span class="credential-mark">CDI</span>
+          <span>
+            <strong>Collège des Ingénieurs</strong>
+            MBA Fellow, selected for a fully funded multinational program in Paris, Munich, and Turin
+          </span>
+        </li>
+        <li>
+          <span class="credential-mark">HU</span>
+          <span>
+            <strong>Humboldt-Universität zu Berlin</strong>
+            Doctoral Candidate in Physical Chemistry
+          </span>
+        </li>
+        <li>
+          <span class="credential-mark">CU</span>
+          <span>
+            <strong>Columbia University</strong>
+            Visiting Researcher in New York City
+          </span>
+        </li>
+        <li>
+          <span class="credential-mark">FU</span>
+          <span>
+            <strong>Freie Universität Berlin</strong>
+            B.Sc. and M.Sc. Chemistry
+          </span>
+        </li></ul>
           </div>
           <div>
             <span>Awards</span>
-            <ul><li>STEM Scholarship, MLP, 2025</li><li>Graduate School Grants, 2023 and 2024</li><li>Kekulé Fellowship, 2022</li><li>Deutschlandstipendium, 2020</li></ul>
+            <ul>
+        <li>
+          <span class="credential-mark">2025</span>
+          <span>
+            <strong>STEM Scholarship</strong>
+            MLP
+          </span>
+        </li>
+        <li>
+          <span class="credential-mark">23/24</span>
+          <span>
+            <strong>Graduate School Grants</strong>
+            Research support in 2023 and 2024
+          </span>
+        </li>
+        <li>
+          <span class="credential-mark">2022</span>
+          <span>
+            <strong>Kekulé Fellowship</strong>
+            Fellowship support for doctoral research
+          </span>
+        </li>
+        <li>
+          <span class="credential-mark">2020</span>
+          <span>
+            <strong>Deutschlandstipendium</strong>
+            Merit scholarship
+          </span>
+        </li></ul>
           </div>
         </div>
       </section>
@@ -163,7 +252,7 @@
           <h2 id="focus-title">The kinds of problems I keep returning to.</h2>
         </div>
         <div class="focus-grid">
-          
+
         <article class="focus-card reveal" style="--delay: 0ms">
           <span class="card-index">01</span>
           <h3>Data-driven process understanding</h3>
@@ -197,22 +286,36 @@
           </div>
         </div>
         <div class="data-etching reveal" style="--delay: 100ms" aria-hidden="true">
-          <div class="data-etching__axis"></div>
-          <div class="data-etching__wave"></div>
-          <div class="data-etching__bars">
-            <span style="--h: 42%"></span>
-            <span style="--h: 63%"></span>
-            <span style="--h: 51%"></span>
-            <span style="--h: 76%"></span>
-            <span style="--h: 68%"></span>
-            <span style="--h: 88%"></span>
-            <span style="--h: 57%"></span>
-          </div>
-          <div class="data-etching__labels">
-            <span>observe</span>
-            <span>structure</span>
-            <span>translate</span>
-          </div>
+
+  <svg class="data-sketch" viewBox="0 0 520 320" role="img" aria-label="A calm data sketch showing signal, calibration, uncertainty, and a decision window.">
+    <defs>
+      <linearGradient id="uncertaintyBand" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0%" stop-color="#2f6f5e" stop-opacity="0.08"></stop>
+        <stop offset="100%" stop-color="#a85c3a" stop-opacity="0.14"></stop>
+      </linearGradient>
+    </defs>
+    <path class="data-grid-line" d="M 48 56 H 472 M 48 112 H 472 M 48 168 H 472 M 48 224 H 472"></path>
+    <path class="data-grid-line" d="M 108 40 V 252 M 188 40 V 252 M 268 40 V 252 M 348 40 V 252 M 428 40 V 252"></path>
+    <path class="data-axis" d="M 48 252 H 472 M 48 40 V 252"></path>
+    <path class="decision-band" d="M 338 56 H 432 V 252 H 338 Z"></path>
+    <path class="uncertainty-band" d="M 68 209 C 132 178, 172 134, 228 139 C 282 144, 321 105, 392 94 C 431 88, 458 96, 472 103 L 472 139 C 432 131, 399 124, 360 135 C 306 150, 274 188, 218 178 C 166 169, 126 207, 68 235 Z"></path>
+    <path class="calibration-line" d="M 68 222 C 136 190, 170 150, 226 158 C 282 166, 316 128, 384 116 C 424 109, 454 116, 472 122"></path>
+    <g class="sample-points">
+      <circle cx="78" cy="218" r="4"></circle>
+      <circle cx="114" cy="201" r="4"></circle>
+      <circle cx="152" cy="179" r="4"></circle>
+      <circle cx="194" cy="158" r="4"></circle>
+      <circle cx="235" cy="165" r="4"></circle>
+      <circle cx="278" cy="151" r="4"></circle>
+      <circle cx="315" cy="132" r="4"></circle>
+      <circle cx="357" cy="121" r="4"></circle>
+      <circle cx="401" cy="114" r="4"></circle>
+      <circle cx="444" cy="119" r="4"></circle>
+    </g>
+    <text x="48" y="286">raw observations</text>
+    <text x="215" y="286">calibrated signal</text>
+    <text x="344" y="286">decision window</text>
+  </svg>
         </div>
       </section>
 
@@ -222,7 +325,7 @@
           <h2 id="work-title">Where this way of working has shown up in practice.</h2>
         </div>
         <div class="work-grid">
-          
+
         <article class="work-card reveal" style="--delay: 0ms">
           <div class="work-card__meta">
             <span>Infineon Technologies AG</span>
@@ -265,8 +368,8 @@
             <time>2022 - 2026</time>
           </div>
           <h3>When research travels beyond one bench</h3>
-          <p>My research became most valuable when it moved into shared tools, conference discussions, publications, and collaborations with groups in Berlin, Jyväskylä, the United States, and Finland.</p>
-          <div class="tag-row" aria-label="Relevant themes"><span>3 publications</span><span>7 presentations</span><span>International collaboration</span></div>
+          <p>My research became most valuable when it moved into shared tools, conference discussions, publications, funded projects, and collaborations with groups in Berlin, Jyväskylä, the United States, and Finland.</p>
+          <div class="tag-row" aria-label="Relevant themes"><span>3 publications</span><span>7 presentations</span><span>EUR 65K+ funding</span><span>International collaboration</span></div>
         </article>
         <article class="work-card reveal" style="--delay: 300ms">
           <div class="work-card__meta">
@@ -286,10 +389,11 @@
           <h2 id="writing-title">Research and teaching, with the point of each item visible.</h2>
         </div>
         <div class="publication-list">
-          
+
         <article class="publication reveal">
           <div class="publication__visual publication__visual--jacs" aria-hidden="true">
-            <span>Co-author</span>
+            <strong>JACS</strong>
+            <small>accepted 2026</small>
           </div>
           <div>
             <span>Co-author · accepted</span>
@@ -300,7 +404,8 @@
         </article>
         <article class="publication reveal">
           <div class="publication__visual publication__visual--signal" aria-hidden="true">
-            <span>VIP</span>
+            <strong>FLUPS</strong>
+            <small>calibration + blind test</small>
           </div>
           <div>
             <span>VIP Paper · first author</span>
@@ -311,7 +416,8 @@
         </article>
         <article class="publication reveal">
           <div class="publication__visual publication__visual--book" aria-hidden="true">
-            <span>Textbook</span>
+            <strong>Springer</strong>
+            <small>Analysis for chemistry</small>
           </div>
           <div>
             <span>Textbook</span>
@@ -322,7 +428,8 @@
         </article>
         <article class="publication reveal">
           <div class="publication__visual publication__visual--materials" aria-hidden="true">
-            <span>Co-author</span>
+            <strong>MoS2</strong>
+            <small>2D materials</small>
           </div>
           <div>
             <span>Co-author</span>
@@ -339,8 +446,23 @@
           <span>Leadership & Community</span>
           <h2 id="leadership-title">Contributing to the communities around the work.</h2>
         </div>
+        <div class="affiliation-row reveal" aria-label="Related communities and institutions">
+
+        <div class="affiliation-mark">
+          <strong>JCF</strong>
+          <span>JungesChemieForum Berlin</span>
+        </div>
+        <div class="affiliation-mark">
+          <strong>GDCh</strong>
+          <span>Gesellschaft Deutscher Chemiker</span>
+        </div>
+        <div class="affiliation-mark">
+          <strong>FU</strong>
+          <span>Freie Universität Berlin</span>
+        </div>
+        </div>
         <div class="leadership-grid">
-          
+
         <article class="leadership-item reveal">
           <span>JungesChemieForum Berlin</span>
           <h3>Community building</h3>
@@ -400,6 +522,6 @@
       </div>
     </footer>
 
-    <script type="module" src="src/main.js?v=20260518-typefix"></script>
+    <script type="module" src="src/main.js?v=20260518-pathviz"></script>
   </body>
 </html>

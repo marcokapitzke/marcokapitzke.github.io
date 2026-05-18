@@ -6,7 +6,7 @@ A polished, dependency-free static personal website for Marco A. Kapitzke. The r
 
 ## Design Concept
 
-The design uses a mostly white editorial system inspired by premium professional and research organizations. It emphasizes whitespace, strong typography, restrained color, subtle serif accents, subtle motion, and a signature hero interaction: a journey map from physical chemistry to instrumentation, data tools, manufacturing analytics, and business translation.
+The design uses a mostly white editorial system inspired by premium professional and research organizations. It emphasizes whitespace, strong typography, restrained color, subtle serif accents, subtle motion, and a signature hero interaction: a path map from physical chemistry to instrumentation, data analytics, semiconductors, and business translation.
 
 ## Key Content Included
 
@@ -20,7 +20,9 @@ The design uses a mostly white editorial system inspired by premium professional
 - ChemPhotoChem VIP paper, JACS accepted co-author work, and J. Mater. Chem. C co-author work
 - JCF Berlin leadership, student mentoring, awards, and community work
 - A subtle "Beyond the work" section covering interests in markets, game theory, data, visual communication, manufacturing systems, movement, and reading
-- A restrained data / visual thinking band that signals care for analytical display without turning the site into a portfolio
+- A restrained data / visual thinking band that shows signal, calibration, uncertainty, and decision context without turning the site into a portfolio
+- A quiet optics / signal visual in the positioning section to make the left column meaningful
+- Editorial publication visuals for JACS, ChemPhotoChem / FLUPS, Springer Spektrum, and J. Mater. Chem. C
 
 ## Review Roles Applied
 
@@ -39,8 +41,8 @@ The design uses a mostly white editorial system inspired by premium professional
 - `node --check src/render.mjs`
 - `node --check src/profile.mjs`
 - `node --check scripts/validate-site.mjs`
-- Browser smoke test on `http://localhost:4173`
-- Desktop and mobile screenshot review
+- Browser smoke test on `http://127.0.0.1:4174`
+- Hero path interaction verified through the numbered controls
 - Browser console error/warning check
 - Mobile and desktop refinement review after adding portrait and first-person copy
 - Portrait optimized from the original upload into a small 512px web-ready crop

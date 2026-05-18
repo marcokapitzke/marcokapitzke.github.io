@@ -82,10 +82,8 @@ function setupSignalCanvas() {
   if (!canvas) return;
 
   const context = canvas.getContext("2d");
-  const panel = canvas.closest("[data-signature]");
   const journeyButtons = [...document.querySelectorAll("[data-journey-index]")];
   const journeyCaption = document.querySelector("[data-journey-caption]");
-  const pointer = { x: 0.58, y: 0.42, active: false };
   let width = 0;
   let height = 0;
   let frame = 0;
@@ -95,8 +93,8 @@ function setupSignalCanvas() {
   const nodes = [
     { x: 0.12, y: 0.66, label: "physical chemistry", color: "#a85c3a" },
     { x: 0.28, y: 0.35, label: "instrumentation", color: "#2f6f5e" },
-    { x: 0.47, y: 0.53, label: "data tools", color: "#5e5a7f" },
-    { x: 0.67, y: 0.28, label: "manufacturing", color: "#2f6f5e" },
+    { x: 0.47, y: 0.53, label: "data analytics", color: "#5e5a7f" },
+    { x: 0.67, y: 0.28, label: "semiconductors", color: "#2f6f5e" },
     { x: 0.84, y: 0.58, label: "business", color: "#a85c3a" }
   ];
 
@@ -130,7 +128,8 @@ function setupSignalCanvas() {
   }
 
   function drawCurve(time) {
-    const influence = pointer.active ? 34 : 16;
+    const selectedNode = nodes[activeJourney] || nodes[0];
+    const pathPull = (activeJourney - (nodes.length - 1) / 2) * 7;
 
     context.lineWidth = 3;
     context.strokeStyle = "rgba(47, 111, 94, 0.92)";
@@ -143,7 +142,7 @@ function setupSignalCanvas() {
         height * 0.56 +
         Math.sin(t * Math.PI * 3.2 + time * 0.018) * 38 +
         Math.sin(t * Math.PI * 8 - time * 0.011) * 11;
-      const pull = Math.exp(-Math.pow(t - pointer.x, 2) / 0.012) * (pointer.y - 0.5) * influence;
+      const pull = Math.exp(-Math.pow(t - selectedNode.x, 2) / 0.016) * pathPull;
       const y = base + pull;
 
       if (i === 0) context.moveTo(x, y);
@@ -203,42 +202,15 @@ function setupSignalCanvas() {
     });
   }
 
-  function drawPointer() {
-    if (!pointer.active) return;
-
-    const x = pointer.x * width;
-    const y = pointer.y * height;
-    context.beginPath();
-    context.fillStyle = "rgba(47, 111, 94, 0.08)";
-    context.arc(x, y, 72, 0, Math.PI * 2);
-    context.fill();
-    context.beginPath();
-    context.strokeStyle = "rgba(47, 111, 94, 0.28)";
-    context.arc(x, y, 36, 0, Math.PI * 2);
-    context.stroke();
-  }
-
   function draw() {
     context.clearRect(0, 0, width, height);
     drawGrid();
-    drawPointer();
     drawCurve(frame);
     drawNodes(frame);
 
     frame += prefersReducedMotion ? 0 : 1;
     if (!prefersReducedMotion) rafId = requestAnimationFrame(draw);
   }
-
-  panel?.addEventListener("pointermove", (event) => {
-    const rect = canvas.getBoundingClientRect();
-    pointer.x = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
-    pointer.y = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height));
-    pointer.active = true;
-  });
-
-  panel?.addEventListener("pointerleave", () => {
-    pointer.active = false;
-  });
 
   function setJourney(index) {
     activeJourney = index;
@@ -256,6 +228,7 @@ function setupSignalCanvas() {
   journeyButtons.forEach((button, index) => {
     button.addEventListener("pointerenter", () => setJourney(index));
     button.addEventListener("focus", () => setJourney(index));
+    button.addEventListener("click", () => setJourney(index));
   });
 
   window.addEventListener("resize", () => {

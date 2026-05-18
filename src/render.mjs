@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-typefix";
+const assetVersion = "20260518-pathviz";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -76,7 +76,8 @@ const renderPublications = (items) =>
       return `
         <article class="publication reveal">
           <div class="publication__visual publication__visual--${escapeHtml(item.visual)}" aria-hidden="true">
-            <span>${escapeHtml(item.type.split(" ")[0])}</span>
+            <strong>${escapeHtml(item.visualTitle || item.type)}</strong>
+            <small>${escapeHtml(item.visualNote || item.venue)}</small>
           </div>
           <div>
             <span>${escapeHtml(item.type)}</span>
@@ -103,11 +104,101 @@ const renderLeadership = (items) =>
 const renderSimpleList = (items) =>
   items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
 
+const renderCredentialItems = (items) =>
+  items
+    .map(
+      (item) => `
+        <li>
+          <span class="credential-mark">${escapeHtml(item.mark)}</span>
+          <span>
+            <strong>${escapeHtml(item.label)}</strong>
+            ${escapeHtml(item.text)}
+          </span>
+        </li>`
+    )
+    .join("");
+
 const renderInterestList = (items) =>
   items.map((item) => `<span>${escapeHtml(item)}</span>`).join("");
 
 const renderDataNotes = (items) =>
   items.map((item) => `<span>${escapeHtml(item)}</span>`).join("");
+
+const renderMarkList = (items) =>
+  items
+    .map(
+      (item) => `
+        <div class="affiliation-mark">
+          <strong>${escapeHtml(item.mark)}</strong>
+          <span>${escapeHtml(item.label)}</span>
+        </div>`
+    )
+    .join("");
+
+const renderOpticsStudy = () => `
+  <div class="optics-study" aria-hidden="true">
+    <svg viewBox="0 0 340 250" role="img">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z"></path>
+        </marker>
+        <linearGradient id="signalGradient" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="#a85c3a"></stop>
+          <stop offset="55%" stop-color="#2f6f5e"></stop>
+          <stop offset="100%" stop-color="#5e5a7f"></stop>
+        </linearGradient>
+      </defs>
+      <path class="optic-ray optic-ray--one" d="M 18 92 C 70 84, 96 105, 126 123 S 188 154, 244 128"></path>
+      <path class="optic-ray optic-ray--two" d="M 18 128 C 72 122, 98 119, 126 123 S 188 98, 244 118"></path>
+      <path class="optic-ray optic-ray--three" d="M 18 164 C 72 160, 96 134, 126 123 S 190 132, 244 108"></path>
+      <ellipse class="optic-lens" cx="128" cy="124" rx="17" ry="70"></ellipse>
+      <circle class="optic-sample" cx="244" cy="118" r="14"></circle>
+      <path class="optic-signal" d="M 254 118 C 278 100, 282 144, 300 126 S 324 112, 330 130"></path>
+      <g class="field-arrows">
+        <path d="M 60 204 l 23 -10"></path>
+        <path d="M 112 207 l 20 -18"></path>
+        <path d="M 166 204 l 18 -22"></path>
+        <path d="M 220 207 l 23 -12"></path>
+        <path d="M 274 204 l 20 -18"></path>
+      </g>
+    </svg>
+    <div class="optics-study__caption">
+      <span>pulse</span>
+      <span>sample</span>
+      <span>signal</span>
+    </div>
+  </div>`;
+
+const renderDataSketch = () => `
+  <svg class="data-sketch" viewBox="0 0 520 320" role="img" aria-label="A calm data sketch showing signal, calibration, uncertainty, and a decision window.">
+    <defs>
+      <linearGradient id="uncertaintyBand" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0%" stop-color="#2f6f5e" stop-opacity="0.08"></stop>
+        <stop offset="100%" stop-color="#a85c3a" stop-opacity="0.14"></stop>
+      </linearGradient>
+    </defs>
+    <path class="data-grid-line" d="M 48 56 H 472 M 48 112 H 472 M 48 168 H 472 M 48 224 H 472"></path>
+    <path class="data-grid-line" d="M 108 40 V 252 M 188 40 V 252 M 268 40 V 252 M 348 40 V 252 M 428 40 V 252"></path>
+    <path class="data-axis" d="M 48 252 H 472 M 48 40 V 252"></path>
+    <path class="decision-band" d="M 338 56 H 432 V 252 H 338 Z"></path>
+    <path class="uncertainty-band" d="M 68 209 C 132 178, 172 134, 228 139 C 282 144, 321 105, 392 94 C 431 88, 458 96, 472 103 L 472 139 C 432 131, 399 124, 360 135 C 306 150, 274 188, 218 178 C 166 169, 126 207, 68 235 Z"></path>
+    <path class="calibration-line" d="M 68 222 C 136 190, 170 150, 226 158 C 282 166, 316 128, 384 116 C 424 109, 454 116, 472 122"></path>
+    <g class="sample-points">
+      <circle cx="78" cy="218" r="4"></circle>
+      <circle cx="114" cy="201" r="4"></circle>
+      <circle cx="152" cy="179" r="4"></circle>
+      <circle cx="194" cy="158" r="4"></circle>
+      <circle cx="235" cy="165" r="4"></circle>
+      <circle cx="278" cy="151" r="4"></circle>
+      <circle cx="315" cy="132" r="4"></circle>
+      <circle cx="357" cy="121" r="4"></circle>
+      <circle cx="401" cy="114" r="4"></circle>
+      <circle cx="444" cy="119" r="4"></circle>
+    </g>
+    <text x="48" y="286">raw observations</text>
+    <text x="215" y="286">calibrated signal</text>
+    <text x="344" y="286">decision window</text>
+  </svg>`;
 
 const renderSources = (items) =>
   items
@@ -214,10 +305,10 @@ ${JSON.stringify(
         </div>
 
         <div class="hero__visual reveal" style="--delay: 140ms">
-          <div class="signal-panel" data-signature>
+        <div class="signal-panel" data-signature>
             <div class="signal-panel__top">
               <span>${escapeHtml(profile.hero.journeyIntro)}</span>
-              <span>Science · data · operations</span>
+              <span>Optics · data · semiconductors</span>
             </div>
             <canvas data-signal-canvas width="760" height="560" aria-hidden="true"></canvas>
             <p class="journey-caption" data-journey-caption>${escapeHtml(profile.hero.journeyNodes[0].detail)}</p>
@@ -231,6 +322,7 @@ ${JSON.stringify(
         <div class="section-kicker reveal">
           <span>Positioning</span>
           <p>Science, analytics, manufacturing, materials, and leadership.</p>
+          ${renderOpticsStudy()}
         </div>
         <div class="section-copy reveal">
           <h2 id="about-title">${escapeHtml(profile.about.headline)}</h2>
@@ -243,17 +335,17 @@ ${JSON.stringify(
 
       <section class="section-shell credentials-section" aria-labelledby="credentials-title">
         <div class="section-heading reveal">
-          <span>Current Thread</span>
+          <span>Education & Awards</span>
           <h2 id="credentials-title">A path across research, business, and international work.</h2>
         </div>
         <div class="credentials-strip reveal">
           <div>
             <span>Education</span>
-            <ul>${renderSimpleList(profile.credentials.education)}</ul>
+            <ul>${renderCredentialItems(profile.credentials.education)}</ul>
           </div>
           <div>
             <span>Awards</span>
-            <ul>${renderSimpleList(profile.credentials.awards)}</ul>
+            <ul>${renderCredentialItems(profile.credentials.awards)}</ul>
           </div>
         </div>
       </section>
@@ -278,22 +370,7 @@ ${JSON.stringify(
           </div>
         </div>
         <div class="data-etching reveal" style="--delay: 100ms" aria-hidden="true">
-          <div class="data-etching__axis"></div>
-          <div class="data-etching__wave"></div>
-          <div class="data-etching__bars">
-            <span style="--h: 42%"></span>
-            <span style="--h: 63%"></span>
-            <span style="--h: 51%"></span>
-            <span style="--h: 76%"></span>
-            <span style="--h: 68%"></span>
-            <span style="--h: 88%"></span>
-            <span style="--h: 57%"></span>
-          </div>
-          <div class="data-etching__labels">
-            <span>observe</span>
-            <span>structure</span>
-            <span>translate</span>
-          </div>
+          ${renderDataSketch()}
         </div>
       </section>
 
@@ -321,6 +398,9 @@ ${JSON.stringify(
         <div class="section-heading reveal">
           <span>Leadership & Community</span>
           <h2 id="leadership-title">Contributing to the communities around the work.</h2>
+        </div>
+        <div class="affiliation-row reveal" aria-label="Related communities and institutions">
+          ${renderMarkList(profile.leadershipMarks)}
         </div>
         <div class="leadership-grid">
           ${renderLeadership(profile.leadership)}
@@ -373,5 +453,5 @@ ${JSON.stringify(
 </html>
 `;
 
-await writeFile("index.html", page);
+await writeFile("index.html", page.replace(/[ \t]+$/gm, ""));
 console.log("Generated index.html");

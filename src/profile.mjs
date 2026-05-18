@@ -19,27 +19,27 @@ export const profile = {
       "I work on problems where careful analysis changes how people understand a system - whether that system is a molecule, an experiment, a manufacturing process, or a market.",
     secondary:
       "My path has moved from ultrafast spectroscopy and 2D quantum materials into semiconductor front-end analytics and a multinational MBA shaped around company missions.",
-    journeyIntro: "From molecule to manufacturing",
+    journeyIntro: "This is my path",
     journeyNodes: [
       {
-        label: "Chemistry",
+        label: "Physical chemistry",
         detail:
-          "I started by studying light-driven molecular and material processes at very short time scales."
+          "I started with light-driven molecular and material processes where structure, energy, and time all matter."
       },
       {
-        label: "Instruments",
+        label: "Instrumentation",
         detail:
-          "Building an ultrafast fluorescence setup taught me to connect optics, mechanics, electronics, software, and patience."
+          "Building ultrafast fluorescence instrumentation taught me to connect optics, mechanics, electronics, software, and patience."
       },
       {
-        label: "Data tools",
+        label: "Data analytics",
         detail:
-          "I developed Python analysis tools because experiments only become useful when the signal is reliable and readable."
+          "I developed Python analysis tools because experiments only become useful when the signal is reliable, calibrated, and readable."
       },
       {
-        label: "Fab systems",
+        label: "Semiconductors",
         detail:
-          "At Infineon, the system became a fab: databases, wafers, process steps, materials, and operational decisions."
+          "At Infineon, the system became a fab: wafer processes, material flows, databases, and front-end operational decisions."
       },
       {
         label: "Business",
@@ -63,16 +63,49 @@ export const profile = {
   },
   credentials: {
     education: [
-      "MBA Fellow at Collège des Ingénieurs, selected for a fully funded multinational program in Paris, Munich, and Turin",
-      "Doctoral Candidate in Physical Chemistry at Humboldt-Universität zu Berlin",
-      "Visiting Researcher at Columbia University, New York City",
-      "B.Sc. & M.Sc. Chemistry at Freie Universität Berlin"
+      {
+        mark: "CDI",
+        label: "Collège des Ingénieurs",
+        text:
+          "MBA Fellow, selected for a fully funded multinational program in Paris, Munich, and Turin"
+      },
+      {
+        mark: "HU",
+        label: "Humboldt-Universität zu Berlin",
+        text: "Doctoral Candidate in Physical Chemistry"
+      },
+      {
+        mark: "CU",
+        label: "Columbia University",
+        text: "Visiting Researcher in New York City"
+      },
+      {
+        mark: "FU",
+        label: "Freie Universität Berlin",
+        text: "B.Sc. and M.Sc. Chemistry"
+      }
     ],
     awards: [
-      "STEM Scholarship, MLP, 2025",
-      "Graduate School Grants, 2023 and 2024",
-      "Kekulé Fellowship, 2022",
-      "Deutschlandstipendium, 2020"
+      {
+        mark: "2025",
+        label: "STEM Scholarship",
+        text: "MLP"
+      },
+      {
+        mark: "23/24",
+        label: "Graduate School Grants",
+        text: "Research support in 2023 and 2024"
+      },
+      {
+        mark: "2022",
+        label: "Kekulé Fellowship",
+        text: "Fellowship support for doctoral research"
+      },
+      {
+        mark: "2020",
+        label: "Deutschlandstipendium",
+        text: "Merit scholarship"
+      }
     ]
   },
   focus: [
@@ -141,8 +174,8 @@ export const profile = {
       title: "When research travels beyond one bench",
       period: "2022 - 2026",
       text:
-        "My research became most valuable when it moved into shared tools, conference discussions, publications, and collaborations with groups in Berlin, Jyväskylä, the United States, and Finland.",
-      tags: ["3 publications", "7 presentations", "International collaboration"]
+        "My research became most valuable when it moved into shared tools, conference discussions, publications, funded projects, and collaborations with groups in Berlin, Jyväskylä, the United States, and Finland.",
+      tags: ["3 publications", "7 presentations", "EUR 65K+ funding", "International collaboration"]
     },
     {
       kicker: "JungesChemieForum Berlin",
@@ -161,7 +194,9 @@ export const profile = {
       note:
         "Accepted co-author paper in one of chemistry's leading journals, connected to my broader work in physical and materials chemistry.",
       href: "",
-      visual: "jacs"
+      visual: "jacs",
+      visualTitle: "JACS",
+      visualNote: "accepted 2026"
     },
     {
       type: "VIP Paper · first author",
@@ -171,7 +206,9 @@ export const profile = {
       note:
         "This paper improves how broadband ultrafast fluorescence measurements are calibrated and compared, making the method more reliable across different experimental setups. It introduces a three-angle approach and validates it through cross-setup comparison and blind testing.",
       href: "https://doi.org/10.1002/cptc.202400398",
-      visual: "signal"
+      visual: "signal",
+      visualTitle: "FLUPS",
+      visualNote: "calibration + blind test"
     },
     {
       type: "Textbook",
@@ -180,7 +217,9 @@ export const profile = {
       note:
         "A compact, example-driven bridge into mathematics for chemistry and biochemistry students, written from the teaching experience of seeing where students often get stuck.",
       href: "https://link.springer.com/book/10.1007/978-3-662-63139-3",
-      visual: "book"
+      visual: "book",
+      visualTitle: "Springer",
+      visualNote: "Analysis for chemistry"
     },
     {
       type: "Co-author",
@@ -190,7 +229,23 @@ export const profile = {
       note:
         "Work on how covalent functionalization can tune the electronic and optical properties of monolayer MoS2, a 2D material relevant to nanoscale optoelectronics.",
       href: "https://doi.org/10.1039/D2TC00391K",
-      visual: "materials"
+      visual: "materials",
+      visualTitle: "MoS2",
+      visualNote: "2D materials"
+    }
+  ],
+  leadershipMarks: [
+    {
+      mark: "JCF",
+      label: "JungesChemieForum Berlin"
+    },
+    {
+      mark: "GDCh",
+      label: "Gesellschaft Deutscher Chemiker"
+    },
+    {
+      mark: "FU",
+      label: "Freie Universität Berlin"
     }
   ],
   leadership: [
