@@ -991,18 +991,52 @@ h3 {
   border-radius: var(--radius);
   overflow: hidden;
   background:
-    linear-gradient(rgba(23, 23, 22, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(23, 23, 22, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 50% 48%, rgba(47, 111, 94, 0.09), transparent 18rem),
+    radial-gradient(circle at 78% 22%, rgba(168, 92, 58, 0.08), transparent 12rem),
+    linear-gradient(rgba(23, 23, 22, 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 23, 22, 0.032) 1px, transparent 1px),
     #ffffff;
-  background-size: 32px 32px;
-  cursor: crosshair;
+  background-size: auto, auto, 34px 34px, 34px 34px, auto;
+  cursor: default;
+  transition: border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
 }
 
+.data-etching:hover {
+  border-color: rgba(47, 111, 94, 0.34);
+  box-shadow: 0 24px 58px rgba(23, 23, 22, 0.07);
+}
+
+.morph-sketch,
 .data-sketch {
   width: 100%;
   height: 100%;
   min-height: 404px;
-  padding: 0.15rem;
+}
+
+.morph-sketch {
+  position: absolute;
+  inset: 0;
+  cursor: default;
+}
+
+.data-etching::before {
+  content: "";
+  position: absolute;
+  inset: 1.25rem;
+  border: 1px solid rgba(47, 111, 94, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.data-etching::after {
+  content: "";
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  bottom: 1.15rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(168, 92, 58, 0.36), transparent);
+  pointer-events: none;
 }
 
 .data-grid-line {

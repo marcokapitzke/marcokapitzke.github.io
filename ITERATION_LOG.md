@@ -220,3 +220,17 @@ Completed changes:
 - Replaced the single fixed hero route with five route variations.
 - Each route now fades in, carries the moving point across the constellation, fades out, and then yields to the next route.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 15: Data Morph Visual
+
+Feedback received:
+
+- The Data & Visual Thinking graphic did not match the section copy strongly enough.
+- A better idea was a 3D cube made of dots that gently moves, then rearranges into a sphere on hover and returns to a cube when hover stops.
+
+Completed changes:
+
+- Replaced the static data chart with a canvas-based 3D dot structure.
+- Built matching cube and sphere point sets so the same observations reorganize into a different representation.
+- Added smooth hover morphing, subtle floating rotation, cube guide edges, and sphere guide rings.
+- Adjusted the section copy so it refers to representation, structure, and transformation rather than a generic chart.

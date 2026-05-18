@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-route-variations";
+const assetVersion = "20260518-morph-cube-sphere";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -167,39 +167,7 @@ const renderNetworkField = () => `
   </div>`;
 
 const renderDataSketch = () => `
-  <svg class="data-sketch" viewBox="0 0 520 320" role="img" aria-label="A calm data sketch showing observations, an uncertainty band, and a fitted response curve.">
-    <defs>
-      <linearGradient id="uncertaintyBand" x1="0" x2="1" y1="0" y2="0">
-        <stop offset="0%" stop-color="#2f6f5e" stop-opacity="0.08"></stop>
-        <stop offset="100%" stop-color="#a85c3a" stop-opacity="0.14"></stop>
-      </linearGradient>
-      <marker id="axisArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
-        <path d="M 0 0 L 8 4 L 0 8 Z"></path>
-      </marker>
-    </defs>
-    <path class="data-grid-line" d="M 36 54 H 496 M 36 110 H 496 M 36 166 H 496 M 36 222 H 496 M 36 278 H 496"></path>
-    <path class="data-grid-line" d="M 106 30 V 284 M 186 30 V 284 M 266 30 V 284 M 346 30 V 284 M 426 30 V 284"></path>
-    <g class="data-axis">
-      <path class="axis-line axis-line--x" d="M 42 278 H 496"></path>
-      <path class="axis-line axis-line--y" d="M 42 278 V 34"></path>
-      <path class="axis-ticks" d="M 122 274 V 282 M 202 274 V 282 M 282 274 V 282 M 362 274 V 282 M 442 274 V 282 M 38 222 H 46 M 38 166 H 46 M 38 110 H 46 M 38 54 H 46"></path>
-    </g>
-    <path class="decision-band" d="M 356 54 H 458 V 278 H 356 Z"></path>
-    <path class="uncertainty-band" d="M 62 234 C 126 198, 170 143, 229 149 C 286 154, 326 111, 398 98 C 440 91, 476 98, 496 108 L 496 148 C 448 137, 409 132, 369 145 C 314 162, 280 208, 220 196 C 164 186, 122 232, 62 262 Z"></path>
-    <path class="calibration-line" d="M 62 248 C 130 210, 168 160, 228 170 C 286 180, 322 135, 392 121 C 434 113, 474 120, 496 129"></path>
-    <g class="sample-points">
-      <circle cx="74" cy="244" r="4.6"></circle>
-      <circle cx="113" cy="225" r="4.6"></circle>
-      <circle cx="154" cy="196" r="4.6"></circle>
-      <circle cx="198" cy="168" r="4.6"></circle>
-      <circle cx="240" cy="177" r="4.6"></circle>
-      <circle cx="285" cy="160" r="4.6"></circle>
-      <circle cx="324" cy="139" r="4.6"></circle>
-      <circle cx="370" cy="126" r="4.6"></circle>
-      <circle cx="420" cy="119" r="4.6"></circle>
-      <circle cx="470" cy="125" r="4.6"></circle>
-    </g>
-  </svg>`;
+  <canvas class="morph-sketch" data-morph-canvas width="720" height="520" aria-hidden="true"></canvas>`;
 
 const renderBeyondStack = () => `
   <div class="beyond-stack" aria-hidden="true">

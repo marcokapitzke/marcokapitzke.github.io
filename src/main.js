@@ -647,11 +647,261 @@ function setupNetworkCanvas() {
   window.addEventListener("beforeunload", () => cancelAnimationFrame(rafId));
 }
 
+function setupMorphCanvas() {
+  const canvas = document.querySelector("[data-morph-canvas]");
+  if (!canvas) return;
+
+  const context = canvas.getContext("2d");
+  const stage = canvas.closest(".data-etching");
+  let width = 0;
+  let height = 0;
+  let frame = 0;
+  let rafId = 0;
+  let morph = 0;
+  let targetMorph = 0;
+
+  const gridSize = 5;
+  const cubePoints = [];
+
+  for (let xi = 0; xi < gridSize; xi += 1) {
+    for (let yi = 0; yi < gridSize; yi += 1) {
+      for (let zi = 0; zi < gridSize; zi += 1) {
+        const isSurface =
+          xi === 0 ||
+          yi === 0 ||
+          zi === 0 ||
+          xi === gridSize - 1 ||
+          yi === gridSize - 1 ||
+          zi === gridSize - 1;
+
+        if (!isSurface) continue;
+
+        const normalize = (value) => (value / (gridSize - 1) - 0.5) * 2;
+        cubePoints.push({
+          x: normalize(xi),
+          y: normalize(yi),
+          z: normalize(zi)
+        });
+      }
+    }
+  }
+
+  const spherePoints = cubePoints.map((_, index) => {
+    const count = cubePoints.length;
+    const y = 1 - (index / (count - 1)) * 2;
+    const radius = Math.sqrt(Math.max(0, 1 - y * y));
+    const theta = index * Math.PI * (3 - Math.sqrt(5));
+
+    return {
+      x: Math.cos(theta) * radius,
+      y,
+      z: Math.sin(theta) * radius
+    };
+  });
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = Math.max(1, Math.floor(rect.width));
+    height = Math.max(1, Math.floor(rect.height));
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function rotatePoint(point, angleX, angleY, angleZ) {
+    const cosX = Math.cos(angleX);
+    const sinX = Math.sin(angleX);
+    const cosY = Math.cos(angleY);
+    const sinY = Math.sin(angleY);
+    const cosZ = Math.cos(angleZ);
+    const sinZ = Math.sin(angleZ);
+
+    let x = point.x;
+    let y = point.y * cosX - point.z * sinX;
+    let z = point.y * sinX + point.z * cosX;
+
+    const nextX = x * cosY + z * sinY;
+    z = -x * sinY + z * cosY;
+    x = nextX;
+
+    return {
+      x: x * cosZ - y * sinZ,
+      y: x * sinZ + y * cosZ,
+      z
+    };
+  }
+
+  function project(point, scale, floatY) {
+    const perspective = 3.6;
+    const depth = perspective / (perspective - point.z);
+
+    return {
+      x: width / 2 + point.x * scale * depth,
+      y: height / 2 + point.y * scale * depth + floatY,
+      z: point.z,
+      depth
+    };
+  }
+
+  function drawGuideBox(scale, floatY, angleX, angleY, angleZ, opacity) {
+    if (opacity <= 0.01) return;
+
+    const corners = [
+      [-1, -1, -1],
+      [1, -1, -1],
+      [1, 1, -1],
+      [-1, 1, -1],
+      [-1, -1, 1],
+      [1, -1, 1],
+      [1, 1, 1],
+      [-1, 1, 1]
+    ].map(([x, y, z]) => project(rotatePoint({ x, y, z }, angleX, angleY, angleZ), scale, floatY));
+
+    const edges = [
+      [0, 1],
+      [1, 2],
+      [2, 3],
+      [3, 0],
+      [4, 5],
+      [5, 6],
+      [6, 7],
+      [7, 4],
+      [0, 4],
+      [1, 5],
+      [2, 6],
+      [3, 7]
+    ];
+
+    context.beginPath();
+    edges.forEach(([start, end]) => {
+      context.moveTo(corners[start].x, corners[start].y);
+      context.lineTo(corners[end].x, corners[end].y);
+    });
+    context.strokeStyle = `rgba(47, 111, 94, ${opacity * 0.34})`;
+    context.lineWidth = 1;
+    context.stroke();
+  }
+
+  function drawSphereRings(scale, floatY, angleX, angleY, angleZ, opacity) {
+    if (opacity <= 0.01) return;
+
+    context.strokeStyle = `rgba(168, 92, 58, ${opacity * 0.2})`;
+    context.lineWidth = 1;
+
+    [-0.42, 0, 0.42].forEach((planeY) => {
+      context.beginPath();
+      for (let index = 0; index <= 96; index += 1) {
+        const theta = (index / 96) * Math.PI * 2;
+        const radius = Math.sqrt(1 - planeY * planeY);
+        const point = rotatePoint(
+          {
+            x: Math.cos(theta) * radius,
+            y: planeY,
+            z: Math.sin(theta) * radius
+          },
+          angleX,
+          angleY,
+          angleZ
+        );
+        const projected = project(point, scale, floatY);
+        if (index === 0) context.moveTo(projected.x, projected.y);
+        else context.lineTo(projected.x, projected.y);
+      }
+      context.stroke();
+    });
+  }
+
+  function draw() {
+    context.clearRect(0, 0, width, height);
+
+    const ease = 1 - Math.pow(1 - morph, 3);
+    const targetSpeed = targetMorph > morph ? 0.045 : 0.035;
+    morph += (targetMorph - morph) * targetSpeed;
+    if (Math.abs(targetMorph - morph) < 0.001) morph = targetMorph;
+
+    const scale = Math.min(width, height) * 0.245;
+    const floatY = prefersReducedMotion ? 0 : Math.sin(frame * 0.018) * 8;
+    const angleX = 0.56 + Math.sin(frame * 0.006) * 0.08;
+    const angleY = 0.76 + frame * 0.0065;
+    const angleZ = -0.16 + Math.cos(frame * 0.004) * 0.04;
+
+    drawGuideBox(scale, floatY, angleX, angleY, angleZ, 1 - ease);
+    drawSphereRings(scale, floatY, angleX, angleY, angleZ, ease);
+
+    const points = cubePoints.map((cubePoint, index) => {
+      const spherePoint = spherePoints[index];
+      const mixedPoint = {
+        x: cubePoint.x + (spherePoint.x - cubePoint.x) * ease,
+        y: cubePoint.y + (spherePoint.y - cubePoint.y) * ease,
+        z: cubePoint.z + (spherePoint.z - cubePoint.z) * ease
+      };
+      const rotated = rotatePoint(mixedPoint, angleX, angleY, angleZ);
+      const projected = project(rotated, scale, floatY);
+
+      return {
+        ...projected,
+        index
+      };
+    });
+
+    points
+      .sort((a, b) => a.z - b.z)
+      .forEach((point) => {
+        const color =
+          point.index % 17 === 0
+            ? "168, 92, 58"
+            : point.index % 11 === 0
+              ? "94, 90, 127"
+              : "47, 111, 94";
+        const alpha = 0.42 + point.depth * 0.22;
+        const radius = (1.95 + point.depth * 1.55) * (1 + ease * 0.08);
+
+        context.beginPath();
+        context.fillStyle = `rgba(255, 255, 255, ${0.48 + point.depth * 0.16})`;
+        context.arc(point.x, point.y, radius + 4.6, 0, Math.PI * 2);
+        context.fill();
+
+        context.beginPath();
+        context.fillStyle = `rgba(${color}, ${alpha})`;
+        context.arc(point.x, point.y, radius, 0, Math.PI * 2);
+        context.fill();
+      });
+
+    frame += prefersReducedMotion ? 0 : 1;
+    if (!prefersReducedMotion) rafId = requestAnimationFrame(draw);
+  }
+
+  stage?.addEventListener("pointerenter", () => {
+    targetMorph = 1;
+  });
+
+  stage?.addEventListener("pointerleave", () => {
+    targetMorph = 0;
+  });
+
+  stage?.addEventListener("pointerdown", () => {
+    targetMorph = targetMorph > 0.5 ? 0 : 1;
+    if (prefersReducedMotion) draw();
+  });
+
+  window.addEventListener("resize", () => {
+    resize();
+    if (prefersReducedMotion) draw();
+  });
+
+  resize();
+  draw();
+
+  window.addEventListener("beforeunload", () => cancelAnimationFrame(rafId));
+}
+
 setupNavigation();
 setupReveal();
 setupScrollConstellation();
 setupSignalCanvas();
 setupNetworkCanvas();
+setupMorphCanvas();
 updateProgress();
 updateActiveNav();
 updateSystemsThread();

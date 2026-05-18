@@ -145,7 +145,7 @@ export const profile = {
   visualThinking: {
     headline: "I care about how insight is seen, not only how it is computed.",
     text:
-      "Good analysis has a visual discipline to it. The chart should show what was observed, what was modeled, and where uncertainty matters. I like data work where a technical pattern becomes visible enough for someone else to question it, trust it, and act on it.",
+      "Good analysis has a visual discipline to it. A useful representation should make structure, transformation, and uncertainty visible without pretending the system is simpler than it is. I like data work where a technical pattern becomes clear enough for someone else to question it, trust it, and act on it.",
     notes: []
   },
   selectedWork: [
