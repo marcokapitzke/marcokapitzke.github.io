@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-datagraph";
+const assetVersion = "20260518-affiliations";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -124,15 +124,31 @@ const renderInterestList = (items) =>
 const renderDataNotes = (items) =>
   items.map((item) => `<span>${escapeHtml(item)}</span>`).join("");
 
+const slugify = (value) =>
+  String(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
 const renderMarkList = (items) =>
   items
-    .map(
-      (item) => `
+    .map((item) => {
+      const logoSrc = item.logo
+        ? `${escapeHtml(item.logo)}${item.logo.startsWith("http") ? "" : `?v=${assetVersion}`}`
+        : "";
+      const logo = logoSrc
+        ? `<img src="${logoSrc}" alt="" loading="lazy" decoding="async">`
+        : "";
+
+      return `
         <div class="affiliation-mark">
-          <strong>${escapeHtml(item.mark)}</strong>
+          <span class="affiliation-logo affiliation-logo--${escapeHtml(slugify(item.mark))}" aria-hidden="true">
+            ${logo}
+            <b>${escapeHtml(item.mark)}</b>
+          </span>
           <span>${escapeHtml(item.label)}</span>
-        </div>`
-    )
+        </div>`;
+    })
     .join("");
 
 const renderNetworkField = () => `
@@ -171,6 +187,25 @@ const renderDataSketch = () => `
       <circle cx="444" cy="119" r="4"></circle>
     </g>
   </svg>`;
+
+const renderBeyondStack = () => `
+  <div class="beyond-stack" aria-hidden="true">
+    <div class="beyond-frame beyond-frame--trail">
+      <span class="beyond-sun"></span>
+      <span class="beyond-path"></span>
+    </div>
+    <div class="beyond-frame beyond-frame--route">
+      <span class="beyond-route-line"></span>
+      <span class="beyond-route-dot beyond-route-dot--one"></span>
+      <span class="beyond-route-dot beyond-route-dot--two"></span>
+      <span class="beyond-route-dot beyond-route-dot--three"></span>
+    </div>
+    <div class="beyond-frame beyond-frame--pages">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>`;
 
 const renderSources = (items) =>
   items
@@ -384,6 +419,7 @@ ${JSON.stringify(
         <div class="section-kicker reveal">
           <span>Beyond the Work</span>
           <p>Small signals of what I keep returning to.</p>
+          ${renderBeyondStack()}
         </div>
         <div class="section-copy reveal">
           <h2 id="beyond-title">${escapeHtml(profile.beyond.headline)}</h2>

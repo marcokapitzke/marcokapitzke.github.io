@@ -241,15 +241,18 @@ export const profile = {
   leadershipMarks: [
     {
       mark: "JCF",
-      label: "JungesChemieForum Berlin"
+      label: "JungesChemieForum Berlin",
+      logo: "public/logo-jcf-berlin.svg"
     },
     {
       mark: "GDCh",
-      label: "Gesellschaft Deutscher Chemiker"
+      label: "Gesellschaft Deutscher Chemiker",
+      logo: "public/logo-gdch.png"
     },
     {
       mark: "FU",
-      label: "Freie Universität Berlin"
+      label: "Freie Universität Berlin",
+      logo: "public/logo-fu-berlin.png"
     }
   ],
   leadership: [

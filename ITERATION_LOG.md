@@ -72,3 +72,16 @@ Completed changes:
 - Turned education and awards into compact marked items.
 - Reworked publication visuals into editorial venue and science cards.
 - Added affiliation marks for JCF Berlin, GDCh, and FU Berlin.
+
+## Iteration 6: Logos and Personal Visual Texture
+
+Feedback received:
+
+- Replace the plain JCF / GDCh / FU circles with actual logos where stable public assets are available.
+- Add something visual to the left side of "Beyond the Work," inspired by composed editorial image stacks but without making the site feel like a stock-photo portfolio.
+
+Completed changes:
+
+- Added local logo assets for JCF Berlin, GDCh, and Freie Universität Berlin and placed them inside refined affiliation circles.
+- Added a small abstract card stack to "Beyond the Work" representing a trail, route, and reading / visual thinking.
+- Kept the pass restrained so the site remains mostly white, editorial, and professional.

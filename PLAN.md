@@ -137,6 +137,12 @@ Rationale: the workspace has Node available but no npm/yarn/pnpm. A zero-depende
 - Make education, awards, publications, and leadership marks more intentional and less list-like.
 - Strengthen the data visualization section so it shows observation, calibration, uncertainty, and decision context.
 
+### Loop 7: Affiliation Logos and Human Detail
+
+- Replace typographic leadership marks with stable local logo assets for JCF Berlin, GDCh, and Freie Universität Berlin.
+- Add a composed visual layer to "Beyond the Work" so the section suggests movement, routes, reading, and curiosity without becoming stock-photo heavy.
+- Keep this pass subtle: the logos should support credibility, and the personal visual should add warmth without distracting from the professional story.
+
 ## Validation Checklist
 
 - [x] `node src/render.mjs` completes successfully.
