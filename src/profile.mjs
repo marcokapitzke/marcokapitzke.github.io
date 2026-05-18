@@ -6,124 +6,175 @@ export const profile = {
   email: "marco.kapitzke@icloud.com",
   linkedIn: "https://www.linkedin.com/in/marcokapitzke/",
   cvPath: "public/CV_MK-13.pdf",
-  title: "Marco A. Kapitzke | MBA Fellow & Doctoral Candidate",
+  portraitPath: "public/portrait-marco.jpeg",
+  title: "Marco A. Kapitzke | Science, Data & Manufacturing Analytics",
   description:
-    "Marco A. Kapitzke bridges physical chemistry, semiconductor manufacturing analytics, and business execution.",
+    "Marco A. Kapitzke works across physical chemistry, data analysis, semiconductor manufacturing analytics, and business translation.",
   hero: {
-    eyebrow: "Collège des Ingénieurs · Infineon Manufacturing Analytics · Munich",
-    headline: "Scientific depth for analytics and business execution.",
+    eyebrow: "Marco A. Kapitzke",
+    identity:
+      "MBA Fellow at Collège des Ingénieurs · Manufacturing Analytics at Infineon · Doctoral Candidate in Physical Chemistry",
+    headline: "I like complex systems, and making them understandable.",
     lead:
-      "Marco bridges advanced materials, data, manufacturing operations, and management. His path runs from ultrafast spectroscopy and 2D quantum materials to semiconductor front-end analytics in a fully funded multinational MBA.",
-    proof: [
-      { value: "€65K+", label: "research funding secured" },
-      { value: "3", label: "publications" },
-      { value: "7", label: "presentations" },
-      { value: "10,000+", label: "students reached by textbook" }
-    ],
-    signalLabels: ["Fab data", "Wafer steps", "FLUPS", "2D materials"]
+      "I work on problems where careful analysis changes how people understand a system - whether that system is a molecule, an experiment, a manufacturing process, or a market.",
+    secondary:
+      "My path has moved from ultrafast spectroscopy and 2D quantum materials into semiconductor front-end analytics and a multinational MBA shaped around company missions.",
+    journeyIntro: "A condensed map of the path",
+    journeyNodes: [
+      {
+        label: "Chemistry",
+        detail:
+          "I started by studying light-driven molecular and material processes at very short time scales."
+      },
+      {
+        label: "Instruments",
+        detail:
+          "Building an ultrafast fluorescence setup taught me to connect optics, mechanics, electronics, software, and patience."
+      },
+      {
+        label: "Data tools",
+        detail:
+          "I developed Python analysis tools because experiments only become useful when the signal is reliable and readable."
+      },
+      {
+        label: "Fab systems",
+        detail:
+          "At Infineon, the system became a fab: databases, wafers, process steps, materials, and operational decisions."
+      },
+      {
+        label: "Business",
+        detail:
+          "The MBA adds the translation layer: which analysis matters, who needs it, and how it changes execution."
+      }
+    ]
   },
   about: {
-    headline: "A technical operator with a business lens.",
+    headline: "The common thread is not a field. It is a way of looking.",
     paragraphs: [
-      "Marco combines rigorous scientific training with the practical orientation of manufacturing analytics. At Infineon Technologies AG, he works on data foundations and statistical methods for semiconductor front-end operations.",
-      "Before the MBA, he built advanced ultrafast fluorescence spectroscopy capabilities at Humboldt-Universität zu Berlin, developed Python-based analysis tools used by his research group, and collaborated internationally with researchers in the US and Finland.",
-      "His work is marked by a simple pattern: make complex systems observable, translate the signal into decisions, and keep the human part of collaboration clear."
+      "I am drawn to systems that are technically demanding but still need to become understandable to people who make decisions. That can mean an optical experiment, a semiconductor process, a dataset, or a strategic question.",
+      "In research, I learned to build instruments, test assumptions, and make noisy signals trustworthy. In manufacturing analytics, I am applying the same mindset to front-end semiconductor operations: structure the data, understand the process, and make the uncertainty explicit enough to work with.",
+      "I care about clarity, but not in the shallow sense of simplifying everything. The work I enjoy most keeps the depth intact while making the next step easier to see."
     ],
     principles: [
-      "Analytical without being abstract",
-      "Technical without losing the business question",
-      "Ambitious without overstatement"
+      "Careful analysis before confident conclusions",
+      "Technical depth translated into usable decisions",
+      "Collaboration that makes difficult work easier to discuss"
+    ]
+  },
+  credentials: {
+    education: [
+      "MBA Fellow at Collège des Ingénieurs, selected for a fully funded multinational program in Paris, Munich, and Turin",
+      "Doctoral Candidate in Physical Chemistry at Humboldt-Universität zu Berlin",
+      "Visiting Researcher at Columbia University, New York City",
+      "B.Sc. & M.Sc. Chemistry at Freie Universität Berlin"
+    ],
+    awards: [
+      "STEM Scholarship, MLP, 2025",
+      "Graduate School Grants, 2023 and 2024",
+      "Kekulé Fellowship, 2022",
+      "Deutschlandstipendium, 2020"
     ]
   },
   focus: [
     {
-      title: "Manufacturing Analytics",
+      title: "Data-driven process understanding",
       text:
-        "Building consistent data foundations and statistical views that make semiconductor manufacturing processes easier to understand and improve."
+        "I like using data to make complex processes more observable, especially when the answer has to be useful beyond the analysis itself."
     },
     {
-      title: "Semiconductor Operations",
+      title: "Semiconductor manufacturing analytics",
       text:
-        "Working close to front-end fab data, wafer-level process steps, and material-consumption questions where analytical clarity matters."
+        "At Infineon, I work close to front-end operations, wafer-level process steps, fab databases, and material-consumption questions."
     },
     {
-      title: "Physical Chemistry",
+      title: "Physical chemistry and materials",
       text:
-        "Research background in ultrafast spectroscopy, excited-state dynamics, fluorescence upconversion, and advanced materials."
+        "My research background spans ultrafast spectroscopy, excited-state dynamics, fluorescence upconversion, and 2D quantum materials."
     },
     {
-      title: "Business Translation",
+      title: "Business translation",
       text:
-        "MBA training through Collège des Ingénieurs with a company mission model that turns management theory into operating work."
+        "The MBA adds a practical layer: turning technical understanding into choices that matter for teams, operations, and markets."
     }
   ],
   selectedWork: [
     {
       kicker: "Infineon Technologies AG",
-      title: "Manufacturing analytics for semiconductor front-end operations",
+      title: "Manufacturing analytics in semiconductor front-end operations",
       period: "Since 02/2026 · Munich",
       text:
-        "Integrated and structured data from multiple fab databases to establish a consistent foundation for scalable analytics and improved transparency. Developed a statistical framework for allocating material usage to wafer-level process steps.",
-      tags: ["Manufacturing data", "Statistical modeling", "Fab transparency"]
+        "I am working on the data foundations behind scalable fab analytics: integrating information from multiple databases, improving transparency, and developing statistical views of how material usage connects to wafer-level process steps.",
+      tags: ["Fab data", "Process understanding", "Material allocation"]
     },
     {
       kicker: "Humboldt-Universität zu Berlin",
-      title: "Ultrafast fluorescence spectroscopy and data tools",
+      title: "Ultrafast fluorescence instrumentation",
       period: "04/2022 - 12/2025 · Berlin",
       text:
-        "Secured €65K+ in research funding, built one of the group's most advanced ultrafast fluorescence spectroscopy instruments, and created Python-based analysis tools that became standard in the research group.",
-      tags: ["FLUPS", "Python analysis", "Physical chemistry"]
+        "I helped build an ultrafast fluorescence upconversion spectroscopy setup, an instrument that makes extremely fast light-driven molecular processes visible on time scales that conventional measurements cannot resolve. Building it meant aligning optical precision, experimental design, software, and persistence into one working system.",
+      tags: ["Ultrafast spectroscopy", "Instrumentation", "Python analysis"]
     },
     {
       kicker: "Columbia University",
-      title: "2D quantum materials research in New York City",
+      title: "2D quantum materials and cleanroom work",
       period: "02/2024 - 05/2024 · New York City",
       text:
-        "Fabricated 2D quantum materials in a cleanroom environment and performed optical characterization using microscopy and Raman spectroscopy.",
-      tags: ["Cleanroom fabrication", "TMDCs", "Raman spectroscopy"]
+        "At Columbia, I worked with 2D quantum materials, systems where atomic-scale structure can shape optical and electronic behavior. The cleanroom work gave me a different appreciation for precision: not only in data, but in fabrication, sample handling, and experimental discipline.",
+      tags: ["2D materials", "Cleanroom", "Raman spectroscopy"]
     },
     {
-      kicker: "SpringerNature",
+      kicker: "Springer Spektrum",
       title: "Mathe in der (Bio-)Chemie I",
       period: "Published 2024",
       text:
-        "Authored a SpringerNature textbook designed to make university-level mathematics more approachable for chemistry and biochemistry students. The book reached more than 10,000 students across Germany within one year.",
-      tags: ["Textbook author", "Mathematics", "Teaching"]
+        "Writing the textbook was a different kind of technical work: taking mathematics that often feels abstract and making it usable for students who need it in chemistry and biochemistry. According to my CV, the book reached more than 10,000 students across Germany within one year.",
+      tags: ["Textbook author", "Teaching", "10,000+ students"]
     },
     {
       kicker: "Research Output",
-      title: "Publications, presentations, and international collaboration",
+      title: "When research travels beyond one bench",
       period: "2022 - 2026",
       text:
-        "Research resulted in three publications, seven presentations, and collaborations with groups in the United States and Finland.",
-      tags: ["3 publications", "7 presentations", "US and Finland"]
+        "My research became most valuable when it moved into shared tools, conference discussions, publications, and collaborations with groups in Berlin, Jyväskylä, the United States, and Finland.",
+      tags: ["3 publications", "7 presentations", "International collaboration"]
     },
     {
       kicker: "JungesChemieForum Berlin",
-      title: "Scientific community leadership",
+      title: "Scientific community and student support",
       period: "04/2019 - 12/2025 · Berlin",
       text:
-        "Served as deputy speaker and web administrator, organized workshops, excursions, and conferences, and took on media and committee responsibilities in the German Chemical Society environment.",
-      tags: ["Deputy speaker", "Web administration", "Events"]
+        "I spent several years helping build scientific community through JCF Berlin: organizing events, supporting students, working on the forum's digital presence, and taking on media and committee responsibilities.",
+      tags: ["Community", "Mentoring", "Digital presence"]
     }
   ],
   publications: [
     {
-      type: "VIP Paper · First author",
+      type: "Co-author · accepted",
+      title: "Accepted Journal of the American Chemical Society paper",
+      venue: "Journal of the American Chemical Society, 2026",
+      note:
+        "Accepted co-author paper in one of chemistry's leading journals, connected to my broader work in physical and materials chemistry.",
+      href: "",
+      visual: "jacs"
+    },
+    {
+      type: "VIP Paper · first author",
       title:
         "Enhancing Spectral Coverage, Efficiency, and Photometric Accuracy in Ultrafast Fluorescence Upconversion Spectroscopy",
       venue: "ChemPhotoChem, 2025",
       note:
-        "Introduces a three-angle method for broadband FLUPS, validated through comparison and blind testing across Berlin and Jyväskylä setups.",
-      href: "https://doi.org/10.1002/cptc.202400398"
+        "This paper improves how broadband ultrafast fluorescence measurements are calibrated and compared, making the method more reliable across different experimental setups. It introduces a three-angle approach and validates it through cross-setup comparison and blind testing.",
+      href: "https://doi.org/10.1002/cptc.202400398",
+      visual: "signal"
     },
     {
-      type: "Co-author",
-      title: "Accepted Journal of the American Chemical Society co-author paper",
-      venue: "Accepted, 2026",
+      type: "Textbook",
+      title: "Mathe in der (Bio-)Chemie I: Grundlagen der Analysis",
+      venue: "Springer Spektrum, 2024",
       note:
-        "Accepted co-author work in Marco's publication record.",
-      href: ""
+        "A compact, example-driven bridge into mathematics for chemistry and biochemistry students, written from the teaching experience of seeing where students often get stuck.",
+      href: "https://link.springer.com/book/10.1007/978-3-662-63139-3",
+      visual: "book"
     },
     {
       type: "Co-author",
@@ -131,50 +182,50 @@ export const profile = {
         "Modulating electronic and optical properties of monolayered MoS2 by covalent mono- and bisfunctionalization",
       venue: "Journal of Materials Chemistry C, 2022",
       note:
-        "Work at the interface of theoretical chemistry, monolayer materials, and electronic / optical property tuning.",
-      href: "https://doi.org/10.1039/D2TC00391K"
-    },
-    {
-      type: "Textbook",
-      title: "Mathe in der (Bio-)Chemie I: Grundlagen der Analysis",
-      venue: "Springer Spektrum, 2024",
-      note:
-        "A compact, example-driven bridge into mathematics for chemistry and biochemistry students.",
-      href: "https://link.springer.com/book/10.1007/978-3-662-63139-3"
+        "Work on how covalent functionalization can tune the electronic and optical properties of monolayer MoS2, a 2D material relevant to nanoscale optoelectronics.",
+      href: "https://doi.org/10.1039/D2TC00391K",
+      visual: "materials"
     }
   ],
   leadership: [
     {
-      title: "Deputy Speaker & Web Administrator",
+      title: "Community building",
       org: "JungesChemieForum Berlin",
       text:
-        "Organized workshops, excursions, and conferences with representatives from science and industry while expanding the forum's digital presence."
+        "I helped organize workshops, excursions, and conferences with people from science and industry while expanding the forum's digital presence."
     },
     {
-      title: "Media and Scientific Committee Work",
+      title: "Media and committee work",
       org: "German Chemical Society environment",
       text:
-        "Held leadership roles including Head of Media and first student member of the Heinz-Schmidkunz Award committee."
+        "I took on leadership roles including Head of Media and first student member of the Heinz-Schmidkunz Award committee."
     },
     {
-      title: "Student Mentor",
+      title: "Mentoring",
       org: "Freie Universität Berlin",
       text:
-        "Mentored 20+ students per semester on academic strategies, research navigation, and career development."
+        "I mentored 20+ students per semester on academic strategy, research navigation, and early career decisions."
     }
   ],
-  education: [
-    "MBA Fellow at Collège des Ingénieurs, selected for a fully funded multinational program in Paris / Munich / Turin",
-    "Doctoral Candidate in Physical Chemistry at Humboldt-Universität zu Berlin",
-    "Visiting Researcher at Columbia University, New York City",
-    "B.Sc. & M.Sc. Chemistry at Freie Universität Berlin"
-  ],
-  awards: [
-    "STEM Scholarship, MLP, 2025",
-    "Graduate School Grants, 2023 and 2024",
-    "Kekulé Fellowship, 2022",
-    "Deutschlandstipendium, 2020"
-  ],
+  beyond: {
+    headline: "What keeps me curious",
+    text:
+      "Outside the main professional thread, I reset through movement: running, cycling, hiking, sports, and the gym. I am planning to run a half marathon next year. I also read widely, from fantasy novels to books on markets, decision-making, self-improvement, and how people think.",
+    interests: [
+      "using data to gain insight",
+      "portfolio construction and capital markets",
+      "game theory",
+      "analytical decision-making",
+      "art and visual communication",
+      "science and technology",
+      "manufacturing systems"
+    ]
+  },
+  contact: {
+    headline: "If a complex system is worth understanding, I am happy to talk.",
+    text:
+      "If you are working on a problem where science, data, operations, or strategy meet, I am always open to a thoughtful conversation - about a collaboration, a role, a venture idea, or simply a system worth understanding better."
+  },
   sources: [
     {
       label: "LinkedIn",

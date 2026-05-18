@@ -2,9 +2,9 @@
 
 ## Site Concept
 
-Create a professional personal presence that reads like an extension of Marco's LinkedIn profile: concise, credible, international, and analytically sharp. The site positions Marco at the intersection of physical chemistry, semiconductor manufacturing analytics, data-driven process understanding, and business execution.
+Create a professional personal presence that reads like Marco speaking with precision and warmth about the kinds of systems he likes to understand. The site should still extend his LinkedIn profile, but it should feel less like a résumé dashboard and more like a thoughtful personal website for a modern scientist / operator.
 
-The guiding idea is **"scientific depth translated into operational clarity."** The site should feel closer to a premium professional-services profile than an academic CV, with warm confidence and careful factual restraint.
+The guiding idea is **"making complex systems understandable."** The site should feel closer to a premium editorial profile than an academic CV, with first-person language, careful factual restraint, a small portrait, and a subtle artsy interaction that carries meaning.
 
 ## Source Material
 
@@ -19,14 +19,14 @@ The guiding idea is **"scientific depth translated into operational clarity."** 
 ## Content Architecture
 
 1. **Hero**
-   - Name, current positioning, Munich / Europe context
-   - Clear headline: scientific depth, analytics, and business execution
+   - Name, current identity, Munich / Europe context
+   - First-person headline about complex systems and useful insight
    - CTAs: email, LinkedIn, download CV
-   - Evidence points: €65K+ funding, 3 publications, 7 presentations, 10,000+ textbook reach
-   - Signature interaction: subtle animated signal map connecting lab, data, and fab operations
+   - Small portrait image
+   - Signature interaction: a meaningful journey map from physical chemistry to manufacturing analytics and business translation
 
 2. **About / Positioning**
-   - Explain the bridge between science, manufacturing analytics, materials, and management
+   - Explain the bridge between science, manufacturing analytics, materials, management, and people
    - Warm, precise copy that avoids inflated claims
 
 3. **Professional Focus**
@@ -55,15 +55,19 @@ The guiding idea is **"scientific depth translated into operational clarity."** 
    - Student mentoring and academic support
 
 7. **Contact**
-   - Direct closing statement
+   - First-person closing statement with a clear reason to reach out
    - Email, LinkedIn, Munich / Europe
+
+8. **Beyond the Work**
+   - Subtle layer of intellectual and personal interests
+   - Keep it human without becoming casual or distracting
 
 ## Design System
 
 - **Tone:** calm, editorial, precise, premium
 - **Layout:** single-page, sectioned, whitespace-rich, responsive from mobile to large desktop
-- **Typography:** system sans-serif with restrained hierarchy and no viewport-based font scaling
-- **Palette:** off-white paper, graphite ink, muted green accent, restrained rust highlight, fine neutral borders
+- **Typography:** modern system sans-serif for body, editorial serif accents for labels, captions, and reflective statements
+- **Palette:** mostly white background, graphite ink, muted green accent, restrained rust highlight, fine neutral borders
 - **Motion:** scroll reveal, subtle hover lift, progress rail, hero canvas movement respecting reduced-motion preferences
 - **UI rules:** semantic HTML, accessible contrast, visible focus states, no heavy gradients, no template-like cards, no decorative blobs
 
@@ -108,6 +112,12 @@ Rationale: the workspace has Node available but no npm/yarn/pnpm. A zero-depende
 - Header "Contact" initially opened `mailto:` directly, which was less useful for navigation and was blocked during browser testing.
 - Improvement: changed header contact to the on-page contact section while keeping email links in the hero and contact area.
 - Refined publication copy to avoid defensive source notes and keep the tone more professional.
+
+### Loop 4: Second Narrative Refinement
+
+- Incorporate Marco's new feedback: first-person voice, more human tone, less metric-led hero, portrait, more meaningful interaction, richer explanations of FLUPS, Columbia, textbook, publications, JCF leadership, and interests.
+- Move metrics into story context instead of leading with dashboard-style proof points.
+- Add DESIGN_BRIEF.md and ITERATION_LOG.md as persistent records of the design direction and review loop.
 
 ## Validation Checklist
 

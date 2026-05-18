@@ -2,11 +2,11 @@
 
 ## What Was Built
 
-A polished, dependency-free static personal website for Marco A. Kapitzke. The site presents Marco as an MBA Fellow, doctoral candidate, manufacturing analytics consultant, physical chemist, textbook author, and community leader with a clear professional narrative rather than a generic CV layout.
+A polished, dependency-free static personal website for Marco A. Kapitzke. The refined version uses first-person copy, a small portrait, a meaningful journey interaction, richer work descriptions, and a clearer narrative across science, data, manufacturing, business, and people.
 
 ## Design Concept
 
-The design uses a calm editorial system inspired by the communication clarity of premium professional and research organizations. It emphasizes whitespace, strong typography, restrained color, subtle motion, and a signature hero interaction: a live signal map that connects lab instrumentation, data modeling, and semiconductor manufacturing insight.
+The design uses a mostly white editorial system inspired by premium professional and research organizations. It emphasizes whitespace, strong typography, restrained color, subtle serif accents, subtle motion, and a signature hero interaction: a journey map from physical chemistry to instrumentation, data tools, manufacturing analytics, and business translation.
 
 ## Key Content Included
 
@@ -19,6 +19,7 @@ The design uses a calm editorial system inspired by the communication clarity of
 - SpringerNature textbook `Mathe in der (Bio-)Chemie I`
 - ChemPhotoChem VIP paper, JACS accepted co-author work, and J. Mater. Chem. C co-author work
 - JCF Berlin leadership, student mentoring, awards, and community work
+- A subtle "Beyond the work" section covering interests in markets, game theory, data, visual communication, manufacturing systems, movement, and reading
 
 ## Review Roles Applied
 
@@ -27,6 +28,7 @@ The design uses a calm editorial system inspired by the communication clarity of
 - **Communications lead:** refined copy toward warm confidence, removed defensive phrasing, and avoided unsupported claims.
 - **Potential business partner:** emphasized clarity, operating relevance, collaboration, and semiconductor analytics rather than only academic credentials.
 - **Recruiter:** made current roles, evidence points, education, awards, and contact paths easy to scan.
+- **Second refinement lenses:** reviewed against expectations from D. E. Shaw Research, a startup founder, an academic collaborator, a recruiter, and Marco's own authenticity feedback.
 
 ## Checks Passed
 
@@ -39,6 +41,7 @@ The design uses a calm editorial system inspired by the communication clarity of
 - Browser smoke test on `http://localhost:4173`
 - Desktop and mobile screenshot review
 - Browser console error/warning check
+- Mobile and desktop refinement review after adding portrait and first-person copy
 
 ## Deployment
 
@@ -52,7 +55,6 @@ Then publish the repository root.
 
 ## Optional Future Improvements
 
-- Add a verified professional portrait if Marco wants a more personal first impression.
 - Add a custom domain and update Open Graph URL metadata once the domain is chosen.
 - Add the final public JACS title and DOI after the publication record is available.
 - Add a short downloadable one-page profile if a business-development version is useful.

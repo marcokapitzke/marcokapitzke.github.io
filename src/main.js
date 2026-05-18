@@ -83,18 +83,21 @@ function setupSignalCanvas() {
 
   const context = canvas.getContext("2d");
   const panel = canvas.closest("[data-signature]");
+  const journeyButtons = [...document.querySelectorAll("[data-journey-index]")];
+  const journeyCaption = document.querySelector("[data-journey-caption]");
   const pointer = { x: 0.58, y: 0.42, active: false };
   let width = 0;
   let height = 0;
   let frame = 0;
   let rafId = 0;
+  let activeJourney = 0;
 
   const nodes = [
-    { x: 0.12, y: 0.66, label: "source", color: "#a85c3a" },
-    { x: 0.28, y: 0.35, label: "clean", color: "#2f6f5e" },
-    { x: 0.47, y: 0.53, label: "model", color: "#5e5a7f" },
-    { x: 0.67, y: 0.28, label: "signal", color: "#2f6f5e" },
-    { x: 0.84, y: 0.58, label: "decision", color: "#a85c3a" }
+    { x: 0.12, y: 0.66, label: "physical chemistry", color: "#a85c3a" },
+    { x: 0.28, y: 0.35, label: "instrumentation", color: "#2f6f5e" },
+    { x: 0.47, y: 0.53, label: "data tools", color: "#5e5a7f" },
+    { x: 0.67, y: 0.28, label: "manufacturing", color: "#2f6f5e" },
+    { x: 0.84, y: 0.58, label: "business", color: "#a85c3a" }
   ];
 
   function resize() {
@@ -172,14 +175,15 @@ function setupSignalCanvas() {
     nodes.forEach((node, index) => {
       const x = node.x * width;
       const y = node.y * height + Math.sin(time * 0.018 + index) * 4;
-      const pulse = 1 + Math.sin(time * 0.032 + index * 0.9) * 0.14;
+      const selected = index === activeJourney;
+      const pulse = selected ? 1.16 + Math.sin(time * 0.04 + index) * 0.08 : 1 + Math.sin(time * 0.032 + index * 0.9) * 0.1;
 
       context.beginPath();
       context.fillStyle = "rgba(255, 255, 255, 0.86)";
-      context.arc(x, y, 18 * pulse, 0, Math.PI * 2);
+      context.arc(x, y, (selected ? 24 : 18) * pulse, 0, Math.PI * 2);
       context.fill();
-      context.strokeStyle = "rgba(23, 23, 22, 0.14)";
-      context.lineWidth = 1;
+      context.strokeStyle = selected ? "rgba(47, 111, 94, 0.46)" : "rgba(23, 23, 22, 0.14)";
+      context.lineWidth = selected ? 2 : 1;
       context.stroke();
 
       context.beginPath();
@@ -236,12 +240,31 @@ function setupSignalCanvas() {
     pointer.active = false;
   });
 
+  function setJourney(index) {
+    activeJourney = index;
+    journeyButtons.forEach((button, buttonIndex) => {
+      button.classList.toggle("is-active", buttonIndex === index);
+    });
+
+    if (journeyCaption && journeyButtons[index]) {
+      journeyCaption.textContent = journeyButtons[index].dataset.journeyDetail;
+    }
+
+    if (prefersReducedMotion) draw();
+  }
+
+  journeyButtons.forEach((button, index) => {
+    button.addEventListener("pointerenter", () => setJourney(index));
+    button.addEventListener("focus", () => setJourney(index));
+  });
+
   window.addEventListener("resize", () => {
     resize();
     if (prefersReducedMotion) draw();
   });
 
   resize();
+  setJourney(0);
   draw();
 
   window.addEventListener("beforeunload", () => cancelAnimationFrame(rafId));

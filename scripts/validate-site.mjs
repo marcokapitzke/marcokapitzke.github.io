@@ -9,9 +9,12 @@ const requiredFiles = [
   "src/styles.css",
   "public/favicon.svg",
   "public/og-card.svg",
+  "public/portrait-marco.jpeg",
   "public/CV_MK-13.pdf",
   "README.md",
-  "PLAN.md"
+  "PLAN.md",
+  "DESIGN_BRIEF.md",
+  "ITERATION_LOG.md"
 ];
 
 const requiredSnippets = [

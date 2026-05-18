@@ -22,6 +22,17 @@ const renderProof = (items) =>
     )
     .join("");
 
+const renderJourneyNodes = (items) =>
+  items
+    .map(
+      (item, index) => `
+        <button class="journey-node" type="button" data-journey-index="${index}" data-journey-detail="${escapeHtml(item.detail)}">
+          <span>${String(index + 1).padStart(2, "0")}</span>
+          ${escapeHtml(item.label)}
+        </button>`
+    )
+    .join("");
+
 const renderTags = (tags) =>
   tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
 
@@ -62,6 +73,9 @@ const renderPublications = (items) =>
 
       return `
         <article class="publication reveal">
+          <div class="publication__visual publication__visual--${escapeHtml(item.visual)}" aria-hidden="true">
+            <span>${escapeHtml(item.type.split(" ")[0])}</span>
+          </div>
           <div>
             <span>${escapeHtml(item.type)}</span>
             <h3>${title}</h3>
@@ -86,6 +100,9 @@ const renderLeadership = (items) =>
 
 const renderSimpleList = (items) =>
   items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+
+const renderInterestList = (items) =>
+  items.map((item) => `<span>${escapeHtml(item)}</span>`).join("");
 
 const renderSources = (items) =>
   items
@@ -132,12 +149,13 @@ ${JSON.stringify(
       "Freie Universität Berlin"
     ],
     knowsAbout: [
-      "Physical chemistry",
-      "Manufacturing analytics",
-      "Semiconductor front-end operations",
-      "Ultrafast spectroscopy",
-      "2D quantum materials",
-      "Data analysis"
+        "Physical chemistry",
+        "Manufacturing analytics",
+        "Semiconductor front-end operations",
+        "Ultrafast spectroscopy",
+        "2D quantum materials",
+        "Data analysis",
+        "Business translation"
     ]
   },
   null,
@@ -173,28 +191,32 @@ ${JSON.stringify(
     <main id="main">
       <section class="hero section-shell" id="top" aria-labelledby="hero-title">
         <div class="hero__content reveal">
-          <p class="eyebrow">${escapeHtml(profile.hero.eyebrow)}</p>
+          <div class="profile-lockup">
+            <img src="${escapeHtml(profile.portraitPath)}" alt="Portrait of Marco A. Kapitzke" width="112" height="112">
+            <div>
+              <p class="eyebrow">${escapeHtml(profile.hero.eyebrow)}</p>
+              <p>${escapeHtml(profile.hero.identity)}</p>
+            </div>
+          </div>
           <h1 id="hero-title">${escapeHtml(profile.hero.headline)}</h1>
           <p class="hero__lead">${escapeHtml(profile.hero.lead)}</p>
+          <p class="hero__secondary">${escapeHtml(profile.hero.secondary)}</p>
           <div class="hero__actions" aria-label="Primary actions">
-            <a class="button button-primary" href="mailto:${escapeHtml(profile.email)}">Start a conversation</a>
+            <a class="button button-primary" href="mailto:${escapeHtml(profile.email)}">Reach out</a>
             <a class="button button-secondary" href="${escapeHtml(profile.linkedIn)}" target="_blank" rel="noreferrer">LinkedIn</a>
             <a class="button button-secondary" href="${escapeHtml(profile.cvPath)}">Download CV</a>
-          </div>
-          <div class="proof-grid" aria-label="Selected evidence">
-            ${renderProof(profile.hero.proof)}
           </div>
         </div>
 
         <div class="hero__visual reveal" style="--delay: 140ms">
           <div class="signal-panel" data-signature>
             <div class="signal-panel__top">
-              <span>Lab signal to fab insight</span>
-              <span>Live model</span>
+              <span>${escapeHtml(profile.hero.journeyIntro)}</span>
+              <span>Hover the nodes</span>
             </div>
             <canvas data-signal-canvas width="760" height="560" aria-hidden="true"></canvas>
-            <div class="signal-labels" aria-hidden="true">
-              ${profile.hero.signalLabels.map((label) => `<span>${escapeHtml(label)}</span>`).join("")}
+            <p class="journey-caption" data-journey-caption>${escapeHtml(profile.hero.journeyNodes[0].detail)}</p>
+            <div class="signal-labels" aria-label="Interactive journey nodes">${renderJourneyNodes(profile.hero.journeyNodes)}
             </div>
           </div>
         </div>
@@ -214,10 +236,27 @@ ${JSON.stringify(
         </div>
       </section>
 
+      <section class="section-shell credentials-section" aria-labelledby="credentials-title">
+        <div class="section-heading reveal">
+          <span>Current Thread</span>
+          <h2 id="credentials-title">A path across research, business, and international work.</h2>
+        </div>
+        <div class="credentials-strip reveal">
+          <div>
+            <span>Education</span>
+            <ul>${renderSimpleList(profile.credentials.education)}</ul>
+          </div>
+          <div>
+            <span>Awards</span>
+            <ul>${renderSimpleList(profile.credentials.awards)}</ul>
+          </div>
+        </div>
+      </section>
+
       <section class="section-shell" id="focus" aria-labelledby="focus-title">
         <div class="section-heading reveal">
           <span>Professional Focus</span>
-          <h2 id="focus-title">Where technical depth becomes operating leverage.</h2>
+          <h2 id="focus-title">The kinds of problems I keep returning to.</h2>
         </div>
         <div class="focus-grid">
           ${renderFocus(profile.focus)}
@@ -227,7 +266,7 @@ ${JSON.stringify(
       <section class="section-shell" id="work" aria-labelledby="work-title">
         <div class="section-heading reveal">
           <span>Selected Work</span>
-          <h2 id="work-title">Evidence across industry, research, writing, and community.</h2>
+          <h2 id="work-title">Where this way of working has shown up in practice.</h2>
         </div>
         <div class="work-grid">
           ${renderSelectedWork(profile.selectedWork)}
@@ -237,7 +276,7 @@ ${JSON.stringify(
       <section class="section-shell writing-section" id="writing" aria-labelledby="writing-title">
         <div class="section-heading reveal">
           <span>Publications & Writing</span>
-          <h2 id="writing-title">Research and teaching with the through-line kept visible.</h2>
+          <h2 id="writing-title">Research and teaching, with the point of each item visible.</h2>
         </div>
         <div class="publication-list">
           ${renderPublications(profile.publications)}
@@ -247,19 +286,23 @@ ${JSON.stringify(
       <section class="section-shell leadership-section" id="leadership" aria-labelledby="leadership-title">
         <div class="section-heading reveal">
           <span>Leadership & Community</span>
-          <h2 id="leadership-title">Building useful structures around science.</h2>
+          <h2 id="leadership-title">Contributing to the communities around the work.</h2>
         </div>
         <div class="leadership-grid">
           ${renderLeadership(profile.leadership)}
         </div>
-        <div class="credentials-strip reveal">
-          <div>
-            <span>Education</span>
-            <ul>${renderSimpleList(profile.education)}</ul>
-          </div>
-          <div>
-            <span>Awards</span>
-            <ul>${renderSimpleList(profile.awards)}</ul>
+      </section>
+
+      <section class="section-shell beyond-section" id="beyond" aria-labelledby="beyond-title">
+        <div class="section-kicker reveal">
+          <span>Beyond the Work</span>
+          <p>Small signals of what I keep returning to.</p>
+        </div>
+        <div class="section-copy reveal">
+          <h2 id="beyond-title">${escapeHtml(profile.beyond.headline)}</h2>
+          <p>${escapeHtml(profile.beyond.text)}</p>
+          <div class="interest-cloud" aria-label="Professional and intellectual interests">
+            ${renderInterestList(profile.beyond.interests)}
           </div>
         </div>
       </section>
@@ -267,13 +310,11 @@ ${JSON.stringify(
       <section class="contact-section" id="contact" aria-labelledby="contact-title">
         <div class="section-shell contact-inner reveal">
           <p class="eyebrow">${escapeHtml(profile.location)}</p>
-          <h2 id="contact-title">For analytical work, technical strategy, or thoughtful collaboration.</h2>
-          <p>
-            Marco is open to conversations with companies, collaborators, investors, and professional contacts working near science, analytics, manufacturing, and business execution.
-          </p>
+          <h2 id="contact-title">${escapeHtml(profile.contact.headline)}</h2>
+          <p>${escapeHtml(profile.contact.text)}</p>
           <div class="hero__actions">
             <a class="button button-primary" href="mailto:${escapeHtml(profile.email)}">${escapeHtml(profile.email)}</a>
-            <a class="button button-secondary" href="${escapeHtml(profile.linkedIn)}" target="_blank" rel="noreferrer">LinkedIn profile</a>
+            <a class="button button-secondary" href="${escapeHtml(profile.linkedIn)}" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
           </div>
         </div>
       </section>
@@ -285,8 +326,10 @@ ${JSON.stringify(
           <a class="brand footer-brand" href="#top"><span>MAK</span></a>
           <p>${escapeHtml(profile.name)} · ${escapeHtml(profile.role)}</p>
         </div>
-        <div class="source-links" aria-label="Selected public references">
-          ${renderSources(profile.sources)}
+        <div class="footer-links" aria-label="Footer links">
+          <a href="mailto:${escapeHtml(profile.email)}">Email</a>
+          <a href="${escapeHtml(profile.linkedIn)}" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="#top">Back to top</a>
         </div>
       </div>
     </footer>
