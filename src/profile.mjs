@@ -16,7 +16,7 @@ export const profile = {
       "MBA Fellow at Collège des Ingénieurs · Manufacturing Analytics at Infineon · Doctoral Candidate in Physical Chemistry",
     headline: "I like complex systems, and making them understandable.",
     lead:
-      "I work on problems where careful analysis changes how people understand what is in front of them - from materials and experiments to business processes, markets, and decisions.",
+      "I work on problems where careful analysis changes what people can see in a system - from materials and experiments to business processes, markets, and decisions.",
     secondary:
       "My path has moved from ultrafast spectroscopy and 2D quantum materials into semiconductor analytics, practical AI questions, and company missions where the work has to hold up in real decisions.",
     journeyIntro: "From chemistry to systems",
@@ -44,7 +44,7 @@ export const profile = {
       {
         label: "Business & markets",
         detail:
-          "The MBA adds the translation layer: which analysis matters, who needs it, and how it changes execution, markets, and strategy."
+          "The MBA adds a practical question: which analysis matters, who needs it, and how it changes execution, markets, and strategy."
       }
     ]
   },
@@ -57,7 +57,7 @@ export const profile = {
     ],
     principles: [
       "Careful analysis before confident conclusions",
-      "Models and tools that survive contact with real data",
+      "Models and tools checked against real data",
       "Technical depth that still helps people decide"
     ]
   },
@@ -158,7 +158,7 @@ export const profile = {
     {
       title: "Data, AI, and decisions",
       text:
-        "I like analytics that make complex systems easier to inspect: clean data, careful models, useful visualizations, and AI tools that stay close to the question at hand.",
+        "I like analytics that make complex systems easier to inspect: clean data, careful models, useful visualizations, and AI-assisted tools that stay close to the question at hand.",
       visual: "data"
     },
     {
@@ -258,8 +258,8 @@ export const profile = {
         "Ongoing first-author work combining broadband fluorescence upconversion and femtosecond transient absorption to separate solvent relaxation and reabsorption effects in donor-acceptor chromophores.",
       href: "",
       visual: "dans",
-      visualTitle: "In prep",
-      visualNote: "DANS dynamics"
+      visualTitle: "Manuscript",
+      visualNote: "DANS study"
     },
     {
       type: "Co-author · accepted",

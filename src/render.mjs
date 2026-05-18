@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-publication-labels";
+const assetVersion = "20260518-final-persona-polish";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -54,7 +54,7 @@ const renderSelectedWork = (items) =>
   items
     .map(
       (item, index) => `
-        <article class="work-card work-card--${escapeHtml(item.visual || "default")} reveal" tabindex="0" style="--delay: ${index * 60}ms">
+        <article class="work-card work-card--${escapeHtml(item.visual || "default")} reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Show visual detail for ${escapeHtml(item.title)}" style="--delay: ${index * 60}ms">
           <div class="work-card__meta">
             <span>${escapeHtml(item.kicker)}</span>
             <time>${escapeHtml(item.period)}</time>
@@ -312,7 +312,10 @@ ${JSON.stringify(
         "Semiconductor front-end operations",
         "Ultrafast spectroscopy",
         "2D quantum materials",
+        "Materials science",
         "Data analysis",
+        "AI applications",
+        "Data visualization",
         "Business translation"
     ]
   },
@@ -371,7 +374,7 @@ ${renderSystemsThread()}
             <div class="hero__actions" aria-label="Primary actions">
               <a class="button button-primary" href="mailto:${escapeHtml(profile.email)}">Reach out</a>
               <a class="button button-secondary" href="${escapeHtml(profile.linkedIn)}" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a class="button button-secondary" href="${escapeHtml(profile.cvPath)}">Download CV</a>
+              <a class="button button-secondary" href="${escapeHtml(profile.cvPath)}" download>Download CV</a>
             </div>
           </div>
 

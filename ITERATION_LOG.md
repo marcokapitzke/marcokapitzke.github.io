@@ -484,3 +484,19 @@ Completed changes:
 - Changed the ChemPhotoChem tile from "FLUPS" to "Wiley" with "ChemPhotoChem · 2025."
 - Changed the Journal of Materials Chemistry C tile from "MoS2" to "RSC" with "J. Mater. Chem. C."
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 32: Final Persona Polish
+
+Feedback received:
+
+- Review the site through the eyes of a Google senior SWE, McKinsey QuantumBlack analyst, D. E. Shaw researcher / hiring manager, Times-style storyteller, and science illustrator.
+- Make only small refinements that improve the final impression.
+
+Completed changes:
+
+- Google SWE lens: added role, aria-pressed state, and clearer labels to interactive Selected Work cards; added a proper `download` attribute for the CV link; tightened skip-link hiding during pointer and hash navigation.
+- QuantumBlack lens: changed "AI tools" to "AI-assisted tools" and expanded structured-data topics to include AI applications and data visualization.
+- D. E. Shaw lens: changed a slogan-like principle to "Models and tools checked against real data."
+- Storytelling lens: tightened the hero lead and replaced "translation layer" with a more human MBA framing.
+- Science-illustration lens: changed the manuscript publication tile from "In prep" to "Manuscript" with a shorter "DANS study" supporting line that fits cleanly.
+- Updated the asset version for GitHub Pages cache busting after the final label adjustment.

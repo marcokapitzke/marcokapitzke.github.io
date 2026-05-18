@@ -255,21 +255,24 @@ function setupScrollConstellation() {
 
 function setupNavigation() {
   const skipLink = document.querySelector(".skip-link");
-  skipLink?.classList.remove("skip-link--visible");
+  const hideSkipLink = () => skipLink?.classList.remove("skip-link--visible");
+
+  hideSkipLink();
   window.setTimeout(() => {
     if (document.activeElement?.classList.contains("skip-link")) document.activeElement.blur();
-    skipLink?.classList.remove("skip-link--visible");
+    hideSkipLink();
   }, 0);
 
   window.addEventListener("keydown", (event) => {
     if (event.key === "Tab") skipLink?.classList.add("skip-link--visible");
   });
 
-  window.addEventListener("pointerdown", () => {
-    skipLink?.classList.remove("skip-link--visible");
-  });
+  window.addEventListener("pointerdown", hideSkipLink);
+  window.addEventListener("hashchange", hideSkipLink);
+  window.addEventListener("scroll", hideSkipLink, { passive: true });
 
   navToggle?.addEventListener("click", () => {
+    hideSkipLink();
     const isOpen = navToggle.getAttribute("aria-expanded") === "true";
     navToggle.setAttribute("aria-expanded", String(!isOpen));
     navLinks.classList.toggle("is-open", !isOpen);
@@ -278,6 +281,7 @@ function setupNavigation() {
 
   navAnchors.forEach((link) => {
     link.addEventListener("click", () => {
+      hideSkipLink();
       navToggle?.setAttribute("aria-expanded", "false");
       navLinks?.classList.remove("is-open");
       document.body.classList.remove("nav-open");
@@ -903,6 +907,7 @@ function setupWorkCards() {
   function clearActive(except = null) {
     cards.forEach((card) => {
       if (card !== except) card.classList.remove("is-active");
+      if (card !== except) card.setAttribute("aria-pressed", "false");
     });
   }
 
@@ -913,6 +918,7 @@ function setupWorkCards() {
       const wasActive = card.classList.contains("is-active");
       clearActive(card);
       card.classList.toggle("is-active", !wasActive);
+      card.setAttribute("aria-pressed", String(!wasActive));
     });
 
     card.addEventListener("keydown", (event) => {
@@ -926,6 +932,7 @@ function setupWorkCards() {
       const wasActive = card.classList.contains("is-active");
       clearActive(card);
       card.classList.toggle("is-active", !wasActive);
+      card.setAttribute("aria-pressed", String(!wasActive));
     });
   });
 
