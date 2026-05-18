@@ -388,3 +388,23 @@ Completed changes:
 - Increased the hero portrait circle from 88px to 96px on desktop and from 68px to 74px on mobile.
 - Shifted the portrait crop upward inside the circle so the face sits closer to the visual center.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 26: Copy Refinement and Link Depth
+
+Feedback received:
+
+- Several sections needed more precise, personal wording: less generic phrasing, more “why it matters,” and a more natural contact voice.
+- The Education section should read more like education and work experience, not a visible awards dashboard.
+- STEM scholarship, JCF, GDCh, FU mentoring, and Heinz-Schmidkunz Prize references should link to more relevant pages.
+- The Publications & Writing section should include the first-author DANS manuscript in preparation.
+- The contact CTA should say “Contact me,” with a small hover detail, and the closing area could benefit from a subtle connection/world-map visual.
+
+Completed changes:
+
+- Rewrote the hero lead, Data & Visual Thinking copy, Selected Work explanations, contact CTA, and Beyond the Work paragraph.
+- Renamed the credentials section to “Education & Work Experience,” with “Work experience” and “Recognition” as calmer column labels.
+- Added the DANS first-author manuscript in preparation at the top of Publications & Writing, based on the provided manuscript file.
+- Added contextual “why it matters” language for Infineon fab analytics, FLUPS instrumentation, Columbia 2D materials, and JCF Berlin work.
+- Linked the affiliation cards and Heinz-Schmidkunz committee reference, and updated the STEM scholarship link to the MLP scholarship recipients page.
+- Replaced the contact email text with “Contact me,” added a small “Just click ;)” hover state, and added a subtle connection-map background to the contact section.
+- Updated the asset version for GitHub Pages cache busting.

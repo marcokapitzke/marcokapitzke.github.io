@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-hero-speed-portrait";
+const assetVersion = "20260518-copy-refinement";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -92,14 +92,18 @@ const renderPublications = (items) =>
 
 const renderLeadership = (items) =>
   items
-    .map(
-      (item) => `
+    .map((item) => {
+      const title = item.href
+        ? `<a href="${escapeHtml(item.href)}"${linkAttributes(item.href)}>${escapeHtml(item.title)}</a>`
+        : escapeHtml(item.title);
+
+      return `
         <article class="leadership-item reveal" tabindex="0">
           <span>${escapeHtml(item.org)}</span>
-          <h3>${escapeHtml(item.title)}</h3>
+          <h3>${title}</h3>
           <p>${escapeHtml(item.text)}</p>
-        </article>`
-    )
+        </article>`;
+    })
     .join("");
 
 const renderSimpleList = (items) =>
@@ -158,13 +162,21 @@ const renderMarkList = (items) =>
         ? `<img src="${logoSrc}" alt="" loading="lazy" decoding="async">`
         : "";
 
-      return `
-        <div class="affiliation-mark">
+      const content = `
           <span class="affiliation-logo affiliation-logo--${escapeHtml(slugify(item.mark))}" aria-hidden="true">
             ${logo}
             <b>${escapeHtml(item.mark)}</b>
           </span>
-          <span>${escapeHtml(item.label)}</span>
+          <span>${escapeHtml(item.label)}</span>`;
+
+      return item.href
+        ? `
+        <a class="affiliation-mark" href="${escapeHtml(item.href)}"${linkAttributes(item.href)}>
+          ${content}
+        </a>`
+        : `
+        <div class="affiliation-mark">
+          ${content}
         </div>`;
     })
     .join("");
@@ -189,6 +201,34 @@ const renderBeyondStack = () => `
       <img src="public/beyond-chess.jpg?v=${assetVersion}" alt="" loading="lazy" decoding="async">
     </div>
   </div>`;
+
+const renderContactMap = () => `
+  <svg class="contact-map" viewBox="0 0 920 460" aria-hidden="true" focusable="false">
+    <g class="contact-map__grid">
+      <path d="M90 108c86-34 164-28 236 18s147 49 226 10 162-38 256 6" />
+      <path d="M76 246c106-48 211-45 314 8s201 47 294-18 154-70 196-15" />
+      <path d="M134 356c76-18 152-10 228 25s153 31 231-12 143-48 195-14" />
+    </g>
+    <g class="contact-map__nodes">
+      <circle cx="124" cy="122" r="3.2" />
+      <circle cx="238" cy="94" r="2.6" />
+      <circle cx="376" cy="148" r="3.4" />
+      <circle cx="528" cy="134" r="2.8" />
+      <circle cx="682" cy="98" r="3.2" />
+      <circle cx="812" cy="154" r="2.8" />
+      <circle cx="126" cy="266" r="3" />
+      <circle cx="284" cy="238" r="2.7" />
+      <circle cx="456" cy="282" r="3.5" />
+      <circle cx="618" cy="240" r="2.9" />
+      <circle cx="756" cy="206" r="3.2" />
+      <circle cx="826" cy="242" r="2.6" />
+      <circle cx="176" cy="360" r="2.7" />
+      <circle cx="328" cy="382" r="3.2" />
+      <circle cx="496" cy="390" r="2.6" />
+      <circle cx="656" cy="352" r="3.4" />
+      <circle cx="804" cy="362" r="2.8" />
+    </g>
+  </svg>`;
 
 const renderSources = (items) =>
   items
@@ -368,7 +408,7 @@ ${renderSystemsThread()}
 
       <section class="section-shell credentials-section" aria-labelledby="credentials-title">
         <div class="section-heading reveal">
-          <span>Education & Awards</span>
+          <span>Education & Work Experience</span>
           <h2 id="credentials-title">A path across research, high-tech industry, business, and international work.</h2>
         </div>
         <div class="credentials-strip reveal">
@@ -377,11 +417,11 @@ ${renderSystemsThread()}
             <ul>${renderCredentialItems(profile.credentials.education)}</ul>
           </div>
           <div>
-            <span>High-tech industry & research</span>
+            <span>Work experience</span>
             <ul>${renderCredentialItems(profile.credentials.highTech)}</ul>
           </div>
           <div>
-            <span>Awards</span>
+            <span>Recognition</span>
             <ul>${renderCredentialItems(profile.credentials.awards)}</ul>
           </div>
         </div>
@@ -415,7 +455,7 @@ ${renderSystemsThread()}
       <section class="section-shell" id="work" aria-labelledby="work-title">
         <div class="section-heading reveal">
           <span>Selected Work</span>
-          <h2 id="work-title">Where this way of working has shown up in practice.</h2>
+          <h2 id="work-title">Where the way of thinking became instruments, tools, decisions, and community.</h2>
         </div>
         <div class="work-grid">
           ${renderSelectedWork(profile.selectedWork)}
@@ -425,7 +465,7 @@ ${renderSystemsThread()}
       <section class="section-shell writing-section" id="writing" aria-labelledby="writing-title">
         <div class="section-heading reveal">
           <span>Publications & Writing</span>
-          <h2 id="writing-title">Research, teaching, and technical translation.</h2>
+          <h2 id="writing-title">Research, teaching, and making complex ideas usable.</h2>
         </div>
         <div class="publication-list">
           ${renderPublications(profile.publications)}
@@ -461,12 +501,13 @@ ${renderSystemsThread()}
       </section>
 
       <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        ${renderContactMap()}
         <div class="section-shell contact-inner reveal">
           <p class="eyebrow">${escapeHtml(profile.location)}</p>
           <h2 id="contact-title">${escapeHtml(profile.contact.headline)}</h2>
           <p>${escapeHtml(profile.contact.text)}</p>
           <div class="hero__actions">
-            <a class="button button-primary" href="mailto:${escapeHtml(profile.email)}">${escapeHtml(profile.email)}</a>
+            <a class="button button-primary contact-button" href="mailto:${escapeHtml(profile.email)}" data-hover="Just click ;)"><span>Contact me</span></a>
             <a class="button button-secondary" href="${escapeHtml(profile.linkedIn)}" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
           </div>
         </div>

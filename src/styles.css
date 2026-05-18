@@ -1512,6 +1512,19 @@ h3 {
   background: linear-gradient(160deg, rgba(168, 92, 58, 0.92), rgba(47, 111, 94, 0.92));
 }
 
+.publication__visual--dans {
+  background: linear-gradient(160deg, rgba(23, 23, 22, 0.94), rgba(94, 90, 127, 0.9));
+}
+
+.publication__visual--dans::before {
+  background:
+    radial-gradient(circle at 28% 26%, rgba(255, 255, 255, 0.68) 0 3px, transparent 4px),
+    radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.58) 0 3px, transparent 4px),
+    radial-gradient(circle at 72% 30%, rgba(255, 255, 255, 0.68) 0 3px, transparent 4px),
+    linear-gradient(28deg, transparent 0 32%, rgba(219, 154, 118, 0.36) 32% 34%, transparent 34% 53%, rgba(159, 198, 185, 0.28) 53% 55%, transparent 55%),
+    repeating-linear-gradient(105deg, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 12px);
+}
+
 .publication__visual--signal::before {
   background:
     radial-gradient(circle at 72% 22%, rgba(255, 255, 255, 0.7) 0 4px, transparent 5px),
@@ -1574,6 +1587,17 @@ h3 {
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.6);
   transition: opacity 280ms ease, transform 320ms var(--ease), background 320ms ease, filter 320ms ease;
+}
+
+a.affiliation-mark {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.affiliation-mark:hover {
+  border-color: rgba(47, 111, 94, 0.3);
+  background: rgba(238, 244, 237, 0.74);
+  transform: translateY(-2px);
 }
 
 .affiliation-logo {
@@ -1689,6 +1713,13 @@ h3 {
 .leadership-item h3 {
   font-size: 1.22rem;
   margin: 0.55rem 0 0.8rem;
+}
+
+.leadership-item h3 a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(47, 111, 94, 0.24);
+  text-underline-offset: 0.18em;
 }
 
 .leadership-grid:has(.leadership-item:is(:hover, :focus, .is-active)) .leadership-item:not(:hover):not(:focus):not(.is-active),
@@ -2113,11 +2144,41 @@ a.credential-item:focus-visible .credential-mark img {
 }
 
 .contact-section {
+  position: relative;
+  overflow: hidden;
   background: var(--ink);
   color: var(--paper);
 }
 
+.contact-map {
+  position: absolute;
+  inset: 8% -8% auto auto;
+  width: min(860px, 86vw);
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(22px);
+  transition: opacity 900ms var(--ease), transform 900ms var(--ease);
+}
+
+.contact-section:has(.contact-inner.is-visible) .contact-map {
+  opacity: 0.18;
+  transform: translateY(0);
+}
+
+.contact-map path {
+  fill: none;
+  stroke: rgba(247, 247, 242, 0.54);
+  stroke-width: 1;
+}
+
+.contact-map circle {
+  fill: rgba(247, 247, 242, 0.8);
+}
+
 .contact-inner {
+  position: relative;
+  z-index: 1;
   padding: 6rem 0;
   max-width: 860px;
 }
@@ -2142,6 +2203,38 @@ a.credential-item:focus-visible .credential-mark img {
   color: var(--paper);
   background: var(--accent);
   border-color: var(--accent);
+}
+
+.contact-button {
+  position: relative;
+  min-width: 150px;
+}
+
+.contact-button span {
+  transition: opacity 180ms ease, transform 220ms var(--ease);
+}
+
+.contact-button::after {
+  content: attr(data-hover);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: translateY(0.35rem);
+  transition: opacity 180ms ease, transform 220ms var(--ease);
+}
+
+.contact-button:hover span,
+.contact-button:focus-visible span {
+  opacity: 0;
+  transform: translateY(-0.35rem);
+}
+
+.contact-button:hover::after,
+.contact-button:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact-inner .button-secondary {

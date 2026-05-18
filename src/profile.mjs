@@ -16,7 +16,7 @@ export const profile = {
       "MBA Fellow at Collège des Ingénieurs · Manufacturing Analytics at Infineon · Doctoral Candidate in Physical Chemistry",
     headline: "I like complex systems, and making them understandable.",
     lead:
-      "I work on problems where careful analysis changes how people understand a system - whether that system is a molecule, an experiment, a manufacturing process, or a market.",
+      "I work on problems where careful analysis changes how people understand a system - whether that system is a material, an experiment, a business process, or a market.",
     secondary:
       "My path has moved from ultrafast spectroscopy and 2D quantum materials into semiconductor analytics, business questions, and systems where technical detail has to translate into decisions.",
     journeyIntro: "From chemistry to systems",
@@ -128,7 +128,7 @@ export const profile = {
         mark: "MLP",
         label: "STEM Scholarship",
         icon: "public/logo-mlp.png",
-        href: "https://mlp.de/",
+        href: "https://mlp-financify.de/mlp-stipendienprogramm/stipendiaten/",
         text: "MLP, 2025"
       },
       {
@@ -183,7 +183,7 @@ export const profile = {
   visualThinking: {
     headline: "I care about how insight is seen, not only how it is computed.",
     text:
-      "Good analysis has a visual discipline to it. A useful representation should make structure, transformation, and uncertainty visible without pretending the system is simpler than it is. I like data work where a technical pattern becomes clear enough for someone else to question it, trust it, and act on it.",
+      "For me, visual thinking is part of the analysis itself. A strong representation does not decorate a result; it helps people see what changed, where uncertainty remains, and why the next question matters. I like the moment when a complex pattern becomes something a scientist, operator, or strategist can point to, challenge, and use.",
     notes: []
   },
   selectedWork: [
@@ -192,7 +192,7 @@ export const profile = {
       title: "Manufacturing analytics in semiconductor front-end operations",
       period: "Since 02/2026 · Munich",
       text:
-        "I am working on the data foundations behind scalable fab analytics: integrating information from multiple databases, improving transparency, and developing statistical views of how material usage connects to wafer-level process steps.",
+        "I am working on the data foundations behind scalable fab analytics: integrating information from multiple databases, improving transparency, and developing statistical views of how material usage connects to wafer-level process steps. In a fab, better-connected data supports automation, cost transparency, and faster operational decisions.",
       visual: "infineon",
       insight: "Fab databases -> wafer-level process steps -> material allocation logic",
       tags: ["Fab data", "Process understanding", "Material allocation"]
@@ -202,7 +202,7 @@ export const profile = {
       title: "Ultrafast fluorescence instrumentation",
       period: "04/2022 - 12/2025 · Berlin",
       text:
-        "I helped build an ultrafast fluorescence upconversion spectroscopy setup, an instrument that makes extremely fast light-driven molecular processes visible on time scales that conventional measurements cannot resolve. Building it meant aligning optical precision, experimental design, software, and persistence into one working system.",
+        "I helped build an ultrafast fluorescence upconversion spectroscopy setup, an instrument that makes extremely fast light-driven molecular processes visible on time scales that conventional measurements cannot resolve. Building it meant bringing optical precision, timing control, experimental design, and analysis software into one working system.",
       visual: "flups",
       insight: "Optical alignment, delay control, broadband calibration, Python analysis",
       tags: ["Ultrafast spectroscopy", "Instrumentation", "Python analysis"]
@@ -212,7 +212,7 @@ export const profile = {
       title: "2D quantum materials and cleanroom work",
       period: "02/2024 - 05/2024 · New York City",
       text:
-        "At Columbia, I worked with 2D quantum materials, systems where atomic-scale structure can shape optical and electronic behavior. The cleanroom work gave me a different appreciation for precision: not only in data, but in fabrication, sample handling, and experimental discipline.",
+        "At Columbia, I worked with 2D quantum materials, systems where atomic-scale structure can shape optical and electronic behavior. That matters because as conventional device scaling becomes harder, atomic-scale control offers ways to engineer material properties beyond standard silicon electronics. The cleanroom work also sharpened my sense of precision in fabrication, handling, and experimental discipline.",
       visual: "columbia",
       insight: "Cleanroom discipline, 2D sample handling, optical characterization",
       tags: ["2D materials", "Cleanroom", "Raman spectroscopy"]
@@ -242,13 +242,25 @@ export const profile = {
       title: "Scientific community and student support",
       period: "04/2019 - 12/2025 · Berlin",
       text:
-        "I spent several years helping build scientific community through JCF Berlin: organizing events, supporting students, working on the forum's digital presence, and taking on media and committee responsibilities.",
+        "I spent several years helping build scientific community through JCF Berlin: organizing workshops, excursions, and major scientific events such as the JCF Frühjahrssymposium, supporting students, shaping the forum's digital presence, and helping move sustainability topics such as the Green Chemistry Commitment into the university conversation.",
       visual: "community",
       insight: "Events, mentoring, media leadership, web presence, scientific committee work",
       tags: ["Community", "Mentoring", "Digital presence"]
     }
   ],
   publications: [
+    {
+      type: "First-author manuscript · in preparation",
+      title:
+        "Excited-State Dynamics in Donor-Acceptor Stilbenes: The Role of Solvent Relaxation and Reabsorption",
+      venue: "Manuscript in preparation",
+      note:
+        "Ongoing first-author work combining broadband fluorescence upconversion and femtosecond transient absorption to separate solvent relaxation and reabsorption effects in donor-acceptor chromophores.",
+      href: "",
+      visual: "dans",
+      visualTitle: "DANS",
+      visualNote: "solvation & reabsorption"
+    },
     {
       type: "Co-author · accepted",
       title: "Accepted Journal of the American Chemical Society paper",
@@ -300,17 +312,20 @@ export const profile = {
     {
       mark: "JCF",
       label: "JungesChemieForum Berlin",
-      logo: "public/logo-jcf-berlin.svg"
+      logo: "public/logo-jcf-berlin.svg",
+      href: "https://jcf.io/berlin"
     },
     {
       mark: "GDCh",
       label: "Gesellschaft Deutscher Chemiker",
-      logo: "public/logo-gdch.png"
+      logo: "public/logo-gdch.png",
+      href: "https://www.gdch.de/gdch/ueber-uns/"
     },
     {
       mark: "FU",
       label: "Freie Universität Berlin",
-      logo: "public/logo-fu-berlin.png"
+      logo: "public/logo-fu-berlin.png",
+      href: "https://www.bcp.fu-berlin.de/en/studium-lehre/verwaltung/mentoring/index.html"
     }
   ],
   leadership: [
@@ -318,11 +333,12 @@ export const profile = {
       title: "Community building",
       org: "JungesChemieForum Berlin",
       text:
-        "I helped organize workshops, excursions, and conferences with people from science and industry while expanding the forum's digital presence."
+        "I helped organize workshops, excursions, and larger scientific events, including the JCF Frühjahrssymposium, while expanding the forum's digital presence."
     },
     {
       title: "Media and committee work",
       org: "German Chemical Society environment",
+      href: "https://www.gdch.de/gdch/preise-und-auszeichnungen/gdch-preise/heinz-schmidkunz-preis.html",
       text:
         "I took on leadership roles including Head of Media and first student member of the Heinz-Schmidkunz Award committee."
     },
@@ -330,27 +346,29 @@ export const profile = {
       title: "Mentoring",
       org: "Freie Universität Berlin",
       text:
-        "I mentored 20+ students per semester on academic strategy, research navigation, and early career decisions."
+        "I mentored 20+ students per semester on academic strategy, research navigation, and early career decisions in chemistry."
     }
   ],
   beyond: {
     headline: "What keeps me curious",
     text:
-      "Outside the main professional thread, I reset through movement: running, cycling, hiking, sports, and the gym. I am planning to run a half marathon next year. I also read widely, from fantasy novels to books on markets, decision-making, self-improvement, and how people think.",
+      "Outside the main professional thread, I reset through movement: running, cycling, hiking, sports, and the gym. I am planning a half marathon next year. I also read widely because the world keeps becoming more interesting once you look closely: markets, game theory, sustainability, visual communication, fantasy, and the craft of writing.",
     interests: [
       "using data to gain insight",
-      "portfolio construction and capital markets",
+      "capital markets",
       "game theory",
       "analytical decision-making",
       "art and visual communication",
-      "science and technology",
+      "sustainability",
+      "writing",
+      "reading",
       "manufacturing systems"
     ]
   },
   contact: {
-    headline: "If a complex system is worth understanding, I am happy to talk.",
+    headline: "If something here connects, I would be glad to hear from you.",
     text:
-      "If you are working on a problem where science, data, operations, or strategy meet, I am always open to a thoughtful conversation - about a collaboration, a role, a venture idea, or simply a system worth understanding better."
+      "I like talking with people who are building, analyzing, investing in, or simply trying to understand interesting systems. Especially when science, data, operations, strategy, or markets meet, a good conversation is often the best place to start."
   },
   sources: [
     {
@@ -375,7 +393,23 @@ export const profile = {
     },
     {
       label: "JCF Berlin",
-      href: "https://www.jcf-berlin.de/index.php/kontakt"
+      href: "https://jcf.io/berlin"
+    },
+    {
+      label: "GDCh",
+      href: "https://www.gdch.de/gdch/ueber-uns/"
+    },
+    {
+      label: "Heinz-Schmidkunz Prize",
+      href: "https://www.gdch.de/gdch/preise-und-auszeichnungen/gdch-preise/heinz-schmidkunz-preis.html"
+    },
+    {
+      label: "FU Berlin mentoring",
+      href: "https://www.bcp.fu-berlin.de/en/studium-lehre/verwaltung/mentoring/index.html"
+    },
+    {
+      label: "MLP scholarship recipients",
+      href: "https://mlp-financify.de/mlp-stipendienprogramm/stipendiaten/"
     }
   ]
 };
