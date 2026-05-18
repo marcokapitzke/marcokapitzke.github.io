@@ -143,6 +143,14 @@ Rationale: the workspace has Node available but no npm/yarn/pnpm. A zero-depende
 - Add a composed visual layer to "Beyond the Work" so the section suggests movement, routes, reading, and curiosity without becoming stock-photo heavy.
 - Keep this pass subtle: the logos should support credibility, and the personal visual should add warmth without distracting from the professional story.
 
+### Loop 8: Scroll Motion, Data Axis, and Education Icons
+
+- Enlarge the hero portrait while preserving a more zoomed-out feeling through a white inset and circular crop.
+- Add a subtle opening constellation that turns dots into connecting lines and fades as the visitor scrolls.
+- Expand the positioning network into a taller left-column field with more bouncing nodes and no bottom labels.
+- Add a measured axis and slower point/fit animation to the data visualization.
+- Add institution icons to the education path while keeping awards typographic and quiet.
+
 ## Validation Checklist
 
 - [x] `node src/render.mjs` completes successfully.

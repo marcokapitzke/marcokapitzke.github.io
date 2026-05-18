@@ -37,6 +37,104 @@ function updateActiveNav() {
   });
 }
 
+function setupScrollConstellation() {
+  const canvas = document.querySelector("[data-scroll-constellation]");
+  if (!canvas) return;
+
+  const context = canvas.getContext("2d");
+  let width = 0;
+  let height = 0;
+  let frame = 0;
+  let rafId = 0;
+
+  const points = [
+    { x: 0.08, y: 0.18, r: 2.4, color: "#2f6f5e" },
+    { x: 0.18, y: 0.34, r: 2.8, color: "#a85c3a" },
+    { x: 0.29, y: 0.22, r: 2.2, color: "#5e5a7f" },
+    { x: 0.38, y: 0.46, r: 2.6, color: "#2f6f5e" },
+    { x: 0.48, y: 0.16, r: 2.1, color: "#a85c3a" },
+    { x: 0.58, y: 0.36, r: 2.9, color: "#2f6f5e" },
+    { x: 0.69, y: 0.24, r: 2.2, color: "#5e5a7f" },
+    { x: 0.79, y: 0.44, r: 2.5, color: "#a85c3a" },
+    { x: 0.9, y: 0.2, r: 2.3, color: "#2f6f5e" },
+    { x: 0.14, y: 0.62, r: 2.1, color: "#5e5a7f" },
+    { x: 0.52, y: 0.68, r: 2.5, color: "#a85c3a" },
+    { x: 0.84, y: 0.64, r: 2.4, color: "#2f6f5e" }
+  ];
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+    draw();
+  }
+
+  function draw() {
+    const progress = Math.min(window.scrollY / Math.max(window.innerHeight * 0.82, 520), 1);
+    const fade = Math.max(0, 1 - progress * 1.28);
+    const lineIn = Math.min(Math.max((progress - 0.12) / 0.34, 0), 1);
+    const lineOut = Math.max(0, 1 - Math.max(progress - 0.58, 0) / 0.36);
+    const lineOpacity = lineIn * lineOut;
+
+    document.documentElement.style.setProperty("--constellation-opacity", String(fade * 0.72));
+    context.clearRect(0, 0, width, height);
+
+    const positioned = points.map((point, index) => {
+      const drift = prefersReducedMotion ? 0 : Math.sin(frame * 0.012 + index * 1.7) * 9;
+      return {
+        ...point,
+        px: point.x * width + drift + progress * (index % 2 ? -28 : 26),
+        py: point.y * height - progress * height * 0.18 + Math.cos(frame * 0.01 + index) * 6
+      };
+    });
+
+    if (lineOpacity > 0.01) {
+      for (let i = 0; i < positioned.length; i += 1) {
+        for (let j = i + 1; j < positioned.length; j += 1) {
+          const a = positioned[i];
+          const b = positioned[j];
+          const distance = Math.hypot(a.px - b.px, a.py - b.py);
+          const threshold = Math.min(width, height) * 0.28;
+          if (distance > threshold) continue;
+
+          context.beginPath();
+          context.strokeStyle = `rgba(47, 111, 94, ${lineOpacity * Math.max(0.04, 0.2 - distance / threshold * 0.15)})`;
+          context.lineWidth = 1;
+          context.moveTo(a.px, a.py);
+          context.lineTo(b.px, b.py);
+          context.stroke();
+        }
+      }
+    }
+
+    positioned.forEach((point) => {
+      context.beginPath();
+      context.fillStyle = point.color;
+      context.globalAlpha = fade * (0.48 + lineOpacity * 0.26);
+      context.arc(point.px, point.py, point.r * (1 - progress * 0.18), 0, Math.PI * 2);
+      context.fill();
+    });
+
+    context.globalAlpha = 1;
+  }
+
+  function animate() {
+    frame += 1;
+    draw();
+    if (!prefersReducedMotion) rafId = requestAnimationFrame(animate);
+  }
+
+  window.addEventListener("resize", resize);
+  window.addEventListener("scroll", draw, { passive: true });
+  resize();
+  if (!prefersReducedMotion) animate();
+
+  window.addEventListener("beforeunload", () => cancelAnimationFrame(rafId));
+}
+
 function setupNavigation() {
   navToggle?.addEventListener("click", () => {
     const isOpen = navToggle.getAttribute("aria-expanded") === "true";
@@ -281,14 +379,18 @@ function setupNetworkCanvas() {
   let isExpanded = false;
 
   const points = [
-    { x: 0.16, y: 0.22, vx: 0.18, vy: 0.12, color: "#2f6f5e", radius: 4.6 },
-    { x: 0.36, y: 0.18, vx: -0.12, vy: 0.18, color: "#a85c3a", radius: 3.8 },
-    { x: 0.68, y: 0.22, vx: 0.13, vy: -0.1, color: "#5e5a7f", radius: 4.2 },
-    { x: 0.82, y: 0.42, vx: -0.18, vy: 0.11, color: "#2f6f5e", radius: 4.8 },
-    { x: 0.58, y: 0.56, vx: 0.14, vy: 0.16, color: "#a85c3a", radius: 3.9 },
-    { x: 0.26, y: 0.62, vx: -0.16, vy: -0.12, color: "#5e5a7f", radius: 4.4 },
-    { x: 0.44, y: 0.78, vx: 0.12, vy: -0.18, color: "#2f6f5e", radius: 3.7 },
-    { x: 0.76, y: 0.76, vx: -0.1, vy: -0.16, color: "#a85c3a", radius: 4.1 }
+    { x: 0.12, y: 0.18, vx: 0.34, vy: 0.28, color: "#2f6f5e", radius: 4.6 },
+    { x: 0.28, y: 0.16, vx: -0.28, vy: 0.36, color: "#a85c3a", radius: 3.8 },
+    { x: 0.52, y: 0.18, vx: 0.31, vy: -0.25, color: "#5e5a7f", radius: 4.2 },
+    { x: 0.82, y: 0.24, vx: -0.38, vy: 0.24, color: "#2f6f5e", radius: 4.8 },
+    { x: 0.68, y: 0.42, vx: 0.3, vy: 0.34, color: "#a85c3a", radius: 3.9 },
+    { x: 0.18, y: 0.48, vx: -0.33, vy: -0.28, color: "#5e5a7f", radius: 4.4 },
+    { x: 0.4, y: 0.58, vx: 0.27, vy: -0.38, color: "#2f6f5e", radius: 3.7 },
+    { x: 0.78, y: 0.62, vx: -0.24, vy: -0.33, color: "#a85c3a", radius: 4.1 },
+    { x: 0.1, y: 0.78, vx: 0.38, vy: -0.22, color: "#2f6f5e", radius: 3.9 },
+    { x: 0.32, y: 0.82, vx: -0.31, vy: -0.27, color: "#a85c3a", radius: 3.6 },
+    { x: 0.56, y: 0.78, vx: 0.25, vy: 0.32, color: "#5e5a7f", radius: 4.5 },
+    { x: 0.88, y: 0.84, vx: -0.36, vy: -0.3, color: "#2f6f5e", radius: 4.2 }
   ];
 
   function resize() {
@@ -302,7 +404,7 @@ function setupNetworkCanvas() {
   }
 
   function drawLinks() {
-    const closeThreshold = Math.min(width, height) * 0.42;
+    const closeThreshold = Math.min(width, height) * 0.34;
 
     for (let i = 0; i < points.length; i += 1) {
       for (let j = i + 1; j < points.length; j += 1) {
@@ -356,8 +458,8 @@ function setupNetworkCanvas() {
       point.x += point.vx / width;
       point.y += point.vy / height;
 
-      if (point.x < 0.08 || point.x > 0.92) point.vx *= -1;
-      if (point.y < 0.12 || point.y > 0.88) point.vy *= -1;
+      if (point.x < 0.045 || point.x > 0.955) point.vx *= -1;
+      if (point.y < 0.045 || point.y > 0.955) point.vy *= -1;
     });
   }
 
@@ -394,6 +496,7 @@ function setupNetworkCanvas() {
 
 setupNavigation();
 setupReveal();
+setupScrollConstellation();
 setupSignalCanvas();
 setupNetworkCanvas();
 updateProgress();

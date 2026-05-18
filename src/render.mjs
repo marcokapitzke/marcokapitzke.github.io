@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-affiliations";
+const assetVersion = "20260518-visual-refinement";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -106,16 +106,26 @@ const renderSimpleList = (items) =>
 
 const renderCredentialItems = (items) =>
   items
-    .map(
-      (item) => `
+    .map((item) => {
+      const iconSrc = item.icon
+        ? `${escapeHtml(item.icon)}${item.icon.startsWith("http") ? "" : `?v=${assetVersion}`}`
+        : "";
+      const icon = iconSrc
+        ? `<img src="${iconSrc}" alt="" loading="lazy" decoding="async">`
+        : "";
+
+      return `
         <li>
-          <span class="credential-mark">${escapeHtml(item.mark)}</span>
+          <span class="credential-mark credential-mark--${escapeHtml(slugify(item.mark))}" aria-hidden="true">
+            ${icon}
+            <b>${escapeHtml(item.mark)}</b>
+          </span>
           <span>
             <strong>${escapeHtml(item.label)}</strong>
             ${escapeHtml(item.text)}
           </span>
-        </li>`
-    )
+        </li>`;
+    })
     .join("");
 
 const renderInterestList = (items) =>
@@ -154,11 +164,6 @@ const renderMarkList = (items) =>
 const renderNetworkField = () => `
   <div class="network-field" data-network-field aria-hidden="true">
     <canvas data-network-canvas width="660" height="430"></canvas>
-    <div class="network-field__labels">
-      <span>science</span>
-      <span>data</span>
-      <span>operations</span>
-    </div>
   </div>`;
 
 const renderDataSketch = () => `
@@ -171,6 +176,12 @@ const renderDataSketch = () => `
     </defs>
     <path class="data-grid-line" d="M 48 56 H 472 M 48 112 H 472 M 48 168 H 472 M 48 224 H 472"></path>
     <path class="data-grid-line" d="M 108 40 V 252 M 188 40 V 252 M 268 40 V 252 M 348 40 V 252 M 428 40 V 252"></path>
+    <g class="data-axis">
+      <path d="M 58 252 H 474 M 58 252 V 46"></path>
+      <path d="M 138 248 V 256 M 218 248 V 256 M 298 248 V 256 M 378 248 V 256 M 54 204 H 62 M 54 152 H 62 M 54 100 H 62"></path>
+      <text x="260" y="294">process window</text>
+      <text x="22" y="162" transform="rotate(-90 22 162)">measured response</text>
+    </g>
     <path class="decision-band" d="M 338 56 H 432 V 252 H 338 Z"></path>
     <path class="uncertainty-band" d="M 68 209 C 132 178, 172 134, 228 139 C 282 144, 321 105, 392 94 C 431 88, 458 96, 472 103 L 472 139 C 432 131, 399 124, 360 135 C 306 150, 274 188, 218 178 C 166 169, 126 207, 68 235 Z"></path>
     <path class="calibration-line" d="M 68 222 C 136 190, 170 150, 226 158 C 282 166, 316 128, 384 116 C 424 109, 454 116, 472 122"></path>
@@ -269,6 +280,7 @@ ${JSON.stringify(
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="page-progress" aria-hidden="true"><span></span></div>
+    <canvas class="scroll-constellation" data-scroll-constellation aria-hidden="true"></canvas>
 
     <header class="site-header" data-header>
       <nav class="nav" aria-label="Primary navigation">

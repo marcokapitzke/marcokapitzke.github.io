@@ -85,3 +85,22 @@ Completed changes:
 - Added local logo assets for JCF Berlin, GDCh, and Freie Universität Berlin and placed them inside refined affiliation circles.
 - Added a small abstract card stack to "Beyond the Work" representing a trail, route, and reading / visual thinking.
 - Kept the pass restrained so the site remains mostly white, editorial, and professional.
+
+## Iteration 7: Scroll Motion, Data Axis, and Education Icons
+
+Feedback received:
+
+- Make the portrait roughly 15-20% larger and slightly less tightly cropped.
+- Add a D. E. Shaw-inspired opening visual where dots resolve into lines and fade on scroll.
+- Keep the data visualization but add axes, slower motion, and a more deliberate reveal of data points.
+- Remove the positioning labels "science / data / operations"; let the network field fill more of the left side with more, faster bouncing nodes.
+- Add correct education icons where they are available.
+- Make the "Beyond the Work" visual feel more like an editorial / BCG-inspired photo stack.
+
+Planned changes:
+
+- Add a fixed, subtle scroll constellation canvas behind the opening sections.
+- Update the portrait sizing and inset treatment.
+- Extend the positioning network field and increase node count / speed.
+- Add local logo assets for CDI, HU, Columbia, and FU in the education row.
+- Refine the Beyond visual stack to feel more photographic while staying CSS-native and lightweight.

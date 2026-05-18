@@ -66,22 +66,26 @@ export const profile = {
       {
         mark: "CDI",
         label: "Collège des Ingénieurs",
+        icon: "public/logo-cdi.png",
         text:
           "MBA Fellow, selected for a fully funded multinational program in Paris, Munich, and Turin"
       },
       {
         mark: "HU",
         label: "Humboldt-Universität zu Berlin",
+        icon: "public/logo-hu-berlin.svg",
         text: "Doctoral Candidate in Physical Chemistry"
       },
       {
         mark: "CU",
         label: "Columbia University",
+        icon: "public/logo-columbia.png",
         text: "Visiting Researcher in New York City"
       },
       {
         mark: "FU",
         label: "Freie Universität Berlin",
+        icon: "public/logo-fu-berlin.png",
         text: "B.Sc. and M.Sc. Chemistry"
       }
     ],

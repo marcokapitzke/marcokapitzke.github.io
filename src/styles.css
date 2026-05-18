@@ -110,6 +110,24 @@ textarea {
   background: linear-gradient(90deg, var(--accent), var(--rust));
 }
 
+.scroll-constellation {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  opacity: var(--constellation-opacity, 0.8);
+  transition: opacity 180ms ease;
+}
+
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -230,11 +248,14 @@ textarea {
 }
 
 .profile-lockup img {
-  width: 94px;
-  height: 94px;
+  width: 112px;
+  height: 112px;
+  box-sizing: border-box;
+  padding: 6px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: 50% 44%;
+  object-position: 50% 50%;
+  background: #ffffff;
   border: 1px solid rgba(203, 210, 202, 0.92);
   box-shadow: 0 16px 42px rgba(23, 23, 22, 0.12);
 }
@@ -533,8 +554,8 @@ h3 {
 .network-field {
   position: relative;
   margin-top: 2.2rem;
-  width: min(100%, 350px);
-  min-height: 230px;
+  width: 100%;
+  min-height: clamp(420px, 42vw, 540px);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   background:
@@ -547,17 +568,7 @@ h3 {
 
 .network-field canvas {
   width: 100%;
-  height: 230px;
-}
-
-.network-field__labels {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.72rem 0.85rem;
-  border-top: 1px solid var(--line);
-  color: var(--quiet);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.86rem;
+  height: clamp(420px, 42vw, 540px);
 }
 
 .section-copy {
@@ -777,6 +788,20 @@ h3 {
   stroke-width: 1;
 }
 
+.data-axis path {
+  fill: none;
+  stroke: rgba(23, 23, 22, 0.24);
+  stroke-width: 1.1;
+  vector-effect: non-scaling-stroke;
+}
+
+.data-axis text {
+  fill: rgba(23, 23, 22, 0.46);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
 .decision-band {
   fill: rgba(168, 92, 58, 0.08);
   stroke: rgba(168, 92, 58, 0.18);
@@ -804,12 +829,53 @@ h3 {
 }
 
 .sample-points circle {
+  opacity: 0;
   fill: #ffffff;
   stroke: rgba(23, 23, 22, 0.54);
   stroke-width: 1.4;
   transform-box: fill-box;
   transform-origin: center;
   transition: fill 220ms ease, stroke 220ms ease, transform 220ms ease;
+}
+
+.data-etching.is-visible .sample-points circle {
+  animation: data-point-in 1150ms cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.data-etching.is-visible .sample-points circle:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.data-etching.is-visible .sample-points circle:nth-child(3) {
+  animation-delay: 210ms;
+}
+
+.data-etching.is-visible .sample-points circle:nth-child(4) {
+  animation-delay: 300ms;
+}
+
+.data-etching.is-visible .sample-points circle:nth-child(5) {
+  animation-delay: 390ms;
+}
+
+.data-etching.is-visible .sample-points circle:nth-child(6) {
+  animation-delay: 480ms;
+}
+
+.data-etching.is-visible .sample-points circle:nth-child(7) {
+  animation-delay: 570ms;
+}
+
+.data-etching.is-visible .sample-points circle:nth-child(8) {
+  animation-delay: 660ms;
+}
+
+.data-etching.is-visible .sample-points circle:nth-child(9) {
+  animation-delay: 750ms;
+}
+
+.data-etching.is-visible .sample-points circle:nth-child(10) {
+  animation-delay: 840ms;
 }
 
 .data-etching:hover .decision-band {
@@ -825,7 +891,7 @@ h3 {
 .data-etching:hover .calibration-line {
   stroke: rgba(47, 111, 94, 1);
   stroke-width: 3.6;
-  animation: fit-trace 900ms ease both;
+  animation: fit-trace 1650ms ease both;
 }
 
 .data-etching:hover .sample-points circle {
@@ -1198,7 +1264,7 @@ h3 {
 
 .credentials-strip li {
   display: grid;
-  grid-template-columns: 54px minmax(0, 1fr);
+  grid-template-columns: 62px minmax(0, 1fr);
   gap: 0.78rem;
   align-items: start;
   line-height: 1.45;
@@ -1206,10 +1272,12 @@ h3 {
 }
 
 .credential-mark {
+  position: relative;
   display: grid;
   place-items: center;
-  min-width: 48px;
-  min-height: 48px;
+  min-width: 56px;
+  min-height: 56px;
+  overflow: hidden;
   border: 1px solid var(--line-strong);
   border-radius: 50%;
   color: var(--accent);
@@ -1217,6 +1285,42 @@ h3 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 0.78rem;
   font-weight: 700;
+}
+
+.credential-mark img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  max-width: 72%;
+  max-height: 72%;
+  object-fit: contain;
+}
+
+.credential-mark img + b {
+  opacity: 0;
+}
+
+.credential-mark b {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.credential-mark--cdi img {
+  max-width: 92%;
+  max-height: 92%;
+}
+
+.credential-mark--hu img,
+.credential-mark--fu img {
+  max-width: 76%;
+  max-height: 76%;
+}
+
+.credential-mark--cu img {
+  max-width: 68%;
+  max-height: 78%;
 }
 
 .credentials-strip li strong {
@@ -1240,15 +1344,15 @@ h3 {
 
 .beyond-stack {
   position: relative;
-  width: min(100%, 360px);
-  height: 306px;
-  margin-top: 2.25rem;
+  width: min(100%, 400px);
+  height: 342px;
+  margin-top: 2.35rem;
 }
 
 .beyond-frame {
   position: absolute;
   overflow: hidden;
-  border: 1px solid rgba(31, 46, 43, 0.14);
+  border: 1px solid rgba(31, 46, 43, 0.16);
   border-radius: 10px;
   background: #ffffff;
   box-shadow: 0 24px 54px rgba(31, 46, 43, 0.12);
@@ -1260,16 +1364,18 @@ h3 {
 }
 
 .beyond-frame--trail {
-  left: 0.25rem;
+  left: 0;
   top: 0.2rem;
-  width: 248px;
-  height: 164px;
+  width: 292px;
+  height: 188px;
   transform: rotate(-5deg);
   background:
-    radial-gradient(circle at 78% 22%, rgba(255, 255, 255, 0.9) 0 11px, rgba(221, 151, 102, 0.34) 12px 22px, transparent 23px),
+    linear-gradient(180deg, rgba(18, 32, 38, 0.12), transparent 36%),
+    radial-gradient(circle at 78% 22%, rgba(255, 255, 255, 0.92) 0 12px, rgba(221, 151, 102, 0.38) 13px 24px, transparent 25px),
+    linear-gradient(130deg, transparent 0 47%, rgba(255, 255, 255, 0.22) 47.3% 49.5%, transparent 50%),
     linear-gradient(156deg, transparent 0 48%, rgba(47, 111, 94, 0.18) 48.3% 50%, transparent 50.4%),
     linear-gradient(148deg, transparent 0 54%, rgba(31, 46, 43, 0.14) 54.3% 56%, transparent 56.4%),
-    linear-gradient(180deg, #dce8ed 0 49%, #e9eee3 49% 70%, #d3dfcf 70% 100%);
+    linear-gradient(180deg, #dce8ed 0 46%, #e9eee3 46% 68%, #d3dfcf 68% 100%);
 }
 
 .beyond-frame--trail::before,
@@ -1295,20 +1401,20 @@ h3 {
 
 .beyond-path {
   position: absolute;
-  left: 29%;
+  left: 26%;
   bottom: 0;
-  width: 42%;
-  height: 64%;
-  border-right: 3px solid rgba(255, 255, 255, 0.78);
+  width: 48%;
+  height: 67%;
+  border-right: 3px solid rgba(255, 255, 255, 0.82);
   border-radius: 0 0 70% 0;
   transform: rotate(13deg);
 }
 
 .beyond-frame--route {
-  right: 0.15rem;
-  top: 6.35rem;
-  width: 238px;
-  height: 152px;
+  right: 0.05rem;
+  top: 7.2rem;
+  width: 264px;
+  height: 164px;
   transform: rotate(4deg);
   background:
     linear-gradient(rgba(47, 111, 94, 0.08) 1px, transparent 1px),
@@ -1353,10 +1459,10 @@ h3 {
 }
 
 .beyond-frame--pages {
-  left: 2.8rem;
-  bottom: 0.2rem;
-  width: 228px;
-  height: 138px;
+  left: 3.2rem;
+  bottom: 0;
+  width: 252px;
+  height: 150px;
   display: grid;
   place-items: center;
   transform: rotate(-1.4deg);
@@ -1523,6 +1629,18 @@ h3 {
   }
 }
 
+@keyframes data-point-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.76);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @media (max-width: 1040px) {
   h1 {
     font-size: 2.62rem;
@@ -1661,6 +1779,12 @@ h3 {
     bottom: 8.6rem;
   }
 
+  .network-field,
+  .network-field canvas {
+    min-height: 320px;
+    height: 320px;
+  }
+
   .focus-card,
   .work-card,
   .leadership-item {
@@ -1668,20 +1792,20 @@ h3 {
   }
 
   .beyond-stack {
-    height: 270px;
+    height: 304px;
     margin-top: 1.6rem;
   }
 
   .beyond-frame--trail {
-    width: min(248px, 74vw);
+    width: min(292px, 82vw);
   }
 
   .beyond-frame--route {
-    width: min(238px, 72vw);
+    width: min(264px, 78vw);
   }
 
   .beyond-frame--pages {
-    width: min(228px, 68vw);
+    width: min(252px, 72vw);
   }
 
   .card-index {
@@ -1720,8 +1844,9 @@ h3 {
   }
 
   .profile-lockup img {
-    width: 78px;
-    height: 78px;
+    width: 92px;
+    height: 92px;
+    padding: 5px;
   }
 
   .data-etching {

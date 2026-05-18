@@ -32,6 +32,8 @@ The tone should be calm, precise, warm, understated, and human.
 - Include one subtle data-display moment to show an eye for visual communication and analytical beauty without turning the site into a portfolio.
 - Use real affiliation logos sparingly where they clarify community and institutional context, while keeping the surrounding typography calm.
 - Give the "Beyond the work" section a small editorial visual layer so the personal section feels composed rather than empty or purely text-based.
+- Add one restrained scroll-reactive ambient graphic near the opening: dots resolving briefly into lines and fading as the page moves from introduction into content.
+- Keep the portrait warm and slightly larger, but avoid making the hero feel like a social profile.
 - Keep the site premium, whitespace-driven, and memorable without becoming flashy.
 
 ## Interaction Principle
