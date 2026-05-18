@@ -189,6 +189,13 @@ Rationale: the workspace has Node available but no npm/yarn/pnpm. A zero-depende
 - Replace generated hover texture with dedicated topic-specific visual assets for data systems, semiconductors, molecular optics, and business / markets.
 - Keep the positioning animation borderless and alive, so it supports the copy without becoming a boxed widget.
 
+### Loop 14: Quiet Wow Factor
+
+- Add a small, institutional detail that connects the page vertically rather than adding another decorative object.
+- Introduce a systems thread for large screens that tracks the story from science to instruments, data, systems, markets, and people.
+- Give the opening constellation one purposeful moving point, suggesting a path through the network without becoming flashy.
+- Verify that the new interaction does not overlap content, distract from copy, or harm mobile readability.
+
 ## Validation Checklist
 
 - [x] `node src/render.mjs` completes successfully.

@@ -45,6 +45,7 @@ The tone should be calm, precise, warm, understated, and human.
 - Keep the site premium, whitespace-driven, and memorable without becoming flashy.
 - The first viewport may lean closer to the institutional D. E. Shaw reference: dark field, compact bottom-left identity, visible analytical pattern, and a quiet transition into content.
 - Focus-card hover backgrounds should be recognizable topic imagery, not miniature charts. Use purpose-built assets or photo-like editorial systems that suggest data infrastructure, wafer/process work, molecular optics, and business / market systems.
+- A small "wow" moment is appropriate only when it strengthens the narrative. Prefer a scroll-aware systems thread, purposeful path motion, or precise data behavior over decorative animation.
 
 ## Interaction Principle
 
@@ -60,7 +61,7 @@ The path interaction should connect:
 
 The visible node controls should read like a confident path, not like instructions or prompt language. Hovering or focusing the numbered controls should reveal short fragments of the path and update the visual. Hovering directly over the path nodes may trigger the same state, but the behavior should stay calm and explanatory.
 
-The positioning section should use its visual side for a quiet, borderless system field inspired by connected research, data, business, markets, and leadership contexts. It should support the copy about seeing systems clearly.
+The positioning section should use its visual side for a quiet, borderless system field inspired by connected research, data, business, markets, and leadership contexts. It should support the copy about seeing systems clearly. Any persistent navigation-like detail should feel like an institutional reading aid, not like a novelty widget.
 
 ## Content Priorities
 

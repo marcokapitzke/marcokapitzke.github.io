@@ -193,3 +193,17 @@ Completed changes:
 - Added purpose-built focus hover assets for data systems, semiconductor wafer/process work, molecular optics/materials, and markets/strategy.
 - Moved the positioning label to the copy side and kept the right side as a borderless moving systems field.
 - Increased node count and speed variation in the positioning animation, with wraparound motion rather than hard box edges.
+
+## Iteration 13: Quiet Wow Detail
+
+Design intent:
+
+- Add one memorable detail that makes the page feel designed as a connected system, not a collection of sections.
+- Keep the effect professional, quiet, and meaningful for deep-tech, quant, and strategy audiences.
+
+Completed changes:
+
+- Added a desktop-only systems thread that appears after the opening and tracks the page's arc from science to instruments, data, systems, markets, and people.
+- Added a subtle moving point along the opening constellation path so the hero pattern reads as a journey through connected systems.
+- Added a direct `visual-thinking` section anchor so the systems thread can track the data visualization moment precisely.
+- Updated the asset version for GitHub Pages cache busting.

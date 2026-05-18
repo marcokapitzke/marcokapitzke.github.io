@@ -6,6 +6,8 @@ const navAnchors = [...document.querySelectorAll(".nav-links a[href^='#']")];
 const sections = navAnchors
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
+const systemsThread = document.querySelector("[data-systems-thread]");
+const threadSteps = systemsThread ? [...systemsThread.querySelectorAll("[data-thread-target]")] : [];
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -34,6 +36,30 @@ function updateActiveNav() {
 
   navAnchors.forEach((link) => {
     link.classList.toggle("is-active", link.getAttribute("href") === `#${current.id}`);
+  });
+}
+
+function updateSystemsThread() {
+  if (!systemsThread || !threadSteps.length) return;
+
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const pageProgress = scrollable > 0 ? window.scrollY / scrollable : 0;
+  const reveal = Math.min(
+    Math.max((window.scrollY - window.innerHeight * 0.72) / Math.max(window.innerHeight * 0.34, 1), 0),
+    1
+  );
+  const markerY = window.scrollY + window.innerHeight * 0.42;
+  let activeIndex = 0;
+
+  threadSteps.forEach((step, index) => {
+    const target = document.getElementById(step.dataset.threadTarget);
+    if (target && target.offsetTop <= markerY) activeIndex = index;
+  });
+
+  systemsThread.style.setProperty("--thread-opacity", String(reveal * 0.92));
+  systemsThread.style.setProperty("--thread-progress", String(Math.min(Math.max(pageProgress, 0), 1)));
+  threadSteps.forEach((step, index) => {
+    step.classList.toggle("is-active", index === activeIndex);
   });
 }
 
@@ -138,6 +164,41 @@ function setupScrollConstellation() {
       context.strokeStyle = `rgba(219, 154, 118, ${fade * 0.34})`;
       context.lineWidth = 1.4;
       context.stroke();
+
+      const segmentLengths = [];
+      const totalLength = route.reduce((sum, point, index) => {
+        if (index === 0) return 0;
+
+        const previous = route[index - 1];
+        const length = Math.hypot(point.px - previous.px, point.py - previous.py);
+        segmentLengths.push(length);
+        return sum + length;
+      }, 0);
+
+      let traveled = ((frame * 0.0025) % 1) * totalLength;
+      for (let index = 1; index < route.length; index += 1) {
+        const segmentLength = segmentLengths[index - 1];
+        if (traveled > segmentLength) {
+          traveled -= segmentLength;
+          continue;
+        }
+
+        const previous = route[index - 1];
+        const point = route[index];
+        const ratio = segmentLength ? traveled / segmentLength : 0;
+        const x = previous.px + (point.px - previous.px) * ratio;
+        const y = previous.py + (point.py - previous.py) * ratio;
+
+        context.beginPath();
+        context.fillStyle = `rgba(251, 251, 248, ${fade * 0.88})`;
+        context.arc(x, y, 3.2, 0, Math.PI * 2);
+        context.fill();
+        context.beginPath();
+        context.strokeStyle = `rgba(219, 154, 118, ${fade * 0.44})`;
+        context.arc(x, y, 8.5, 0, Math.PI * 2);
+        context.stroke();
+        break;
+      }
     }
 
     const streak = lineIn * lineOut * 34;
@@ -178,6 +239,21 @@ function setupScrollConstellation() {
 }
 
 function setupNavigation() {
+  const skipLink = document.querySelector(".skip-link");
+  skipLink?.classList.remove("skip-link--visible");
+  window.setTimeout(() => {
+    if (document.activeElement?.classList.contains("skip-link")) document.activeElement.blur();
+    skipLink?.classList.remove("skip-link--visible");
+  }, 0);
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Tab") skipLink?.classList.add("skip-link--visible");
+  });
+
+  window.addEventListener("pointerdown", () => {
+    skipLink?.classList.remove("skip-link--visible");
+  });
+
   navToggle?.addEventListener("click", () => {
     const isOpen = navToggle.getAttribute("aria-expanded") === "true";
     navToggle.setAttribute("aria-expanded", String(!isOpen));
@@ -563,8 +639,12 @@ setupSignalCanvas();
 setupNetworkCanvas();
 updateProgress();
 updateActiveNav();
+updateSystemsThread();
 
 window.addEventListener("scroll", () => {
   updateProgress();
   updateActiveNav();
+  updateSystemsThread();
 });
+
+window.addEventListener("resize", updateSystemsThread);

@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-institutional-systems";
+const assetVersion = "20260518-systems-thread";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -232,6 +232,38 @@ const renderSources = (items) =>
     )
     .join("");
 
+const renderSystemsThread = () => `
+    <aside class="systems-thread" data-systems-thread aria-hidden="true">
+      <div class="systems-thread__rail"><span></span></div>
+      <p>Systems thread</p>
+      <ol>
+        <li data-thread-target="top">
+          <span>01</span>
+          <b>Science</b>
+        </li>
+        <li data-thread-target="opening-thread">
+          <span>02</span>
+          <b>Instruments</b>
+        </li>
+        <li data-thread-target="focus">
+          <span>03</span>
+          <b>Data</b>
+        </li>
+        <li data-thread-target="visual-thinking">
+          <span>04</span>
+          <b>Systems</b>
+        </li>
+        <li data-thread-target="writing">
+          <span>05</span>
+          <b>Markets</b>
+        </li>
+        <li data-thread-target="contact">
+          <span>06</span>
+          <b>People</b>
+        </li>
+      </ol>
+    </aside>`;
+
 const page = `<!doctype html>
 <html lang="en">
   <head>
@@ -287,6 +319,7 @@ ${JSON.stringify(
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="page-progress" aria-hidden="true"><span></span></div>
     <canvas class="scroll-constellation" data-scroll-constellation aria-hidden="true"></canvas>
+${renderSystemsThread()}
 
     <header class="site-header" data-header>
       <nav class="nav" aria-label="Primary navigation">
@@ -394,7 +427,7 @@ ${JSON.stringify(
         </div>
       </section>
 
-      <section class="section-shell visual-thinking-section" aria-labelledby="visual-thinking-title">
+      <section class="section-shell visual-thinking-section" id="visual-thinking" aria-labelledby="visual-thinking-title">
         <div class="visual-thinking-copy reveal">
           <span>Data & Visual Thinking</span>
           <h2 id="visual-thinking-title">${escapeHtml(profile.visualThinking.headline)}</h2>
