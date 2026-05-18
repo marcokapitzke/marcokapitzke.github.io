@@ -34,6 +34,9 @@ The tone should be calm, precise, warm, understated, and human.
 - Give the "Beyond the work" section a small editorial visual layer so the personal section feels composed rather than empty or purely text-based.
 - Add one restrained scroll-reactive ambient graphic near the opening: dots resolving briefly into lines and fading as the page moves from introduction into content.
 - Keep the portrait warm and slightly larger, but avoid making the hero feel like a social profile.
+- Do not frame the portrait with a heavy white ring; the photo itself should do the humanizing work.
+- Use award marks where they help credibility, but scale them like editorial marks rather than loud badges.
+- Make data and focus visuals readable at a glance: wafer, molecular lattice, fitted signal, decision curve, and arrow axes should be visually evident without explanatory labels.
 - Keep the site premium, whitespace-driven, and memorable without becoming flashy.
 
 ## Interaction Principle

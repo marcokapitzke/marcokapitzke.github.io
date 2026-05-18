@@ -48,19 +48,39 @@ function setupScrollConstellation() {
   let rafId = 0;
 
   const points = [
-    { x: 0.08, y: 0.18, r: 2.4, color: "#2f6f5e" },
-    { x: 0.18, y: 0.34, r: 2.8, color: "#a85c3a" },
-    { x: 0.29, y: 0.22, r: 2.2, color: "#5e5a7f" },
-    { x: 0.38, y: 0.46, r: 2.6, color: "#2f6f5e" },
-    { x: 0.48, y: 0.16, r: 2.1, color: "#a85c3a" },
-    { x: 0.58, y: 0.36, r: 2.9, color: "#2f6f5e" },
-    { x: 0.69, y: 0.24, r: 2.2, color: "#5e5a7f" },
-    { x: 0.79, y: 0.44, r: 2.5, color: "#a85c3a" },
-    { x: 0.9, y: 0.2, r: 2.3, color: "#2f6f5e" },
-    { x: 0.14, y: 0.62, r: 2.1, color: "#5e5a7f" },
-    { x: 0.52, y: 0.68, r: 2.5, color: "#a85c3a" },
-    { x: 0.84, y: 0.64, r: 2.4, color: "#2f6f5e" }
+    { x: 0.06, y: 0.2, r: 1.7, tone: "green" },
+    { x: 0.13, y: 0.12, r: 1.3, tone: "ink" },
+    { x: 0.17, y: 0.36, r: 1.9, tone: "rust" },
+    { x: 0.23, y: 0.24, r: 1.4, tone: "green" },
+    { x: 0.29, y: 0.15, r: 1.6, tone: "violet" },
+    { x: 0.33, y: 0.42, r: 1.8, tone: "ink" },
+    { x: 0.39, y: 0.29, r: 1.4, tone: "green" },
+    { x: 0.45, y: 0.11, r: 1.8, tone: "rust" },
+    { x: 0.49, y: 0.5, r: 1.5, tone: "green" },
+    { x: 0.55, y: 0.24, r: 2, tone: "ink" },
+    { x: 0.6, y: 0.39, r: 1.4, tone: "green" },
+    { x: 0.64, y: 0.13, r: 1.5, tone: "violet" },
+    { x: 0.7, y: 0.28, r: 1.9, tone: "rust" },
+    { x: 0.75, y: 0.48, r: 1.5, tone: "green" },
+    { x: 0.81, y: 0.18, r: 1.7, tone: "ink" },
+    { x: 0.88, y: 0.34, r: 1.4, tone: "green" },
+    { x: 0.94, y: 0.22, r: 1.8, tone: "violet" },
+    { x: 0.1, y: 0.58, r: 1.5, tone: "green" },
+    { x: 0.21, y: 0.66, r: 1.4, tone: "ink" },
+    { x: 0.31, y: 0.61, r: 1.6, tone: "rust" },
+    { x: 0.42, y: 0.7, r: 1.3, tone: "green" },
+    { x: 0.53, y: 0.63, r: 1.7, tone: "violet" },
+    { x: 0.67, y: 0.68, r: 1.4, tone: "green" },
+    { x: 0.79, y: 0.61, r: 1.6, tone: "ink" },
+    { x: 0.91, y: 0.66, r: 1.4, tone: "rust" }
   ];
+
+  const tones = {
+    green: "47, 111, 94",
+    rust: "168, 92, 58",
+    violet: "94, 90, 127",
+    ink: "23, 23, 22"
+  };
 
   function resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -74,20 +94,21 @@ function setupScrollConstellation() {
 
   function draw() {
     const progress = Math.min(window.scrollY / Math.max(window.innerHeight * 0.82, 520), 1);
-    const fade = Math.max(0, 1 - progress * 1.28);
+    const fade = Math.max(0, 1 - progress * 1.34);
     const lineIn = Math.min(Math.max((progress - 0.12) / 0.34, 0), 1);
     const lineOut = Math.max(0, 1 - Math.max(progress - 0.58, 0) / 0.36);
-    const lineOpacity = lineIn * lineOut;
+    const restingMesh = Math.max(0, 0.28 - progress * 0.22);
+    const lineOpacity = Math.max(restingMesh, lineIn * lineOut);
 
-    document.documentElement.style.setProperty("--constellation-opacity", String(fade * 0.72));
+    document.documentElement.style.setProperty("--constellation-opacity", String(fade * 0.62));
     context.clearRect(0, 0, width, height);
 
     const positioned = points.map((point, index) => {
-      const drift = prefersReducedMotion ? 0 : Math.sin(frame * 0.012 + index * 1.7) * 9;
+      const drift = prefersReducedMotion ? 0 : Math.sin(frame * 0.008 + index * 1.7) * 7;
       return {
         ...point,
-        px: point.x * width + drift + progress * (index % 2 ? -28 : 26),
-        py: point.y * height - progress * height * 0.18 + Math.cos(frame * 0.01 + index) * 6
+        px: point.x * width + drift + progress * (index % 2 ? -36 : 34),
+        py: point.y * height - progress * height * 0.22 + Math.cos(frame * 0.007 + index) * 5
       };
     });
 
@@ -97,11 +118,11 @@ function setupScrollConstellation() {
           const a = positioned[i];
           const b = positioned[j];
           const distance = Math.hypot(a.px - b.px, a.py - b.py);
-          const threshold = Math.min(width, height) * 0.28;
+          const threshold = Math.min(width, height) * 0.22;
           if (distance > threshold) continue;
 
           context.beginPath();
-          context.strokeStyle = `rgba(47, 111, 94, ${lineOpacity * Math.max(0.04, 0.2 - distance / threshold * 0.15)})`;
+          context.strokeStyle = `rgba(47, 111, 94, ${lineOpacity * Math.max(0.055, 0.34 - distance / threshold * 0.24)})`;
           context.lineWidth = 1;
           context.moveTo(a.px, a.py);
           context.lineTo(b.px, b.py);
@@ -110,10 +131,22 @@ function setupScrollConstellation() {
       }
     }
 
-    positioned.forEach((point) => {
+    const streak = lineOpacity * 30;
+    positioned.forEach((point, index) => {
+      const tone = tones[point.tone] || tones.green;
+
+      if (streak > 0.5) {
+        context.beginPath();
+        context.strokeStyle = `rgba(${tone}, ${lineOpacity * 0.16})`;
+        context.lineWidth = 1.2;
+        context.moveTo(point.px - streak * (0.55 + (index % 3) * 0.16), point.py);
+        context.lineTo(point.px + streak, point.py);
+        context.stroke();
+      }
+
       context.beginPath();
-      context.fillStyle = point.color;
-      context.globalAlpha = fade * (0.48 + lineOpacity * 0.26);
+      context.fillStyle = `rgb(${tone})`;
+      context.globalAlpha = fade * (0.36 + lineOpacity * 0.2);
       context.arc(point.px, point.py, point.r * (1 - progress * 0.18), 0, Math.PI * 2);
       context.fill();
     });
@@ -379,18 +412,24 @@ function setupNetworkCanvas() {
   let isExpanded = false;
 
   const points = [
-    { x: 0.12, y: 0.18, vx: 0.34, vy: 0.28, color: "#2f6f5e", radius: 4.6 },
-    { x: 0.28, y: 0.16, vx: -0.28, vy: 0.36, color: "#a85c3a", radius: 3.8 },
-    { x: 0.52, y: 0.18, vx: 0.31, vy: -0.25, color: "#5e5a7f", radius: 4.2 },
-    { x: 0.82, y: 0.24, vx: -0.38, vy: 0.24, color: "#2f6f5e", radius: 4.8 },
-    { x: 0.68, y: 0.42, vx: 0.3, vy: 0.34, color: "#a85c3a", radius: 3.9 },
-    { x: 0.18, y: 0.48, vx: -0.33, vy: -0.28, color: "#5e5a7f", radius: 4.4 },
-    { x: 0.4, y: 0.58, vx: 0.27, vy: -0.38, color: "#2f6f5e", radius: 3.7 },
-    { x: 0.78, y: 0.62, vx: -0.24, vy: -0.33, color: "#a85c3a", radius: 4.1 },
-    { x: 0.1, y: 0.78, vx: 0.38, vy: -0.22, color: "#2f6f5e", radius: 3.9 },
-    { x: 0.32, y: 0.82, vx: -0.31, vy: -0.27, color: "#a85c3a", radius: 3.6 },
-    { x: 0.56, y: 0.78, vx: 0.25, vy: 0.32, color: "#5e5a7f", radius: 4.5 },
-    { x: 0.88, y: 0.84, vx: -0.36, vy: -0.3, color: "#2f6f5e", radius: 4.2 }
+    { x: 0.12, y: 0.18, vx: 0.34, vy: 0.28, speed: 1.35, color: "#2f6f5e", radius: 4.6 },
+    { x: 0.28, y: 0.16, vx: -0.28, vy: 0.36, speed: 1.9, color: "#a85c3a", radius: 3.8 },
+    { x: 0.52, y: 0.18, vx: 0.31, vy: -0.25, speed: 1.2, color: "#5e5a7f", radius: 4.2 },
+    { x: 0.82, y: 0.24, vx: -0.38, vy: 0.24, speed: 1.65, color: "#2f6f5e", radius: 4.8 },
+    { x: 0.68, y: 0.42, vx: 0.3, vy: 0.34, speed: 1.85, color: "#a85c3a", radius: 3.9 },
+    { x: 0.18, y: 0.48, vx: -0.33, vy: -0.28, speed: 1.1, color: "#5e5a7f", radius: 4.4 },
+    { x: 0.4, y: 0.58, vx: 0.27, vy: -0.38, speed: 1.55, color: "#2f6f5e", radius: 3.7 },
+    { x: 0.78, y: 0.62, vx: -0.24, vy: -0.33, speed: 2, color: "#a85c3a", radius: 4.1 },
+    { x: 0.1, y: 0.78, vx: 0.38, vy: -0.22, speed: 1.25, color: "#2f6f5e", radius: 3.9 },
+    { x: 0.32, y: 0.82, vx: -0.31, vy: -0.27, speed: 1.75, color: "#a85c3a", radius: 3.6 },
+    { x: 0.56, y: 0.78, vx: 0.25, vy: 0.32, speed: 1.4, color: "#5e5a7f", radius: 4.5 },
+    { x: 0.88, y: 0.84, vx: -0.36, vy: -0.3, speed: 1.9, color: "#2f6f5e", radius: 4.2 },
+    { x: 0.48, y: 0.38, vx: -0.3, vy: 0.26, speed: 1.5, color: "#2f6f5e", radius: 3.5 },
+    { x: 0.6, y: 0.55, vx: 0.36, vy: -0.31, speed: 1.95, color: "#5e5a7f", radius: 3.8 },
+    { x: 0.24, y: 0.66, vx: 0.29, vy: 0.34, speed: 1.3, color: "#2f6f5e", radius: 3.6 },
+    { x: 0.72, y: 0.76, vx: -0.34, vy: 0.22, speed: 1.7, color: "#a85c3a", radius: 3.7 },
+    { x: 0.9, y: 0.48, vx: -0.27, vy: 0.38, speed: 1.45, color: "#5e5a7f", radius: 3.9 },
+    { x: 0.06, y: 0.38, vx: 0.33, vy: -0.29, speed: 1.8, color: "#2f6f5e", radius: 3.6 }
   ];
 
   function resize() {
@@ -455,8 +494,8 @@ function setupNetworkCanvas() {
     if (prefersReducedMotion) return;
 
     points.forEach((point) => {
-      point.x += point.vx / width;
-      point.y += point.vy / height;
+      point.x += (point.vx * point.speed) / width;
+      point.y += (point.vy * point.speed) / height;
 
       if (point.x < 0.045 || point.x > 0.955) point.vx *= -1;
       if (point.y < 0.045 || point.y > 0.955) point.vy *= -1;

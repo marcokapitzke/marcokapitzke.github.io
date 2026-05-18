@@ -91,24 +91,28 @@ export const profile = {
     ],
     awards: [
       {
-        mark: "2025",
+        mark: "MLP",
         label: "STEM Scholarship",
-        text: "MLP"
+        icon: "public/logo-mlp.png",
+        text: "MLP, 2025"
       },
       {
-        mark: "23/24",
+        mark: "HU",
         label: "Graduate School Grants",
+        icon: "public/logo-hu-berlin.svg",
         text: "Research support in 2023 and 2024"
       },
       {
-        mark: "2022",
+        mark: "FCI",
         label: "Kekulé Fellowship",
-        text: "Fellowship support for doctoral research"
+        icon: "public/logo-fci.png",
+        text: "Fonds der Chemischen Industrie, 2022"
       },
       {
-        mark: "2020",
+        mark: "ERG",
         label: "Deutschlandstipendium",
-        text: "Merit scholarship"
+        icon: "public/logo-erg.png",
+        text: "Ernst-Reuter-Gesellschaft / FU Berlin, 2020"
       }
     ]
   },

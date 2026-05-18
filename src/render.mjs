@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-visual-refinement";
+const assetVersion = "20260518-award-visuals-v2";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -122,7 +122,7 @@ const renderCredentialItems = (items) =>
 
       return `
         <li>
-          <span class="credential-mark credential-mark--${escapeHtml(slugify(item.mark))}" aria-hidden="true">
+          <span class="credential-mark credential-mark--${escapeHtml(slugify(item.mark))} credential-mark--${escapeHtml(slugify(item.label))}" aria-hidden="true">
             ${icon}
             <b>${escapeHtml(item.mark)}</b>
           </span>
@@ -179,29 +179,31 @@ const renderDataSketch = () => `
         <stop offset="0%" stop-color="#2f6f5e" stop-opacity="0.08"></stop>
         <stop offset="100%" stop-color="#a85c3a" stop-opacity="0.14"></stop>
       </linearGradient>
+      <marker id="axisArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+        <path d="M 0 0 L 8 4 L 0 8 Z"></path>
+      </marker>
     </defs>
-    <path class="data-grid-line" d="M 48 56 H 472 M 48 112 H 472 M 48 168 H 472 M 48 224 H 472"></path>
-    <path class="data-grid-line" d="M 108 40 V 252 M 188 40 V 252 M 268 40 V 252 M 348 40 V 252 M 428 40 V 252"></path>
+    <path class="data-grid-line" d="M 36 54 H 496 M 36 110 H 496 M 36 166 H 496 M 36 222 H 496 M 36 278 H 496"></path>
+    <path class="data-grid-line" d="M 106 30 V 284 M 186 30 V 284 M 266 30 V 284 M 346 30 V 284 M 426 30 V 284"></path>
     <g class="data-axis">
-      <path d="M 58 252 H 474 M 58 252 V 46"></path>
-      <path d="M 138 248 V 256 M 218 248 V 256 M 298 248 V 256 M 378 248 V 256 M 54 204 H 62 M 54 152 H 62 M 54 100 H 62"></path>
-      <text x="260" y="294">process window</text>
-      <text x="22" y="162" transform="rotate(-90 22 162)">measured response</text>
+      <path class="axis-line axis-line--x" d="M 42 278 H 496"></path>
+      <path class="axis-line axis-line--y" d="M 42 278 V 34"></path>
+      <path class="axis-ticks" d="M 122 274 V 282 M 202 274 V 282 M 282 274 V 282 M 362 274 V 282 M 442 274 V 282 M 38 222 H 46 M 38 166 H 46 M 38 110 H 46 M 38 54 H 46"></path>
     </g>
-    <path class="decision-band" d="M 338 56 H 432 V 252 H 338 Z"></path>
-    <path class="uncertainty-band" d="M 68 209 C 132 178, 172 134, 228 139 C 282 144, 321 105, 392 94 C 431 88, 458 96, 472 103 L 472 139 C 432 131, 399 124, 360 135 C 306 150, 274 188, 218 178 C 166 169, 126 207, 68 235 Z"></path>
-    <path class="calibration-line" d="M 68 222 C 136 190, 170 150, 226 158 C 282 166, 316 128, 384 116 C 424 109, 454 116, 472 122"></path>
+    <path class="decision-band" d="M 356 54 H 458 V 278 H 356 Z"></path>
+    <path class="uncertainty-band" d="M 62 234 C 126 198, 170 143, 229 149 C 286 154, 326 111, 398 98 C 440 91, 476 98, 496 108 L 496 148 C 448 137, 409 132, 369 145 C 314 162, 280 208, 220 196 C 164 186, 122 232, 62 262 Z"></path>
+    <path class="calibration-line" d="M 62 248 C 130 210, 168 160, 228 170 C 286 180, 322 135, 392 121 C 434 113, 474 120, 496 129"></path>
     <g class="sample-points">
-      <circle cx="78" cy="218" r="4"></circle>
-      <circle cx="114" cy="201" r="4"></circle>
-      <circle cx="152" cy="179" r="4"></circle>
-      <circle cx="194" cy="158" r="4"></circle>
-      <circle cx="235" cy="165" r="4"></circle>
-      <circle cx="278" cy="151" r="4"></circle>
-      <circle cx="315" cy="132" r="4"></circle>
-      <circle cx="357" cy="121" r="4"></circle>
-      <circle cx="401" cy="114" r="4"></circle>
-      <circle cx="444" cy="119" r="4"></circle>
+      <circle cx="74" cy="244" r="4.6"></circle>
+      <circle cx="113" cy="225" r="4.6"></circle>
+      <circle cx="154" cy="196" r="4.6"></circle>
+      <circle cx="198" cy="168" r="4.6"></circle>
+      <circle cx="240" cy="177" r="4.6"></circle>
+      <circle cx="285" cy="160" r="4.6"></circle>
+      <circle cx="324" cy="139" r="4.6"></circle>
+      <circle cx="370" cy="126" r="4.6"></circle>
+      <circle cx="420" cy="119" r="4.6"></circle>
+      <circle cx="470" cy="125" r="4.6"></circle>
     </g>
   </svg>`;
 

@@ -158,6 +158,15 @@ Rationale: the workspace has Node available but no npm/yarn/pnpm. A zero-depende
 - Reframe the FLUPS visual label around measurement reliability.
 - Replace the plain front Beyond card with a small optics / molecule sketch.
 
+### Loop 10: Latest Visual Corrections
+
+- Add public award marks for MLP, Fonds / VCI, Ernst-Reuter-Gesellschaft, and keep the graduate grants connected to the university context.
+- Remove the portrait inset ring and make the image warmer and slightly larger.
+- Rework the opening constellation so dots resolve into lines and fade with scroll instead of reading as isolated decorative points.
+- Make the positioning network more alive through varied node speeds.
+- Enlarge the data sketch, replace axis labels with proper arrow axes, and slow the point / curve animation.
+- Make the Professional Focus and Beyond visual layers more legible as topic-specific sketches.
+
 ## Validation Checklist
 
 - [x] `node src/render.mjs` completes successfully.

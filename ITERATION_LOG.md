@@ -120,3 +120,25 @@ Planned changes:
 - Add small topic-specific visual systems to the focus cards: data fit, wafer/process grid, molecular lattice, and decision matrix.
 - Rename the FLUPS thumbnail note to emphasize reliable ultrafast measurement.
 - Replace the front Beyond card's plain line treatment with an optics / molecule sketch.
+
+## Iteration 9: Award Logos and Visual Legibility
+
+Feedback received:
+
+- Awards should use institutional marks where available, especially MLP, Fonds / VCI, and Ernst-Reuter-Gesellschaft.
+- The portrait should be larger without a white inset ring, and the crop should feel less cut off.
+- The positioning network should move with more varied speed.
+- The opening dot treatment should feel more premium and less like random decoration.
+- The Professional Focus visuals should read as meaningful diagrams, not generic hover texture.
+- The data sketch should fill its box, use proper arrow axes without labels, and animate more calmly.
+- The front Beyond card should look like a visual sketch rather than text.
+
+Completed changes:
+
+- Added local public logo assets for MLP, Fonds der Chemischen Industrie, and Ernst-Reuter-Gesellschaft and wired them into the awards list.
+- Removed the portrait's inset ring, enlarged it, and adjusted image positioning.
+- Reworked the opening constellation into a subtler mesh of small points, connecting lines, and scroll-fading strokes.
+- Increased and varied the speed of the positioning network nodes.
+- Made focus-card diagrams larger and more legible: data fit, wafer map, molecular lattice, and decision curve.
+- Rebuilt the data sketch with larger plotting area, arrow axes, no axis titles, and slower point / fit animation.
+- Strengthened the Beyond front card with a visible optics, molecule, and prism sketch.
