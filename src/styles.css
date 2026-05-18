@@ -1264,7 +1264,7 @@ h3 {
   z-index: 0;
   background-image: var(--work-image);
   background-size: cover;
-  background-position: center;
+  background-position: var(--work-position, center);
   transform: scale(1.06);
   filter: saturate(0.84) contrast(1.05);
 }
@@ -1376,6 +1376,7 @@ h3 {
 
 .work-card--community {
   --work-image: url("../public/work-community.jpg");
+  --work-position: 32% center;
 }
 
 .tag-row {

@@ -408,3 +408,17 @@ Completed changes:
 - Linked the affiliation cards and Heinz-Schmidkunz committee reference, and updated the STEM scholarship link to the MLP scholarship recipients page.
 - Replaced the contact email text with “Contact me,” added a small “Just click ;)” hover state, and added a subtle connection-map background to the contact section.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 27: Selected Work Image Refinement
+
+Feedback received:
+
+- The Research Output and Scientific Community cards had strong copy but needed better, more meaningful hover images.
+
+Completed changes:
+
+- Replaced the Research Output hover image with a higher-quality scientific poster-session image that better communicates research leaving the bench through conference discussion and publication-style exchange.
+- Replaced the JungesChemieForum Berlin hover image with a student poster-symposium image that better fits mentoring, student support, and scientific community building.
+- Adjusted the community image crop so the mobile hover state shows more of the person-to-person poster discussion rather than only the poster center.
+- Updated local and deployed image credits for both new public/CC assets.
+- Updated the asset version for GitHub Pages cache busting.

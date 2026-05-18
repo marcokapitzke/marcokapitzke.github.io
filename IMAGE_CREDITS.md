@@ -17,10 +17,10 @@ This site uses a small set of locally hosted editorial hover images in the Selec
   Source: [Geometry Lessons.jpg](https://commons.wikimedia.org/wiki/File:Geometry_Lessons.jpg) by KUHT, courtesy of Special Collections, University of Houston Libraries / UH Digital Library, via Wikimedia Commons. Public domain dedication by the author.
 
 - `public/work-research.jpg`  
-  Source: [GD09 Poster Session.jpg](https://commons.wikimedia.org/wiki/File:GD09_Poster_Session.jpg) by David Eppstein, Wikimedia Commons. Licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Cropped/resized for web display.
+  Source: [Poster session (KH9A1751-180821-CC).jpg](https://commons.wikimedia.org/wiki/File:Poster_session_(KH9A1751-180821-CC).jpg) by IAU / M. Zamani, via Wikimedia Commons. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Cropped/resized for web display.
 
 - `public/work-community.jpg`  
-  Source: [Earth Information Center Student Engagement](https://commons.wikimedia.org/wiki/File:Earth_Information_Center_Student_Engagement_(NHQ202306230029).jpg), NASA / Keegan Barber, via Wikimedia Commons. Public domain as a NASA image. Mandatory credit on source page: NASA/Keegan Barber.
+  Source: [Science Student Poster Symposium (16796190065).jpg](https://commons.wikimedia.org/wiki/File:Science_Student_Poster_Symposium_(16796190065).jpg) by U.S. Food and Drug Administration / Michael J. Ermarth, via Wikimedia Commons. Public domain as a United States government work. Cropped/resized for web display.
 
 ## Personal Portrait
 
