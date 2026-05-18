@@ -2101,17 +2101,17 @@ a.credential-item:focus-visible .credential-mark img {
 }
 
 .beyond-frame--pages {
-  left: 0;
+  left: 1.35rem;
   top: 0;
   z-index: 1;
-  width: 304px;
+  width: 326px;
   height: 188px;
   transform: rotate(-5deg) translateZ(-18px);
   filter: saturate(0.82) brightness(0.72);
 }
 
 .beyond-frame--pages img {
-  object-position: 50% 52%;
+  object-position: 68% 46%;
 }
 
 .beyond-stack:hover .beyond-frame--trail {
@@ -2620,9 +2620,9 @@ a.credential-item:focus-visible .credential-mark img {
   }
 
   .beyond-frame--pages {
-    left: 0;
+    left: 0.8rem;
     top: 0;
-    width: min(304px, 78vw);
+    width: min(326px, 84vw);
     height: 188px;
   }
 

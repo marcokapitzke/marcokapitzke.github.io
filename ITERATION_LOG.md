@@ -439,3 +439,17 @@ Completed changes:
 - Added understated AI language in the hero, positioning, professional focus, and Infineon analytics copy without making AI the whole story.
 - Tightened the Positioning, Professional Focus, Data & Visual Thinking, Selected Work, Publications, Beyond, and Contact copy for a more selective, institutional tone.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 29: Beyond Work Visual Rebalance
+
+Feedback received:
+
+- The Beyond the Work cards should keep the recognizable subjects, but regain more of the lighter, artsy editorial touch from the earlier direction.
+- The images should sit between abstraction and literal stock-style illustration.
+
+Completed changes:
+
+- Replaced the Beyond the Work stack with a new generated trio: a brighter cyclist climbing a mountain road, a quiet orbital / solar-system systems visual, and a darker chess / decision-systems card.
+- Preserved the card order and hierarchy: cycling in front, solar system in the middle, chess in the rear.
+- Converted the generated PNGs to optimized local JPEG assets under the existing filenames.
+- Updated local and deployed image credits and bumped the asset version for GitHub Pages cache busting.

@@ -30,13 +30,13 @@ This site uses a small set of locally hosted editorial hover images in the Selec
 ## Generated Beyond Work Visuals
 
 - `public/beyond-biking.jpg`
-  Generated for this website with OpenAI image generation from a prompt for a clear editorial mountain-biking scene with visible cyclist, mountain ridge, and restrained sunset lighting.
+  Generated for this website with OpenAI image generation from a prompt for a refined editorial cycling scene with a visible rider, ascending landscape, lighter foreground palette, and subtle topographic texture.
 
 - `public/beyond-solar.jpg`
-  Generated for this website with OpenAI image generation from a prompt for a recognizable, institutional solar-system inspired orbital visual.
+  Generated for this website with OpenAI image generation from a prompt for a recognizable but quiet solar-system / orbital-systems visual with paper texture and institutional art-science styling.
 
 - `public/beyond-chess.jpg`
-  Generated for this website with OpenAI image generation from a prompt for a readable chessboard strategy scene with real pieces and subtle analytical overlays.
+  Generated for this website with OpenAI image generation from a prompt for a darker editorial chess and decision-systems visual with readable pieces and subtle analytical overlays.
 
 ## Institutional Marks
 
