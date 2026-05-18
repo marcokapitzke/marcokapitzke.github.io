@@ -106,7 +106,7 @@ function setupScrollConstellation() {
     [8, 21, 35, 49, 62, 76, 88, 100],
     [3, 14, 28, 43, 57, 73, 87, 102]
   ];
-  const routeDuration = 420;
+  const routeDuration = 280;
 
   function resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);

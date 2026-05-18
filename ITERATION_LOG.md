@@ -374,3 +374,17 @@ Completed changes:
 - Kept the cube-to-sphere canvas interaction unchanged so the animation now sits directly in the section, closer to the Positioning network treatment.
 - Added a mobile min-height adjustment for the morph canvas so the unframed visual remains proportioned on small screens.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 25: Hero Motion and Portrait Crop
+
+Feedback received:
+
+- The changing trajectory in the top hero pattern works well but should move about 1.5x faster.
+- The portrait should be slightly larger, with the face positioned more centrally in the circular crop.
+
+Completed changes:
+
+- Reduced the hero constellation route duration from 420 to 280 frames, increasing the moving route speed by roughly 1.5x while keeping the same five route variations.
+- Increased the hero portrait circle from 88px to 96px on desktop and from 68px to 74px on mobile.
+- Shifted the portrait crop upward inside the circle so the face sits closer to the visual center.
+- Updated the asset version for GitHub Pages cache busting.
