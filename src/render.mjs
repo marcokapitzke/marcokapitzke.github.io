@@ -43,6 +43,12 @@ const renderFocus = (items) =>
     .map(
       (item, index) => `
         <article class="focus-card focus-card--${escapeHtml(item.visual)} reveal" style="--delay: ${index * 70}ms">
+          <div class="focus-visual focus-visual--${escapeHtml(item.visual)}" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
           <span class="card-index">0${index + 1}</span>
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.text)}</p>
@@ -212,9 +218,13 @@ const renderBeyondStack = () => `
       <span class="beyond-route-dot beyond-route-dot--three"></span>
     </div>
     <div class="beyond-frame beyond-frame--pages">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span class="optic-beam"></span>
+      <span class="molecule-bond molecule-bond--one"></span>
+      <span class="molecule-bond molecule-bond--two"></span>
+      <span class="molecule-atom molecule-atom--one"></span>
+      <span class="molecule-atom molecule-atom--two"></span>
+      <span class="molecule-atom molecule-atom--three"></span>
+      <span class="molecule-atom molecule-atom--four"></span>
     </div>
   </div>`;
 
@@ -407,7 +417,7 @@ ${JSON.stringify(
       <section class="section-shell writing-section" id="writing" aria-labelledby="writing-title">
         <div class="section-heading reveal">
           <span>Publications & Writing</span>
-          <h2 id="writing-title">Research and teaching, with the point of each item visible.</h2>
+          <h2 id="writing-title">Research, teaching, and technical translation.</h2>
         </div>
         <div class="publication-list">
           ${renderPublications(profile.publications)}
@@ -430,7 +440,7 @@ ${JSON.stringify(
       <section class="section-shell beyond-section" id="beyond" aria-labelledby="beyond-title">
         <div class="section-kicker reveal">
           <span>Beyond the Work</span>
-          <p>Small signals of what I keep returning to.</p>
+          <p>Movement, reading, and a few systems I keep thinking about.</p>
           ${renderBeyondStack()}
         </div>
         <div class="section-copy reveal">

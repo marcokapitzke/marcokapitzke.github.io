@@ -657,41 +657,225 @@ h3 {
 }
 
 .focus-card:hover::before {
-  opacity: 0.26;
+  opacity: 0.16;
 }
 
 .focus-card--data::before {
   background:
-    radial-gradient(circle at 18% 30%, rgba(47, 111, 94, 0.72) 0 2px, transparent 3px),
-    radial-gradient(circle at 34% 58%, rgba(47, 111, 94, 0.64) 0 2px, transparent 3px),
-    radial-gradient(circle at 56% 38%, rgba(168, 92, 58, 0.58) 0 2px, transparent 3px),
-    radial-gradient(circle at 76% 68%, rgba(94, 90, 127, 0.58) 0 2px, transparent 3px),
-    linear-gradient(145deg, transparent 0 42%, rgba(47, 111, 94, 0.4) 43% 44%, transparent 45%);
+    linear-gradient(rgba(47, 111, 94, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(47, 111, 94, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 .focus-card--semiconductor::before {
   background:
-    radial-gradient(circle at 70% 28%, transparent 0 28px, rgba(47, 111, 94, 0.42) 29px 30px, transparent 31px 52px, rgba(47, 111, 94, 0.25) 53px 54px, transparent 55px),
-    linear-gradient(90deg, transparent 0 48%, rgba(168, 92, 58, 0.38) 48% 49%, transparent 49%),
-    linear-gradient(0deg, transparent 0 42%, rgba(47, 111, 94, 0.28) 42% 43%, transparent 43%),
-    repeating-linear-gradient(90deg, transparent 0 18px, rgba(23, 23, 22, 0.11) 18px 19px, transparent 19px 38px);
+    radial-gradient(circle at 70% 30%, transparent 0 34px, rgba(47, 111, 94, 0.38) 35px 36px, transparent 37px 58px, rgba(47, 111, 94, 0.24) 59px 60px, transparent 61px),
+    repeating-linear-gradient(90deg, transparent 0 18px, rgba(23, 23, 22, 0.11) 18px 19px, transparent 19px 38px),
+    repeating-linear-gradient(0deg, transparent 0 18px, rgba(23, 23, 22, 0.08) 18px 19px, transparent 19px 38px);
 }
 
 .focus-card--materials::before {
   background:
-    radial-gradient(circle at 26% 36%, rgba(94, 90, 127, 0.64) 0 3px, transparent 4px),
-    radial-gradient(circle at 46% 48%, rgba(47, 111, 94, 0.64) 0 3px, transparent 4px),
-    radial-gradient(circle at 66% 36%, rgba(94, 90, 127, 0.64) 0 3px, transparent 4px),
-    radial-gradient(circle at 76% 58%, rgba(168, 92, 58, 0.58) 0 3px, transparent 4px),
-    repeating-linear-gradient(112deg, transparent 0 18px, rgba(47, 111, 94, 0.24) 18px 20px, transparent 20px 38px);
+    radial-gradient(circle at 31% 34%, rgba(94, 90, 127, 0.42) 0 3px, transparent 4px),
+    radial-gradient(circle at 48% 46%, rgba(47, 111, 94, 0.42) 0 3px, transparent 4px),
+    radial-gradient(circle at 65% 34%, rgba(94, 90, 127, 0.42) 0 3px, transparent 4px),
+    radial-gradient(circle at 66% 58%, rgba(168, 92, 58, 0.36) 0 3px, transparent 4px),
+    repeating-linear-gradient(112deg, transparent 0 18px, rgba(47, 111, 94, 0.18) 18px 20px, transparent 20px 38px),
+    repeating-linear-gradient(62deg, transparent 0 18px, rgba(94, 90, 127, 0.14) 18px 20px, transparent 20px 38px);
 }
 
 .focus-card--business::before {
   background:
-    linear-gradient(90deg, rgba(47, 111, 94, 0.26) 0 18%, transparent 18% 100%),
-    linear-gradient(0deg, transparent 0 28%, rgba(168, 92, 58, 0.34) 28% 30%, transparent 30%),
-    repeating-linear-gradient(90deg, transparent 0 32px, rgba(23, 23, 22, 0.12) 32px 33px),
-    repeating-linear-gradient(0deg, transparent 0 32px, rgba(23, 23, 22, 0.1) 32px 33px);
+    linear-gradient(90deg, rgba(47, 111, 94, 0.2) 0 18%, transparent 18% 100%),
+    linear-gradient(0deg, transparent 0 28%, rgba(168, 92, 58, 0.24) 28% 30%, transparent 30%),
+    repeating-linear-gradient(90deg, transparent 0 32px, rgba(23, 23, 22, 0.1) 32px 33px),
+    repeating-linear-gradient(0deg, transparent 0 32px, rgba(23, 23, 22, 0.08) 32px 33px);
+}
+
+.focus-visual {
+  position: absolute;
+  top: 1.1rem;
+  right: 1rem;
+  width: 104px;
+  height: 82px;
+  opacity: 0.36;
+  transform: translateY(3px);
+  transition: opacity 220ms ease, transform 220ms ease;
+  pointer-events: none;
+}
+
+.focus-card:hover .focus-visual {
+  opacity: 0.92;
+  transform: translateY(0);
+}
+
+.focus-visual::before,
+.focus-visual::after,
+.focus-visual span {
+  content: "";
+  position: absolute;
+}
+
+.focus-visual--data {
+  border-left: 1px solid rgba(23, 23, 22, 0.22);
+  border-bottom: 1px solid rgba(23, 23, 22, 0.22);
+}
+
+.focus-visual--data::before {
+  left: 8%;
+  right: 4%;
+  bottom: 18%;
+  height: 42%;
+  border-top: 2px solid rgba(47, 111, 94, 0.75);
+  border-radius: 62% 42% 0 0;
+  transform: rotate(-14deg);
+}
+
+.focus-visual--data span {
+  width: 7px;
+  height: 7px;
+  border: 1px solid rgba(23, 23, 22, 0.42);
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.focus-visual--data span:nth-child(1) {
+  left: 14%;
+  bottom: 18%;
+}
+
+.focus-visual--data span:nth-child(2) {
+  left: 36%;
+  bottom: 36%;
+}
+
+.focus-visual--data span:nth-child(3) {
+  left: 61%;
+  bottom: 50%;
+}
+
+.focus-visual--data span:nth-child(4) {
+  right: 8%;
+  bottom: 58%;
+}
+
+.focus-visual--semiconductor {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 27px, rgba(47, 111, 94, 0.7) 28px 29px, transparent 30px 39px, rgba(47, 111, 94, 0.32) 40px 41px, transparent 42px),
+    linear-gradient(90deg, transparent 0 49%, rgba(168, 92, 58, 0.45) 49% 51%, transparent 51%),
+    linear-gradient(0deg, transparent 0 49%, rgba(47, 111, 94, 0.34) 49% 51%, transparent 51%);
+  border-radius: 50%;
+}
+
+.focus-visual--semiconductor span {
+  width: 1px;
+  height: 100%;
+  top: 0;
+  background: rgba(23, 23, 22, 0.16);
+}
+
+.focus-visual--semiconductor span:nth-child(1) {
+  left: 35%;
+}
+
+.focus-visual--semiconductor span:nth-child(2) {
+  left: 65%;
+}
+
+.focus-visual--semiconductor span:nth-child(3) {
+  left: 50%;
+  transform: rotate(90deg);
+}
+
+.focus-visual--semiconductor span:nth-child(4) {
+  left: 50%;
+  transform: rotate(45deg);
+}
+
+.focus-visual--materials::before,
+.focus-visual--materials::after {
+  inset: 16px 12px;
+  border: 1.6px solid rgba(47, 111, 94, 0.52);
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+}
+
+.focus-visual--materials::after {
+  transform: translate(20px, 14px);
+  border-color: rgba(94, 90, 127, 0.46);
+}
+
+.focus-visual--materials span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.focus-visual--materials span:nth-child(1) {
+  left: 20%;
+  top: 18%;
+}
+
+.focus-visual--materials span:nth-child(2) {
+  left: 54%;
+  top: 18%;
+  background: var(--purple);
+}
+
+.focus-visual--materials span:nth-child(3) {
+  left: 74%;
+  top: 48%;
+}
+
+.focus-visual--materials span:nth-child(4) {
+  left: 40%;
+  top: 72%;
+  background: var(--rust);
+}
+
+.focus-visual--business {
+  border-left: 1px solid rgba(23, 23, 22, 0.22);
+  border-bottom: 1px solid rgba(23, 23, 22, 0.22);
+  background:
+    linear-gradient(90deg, transparent 0 49%, rgba(23, 23, 22, 0.1) 49% 50%, transparent 50%),
+    linear-gradient(0deg, transparent 0 49%, rgba(23, 23, 22, 0.1) 49% 50%, transparent 50%);
+}
+
+.focus-visual--business::before {
+  left: 8%;
+  right: 6%;
+  bottom: 16%;
+  height: 58%;
+  border-top: 2px solid rgba(168, 92, 58, 0.7);
+  border-radius: 70% 55% 0 0;
+  transform: rotate(-21deg);
+}
+
+.focus-visual--business span {
+  width: 32px;
+  height: 18px;
+  border: 1px solid rgba(47, 111, 94, 0.32);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.focus-visual--business span:nth-child(1) {
+  left: 8%;
+  top: 14%;
+}
+
+.focus-visual--business span:nth-child(2) {
+  right: 4%;
+  top: 20%;
+}
+
+.focus-visual--business span:nth-child(3) {
+  left: 32%;
+  bottom: 12%;
+}
+
+.focus-visual--business span:nth-child(4) {
+  display: none;
 }
 
 .card-index {
@@ -1467,30 +1651,92 @@ h3 {
   place-items: center;
   transform: rotate(-1.4deg);
   background:
-    radial-gradient(circle at 18% 18%, rgba(168, 92, 58, 0.12), transparent 28%),
+    radial-gradient(circle at 18% 18%, rgba(168, 92, 58, 0.12), transparent 26%),
+    linear-gradient(90deg, transparent 0 47%, rgba(47, 111, 94, 0.08) 47% 48%, transparent 48%),
     linear-gradient(135deg, #fffdf6, #f3f5ee);
 }
 
 .beyond-frame--pages span {
   position: absolute;
-  left: 2.1rem;
-  right: 2.1rem;
+}
+
+.optic-beam {
+  left: 1.2rem;
+  right: 1rem;
+  top: 4.9rem;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(168, 92, 58, 0), rgba(168, 92, 58, 0.72), rgba(47, 111, 94, 0.28));
+  transform: rotate(-10deg);
+}
+
+.optic-beam::before,
+.optic-beam::after {
+  content: "";
+  position: absolute;
+  left: 44%;
+  width: 42%;
   height: 1px;
-  background: rgba(31, 46, 43, 0.2);
+  background: rgba(47, 111, 94, 0.42);
+  transform-origin: left center;
 }
 
-.beyond-frame--pages span:nth-child(1) {
-  top: 2.3rem;
+.optic-beam::before {
+  transform: rotate(-18deg);
 }
 
-.beyond-frame--pages span:nth-child(2) {
-  top: 4.15rem;
-  right: 4.8rem;
+.optic-beam::after {
+  transform: rotate(20deg);
 }
 
-.beyond-frame--pages span:nth-child(3) {
-  top: 6rem;
-  right: 3.2rem;
+.molecule-bond {
+  left: 4.3rem;
+  top: 4.7rem;
+  width: 82px;
+  height: 1.5px;
+  background: rgba(47, 111, 94, 0.38);
+  transform-origin: left center;
+}
+
+.molecule-bond--one {
+  transform: rotate(28deg);
+}
+
+.molecule-bond--two {
+  transform: rotate(-31deg) translate(46px, 20px);
+}
+
+.molecule-atom {
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(47, 111, 94, 0.42);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 0 0 7px rgba(47, 111, 94, 0.05);
+}
+
+.molecule-atom--one {
+  left: 3.8rem;
+  top: 4.2rem;
+  background: rgba(47, 111, 94, 0.22);
+}
+
+.molecule-atom--two {
+  left: 7.9rem;
+  top: 5.9rem;
+}
+
+.molecule-atom--three {
+  left: 9.8rem;
+  top: 3.35rem;
+  background: rgba(168, 92, 58, 0.22);
+}
+
+.molecule-atom--four {
+  right: 3rem;
+  top: 5.1rem;
+  width: 12px;
+  height: 12px;
+  background: rgba(94, 90, 127, 0.22);
 }
 
 .beyond-stack:hover .beyond-frame--trail {

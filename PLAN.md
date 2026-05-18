@@ -151,6 +151,13 @@ Rationale: the workspace has Node available but no npm/yarn/pnpm. A zero-depende
 - Add a measured axis and slower point/fit animation to the data visualization.
 - Add institution icons to the education path while keeping awards typographic and quiet.
 
+### Loop 9: Public-Facing Titles and Semantic Hover States
+
+- Remove wording that reads like internal design feedback.
+- Make Professional Focus hover visuals more explicit to each topic instead of decorative background textures.
+- Reframe the FLUPS visual label around measurement reliability.
+- Replace the plain front Beyond card with a small optics / molecule sketch.
+
 ## Validation Checklist
 
 - [x] `node src/render.mjs` completes successfully.

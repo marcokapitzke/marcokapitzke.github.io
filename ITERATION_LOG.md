@@ -104,3 +104,19 @@ Planned changes:
 - Extend the positioning network field and increase node count / speed.
 - Add local logo assets for CDI, HU, Columbia, and FU in the education row.
 - Refine the Beyond visual stack to feel more photographic while staying CSS-native and lightweight.
+
+## Iteration 8: Meaningful Titles and Hover Visuals
+
+Feedback received:
+
+- Some headings still sounded like internal notes rather than public-facing copy.
+- The Professional Focus hover backgrounds needed to say something more specific about each topic.
+- The FLUPS publication thumbnail note should avoid "blind test" as a standalone label.
+- The front card in "Beyond the Work" should be more visually interesting and connected to science / optics.
+
+Planned changes:
+
+- Rename the writing section heading to public-facing copy.
+- Add small topic-specific visual systems to the focus cards: data fit, wafer/process grid, molecular lattice, and decision matrix.
+- Rename the FLUPS thumbnail note to emphasize reliable ultrafast measurement.
+- Replace the front Beyond card's plain line treatment with an optics / molecule sketch.

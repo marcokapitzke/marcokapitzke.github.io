@@ -212,11 +212,11 @@ export const profile = {
         "Enhancing Spectral Coverage, Efficiency, and Photometric Accuracy in Ultrafast Fluorescence Upconversion Spectroscopy",
       venue: "ChemPhotoChem, 2025",
       note:
-        "This paper improves how broadband ultrafast fluorescence measurements are calibrated and compared, making the method more reliable across different experimental setups. It introduces a three-angle approach and validates it through cross-setup comparison and blind testing.",
+        "This paper improves how broadband ultrafast fluorescence measurements are calibrated and compared, making the method more reliable across different experimental setups. It introduces a three-angle approach and validates the calibration through independent cross-setup comparison.",
       href: "https://doi.org/10.1002/cptc.202400398",
       visual: "signal",
       visualTitle: "FLUPS",
-      visualNote: "calibration + blind test"
+      visualNote: "reliable ultrafast measurement"
     },
     {
       type: "Textbook",
