@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-final-persona-polish";
+const assetVersion = "20260519-exceptional-polish";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -458,7 +458,7 @@ ${renderSystemsThread()}
       <section class="section-shell" id="work" aria-labelledby="work-title">
         <div class="section-heading reveal">
           <span>Selected Work</span>
-          <h2 id="work-title">Where the thinking had to work in practice.</h2>
+          <h2 id="work-title">Where the work has had to hold up.</h2>
         </div>
         <div class="work-grid">
           ${renderSelectedWork(profile.selectedWork)}
@@ -526,7 +526,7 @@ ${renderSystemsThread()}
         <div class="footer-links" aria-label="Footer links">
           <a href="mailto:${escapeHtml(profile.email)}">Email</a>
           <a href="${escapeHtml(profile.linkedIn)}" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="image-credits.html">Image credits</a>
+          <a href="image-credits.html">Sources & credits</a>
           <a href="#top">Back to top</a>
         </div>
       </div>

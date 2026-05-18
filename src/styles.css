@@ -2317,10 +2317,25 @@ a.credential-item:focus-visible .credential-mark img {
   color: var(--muted);
 }
 
+.credits-section {
+  margin-top: 2.7rem;
+}
+
+.credits-section > h2 {
+  margin: 0 0 1rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
 .credits-list {
   display: grid;
   gap: 0.7rem;
-  margin-top: 2.4rem;
+}
+
+.credits-list--compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .credits-list article {
@@ -2330,7 +2345,7 @@ a.credential-item:focus-visible .credential-mark img {
   padding: 1rem 1.1rem;
 }
 
-.credits-list h2 {
+.credits-list h3 {
   margin: 0 0 0.35rem;
   font-size: 1rem;
 }
@@ -2636,6 +2651,10 @@ a.credential-item:focus-visible .credential-mark img {
 
   .footer-links {
     justify-content: flex-start;
+  }
+
+  .credits-list--compact {
+    grid-template-columns: 1fr;
   }
 }
 

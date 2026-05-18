@@ -500,3 +500,18 @@ Completed changes:
 - Storytelling lens: tightened the hero lead and replaced "translation layer" with a more human MBA framing.
 - Science-illustration lens: changed the manuscript publication tile from "In prep" to "Manuscript" with a shorter "DANS study" supporting line that fits cleanly.
 - Updated the asset version for GitHub Pages cache busting after the final label adjustment.
+
+## Iteration 33: Three-Pass Exceptional Polish
+
+Feedback received:
+
+- Re-run the final critique more than once through the eyes of selective audiences: Google, McKinsey QuantumBlack, D. E. Shaw, Jane Street-style readers, MBB, and strong editorial / science-visual readers.
+- Look for small details that create professional trust and a quiet "this was cared for" moment without changing the core direction.
+
+Completed changes:
+
+- Pass 1, rigor: renamed the footer destination from image credits to "Sources & credits" and turned the standalone image page into a source-backed reference page.
+- Pass 2, precision: added professional source notes for the LinkedIn / CV basis, CDI, Humboldt, Springer, publication records, JCF / GDCh / mentoring, and award references.
+- Pass 3, polish: refined the Selected Work heading to "Where the work has had to hold up" and kept the image-credit language clear about contextual imagery.
+- Updated CSS for the new source-note layout, including a two-column desktop view and one-column mobile view.
+- Bumped the asset version for GitHub Pages cache busting.
