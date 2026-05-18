@@ -334,3 +334,17 @@ Completed changes:
 - Added ZEISS to the High-tech industry & research column, linked to the official ZEISS site with a local SVG mark.
 - Added a scroll-linked credential reveal for browsers that support view timelines, with the existing stagger as fallback.
 - Updated validation, credits, and the asset version for GitHub Pages cache busting.
+
+## Iteration 22: Leadership Focus Interaction
+
+Feedback received:
+
+- The Leadership & Community section could use a more premium interaction inspired by McKinsey-style section highlighting.
+- The interaction should not feel too loud or gimmicky.
+
+Completed changes:
+
+- Added a restrained focus treatment for leadership cards: the active card darkens while surrounding cards and affiliation marks recede.
+- Added a subtle section background wash during card focus/hover, keeping the effect calm and institutional.
+- Made leadership cards keyboard-focusable and added a small interaction controller so hover, tap, and keyboard activation all resolve to the same visual state.
+- Updated the asset version for GitHub Pages cache busting.

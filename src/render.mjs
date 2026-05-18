@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-credentials-zeiss";
+const assetVersion = "20260518-leadership-focus-v2";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -94,7 +94,7 @@ const renderLeadership = (items) =>
   items
     .map(
       (item) => `
-        <article class="leadership-item reveal">
+        <article class="leadership-item reveal" tabindex="0">
           <span>${escapeHtml(item.org)}</span>
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.text)}</p>

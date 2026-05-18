@@ -934,6 +934,58 @@ function setupWorkCards() {
   });
 }
 
+function setupLeadershipCards() {
+  const cards = [...document.querySelectorAll(".leadership-item")];
+  if (!cards.length) return;
+
+  function clearActive(except = null) {
+    cards.forEach((card) => {
+      if (card !== except) card.classList.remove("is-active");
+    });
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener("pointerenter", () => {
+      clearActive(card);
+      card.classList.add("is-active");
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.classList.remove("is-active");
+    });
+
+    card.addEventListener("focus", () => {
+      clearActive(card);
+      card.classList.add("is-active");
+    });
+
+    card.addEventListener("blur", () => {
+      card.classList.remove("is-active");
+    });
+
+    card.addEventListener("click", () => {
+      clearActive(card);
+      card.classList.add("is-active");
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        card.classList.remove("is-active");
+        return;
+      }
+
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      clearActive(card);
+      card.classList.add("is-active");
+    });
+  });
+
+  document.addEventListener("pointerdown", (event) => {
+    if (!event.target.closest(".leadership-item")) clearActive();
+  });
+}
+
 setupNavigation();
 setupReveal();
 setupScrollConstellation();
@@ -941,6 +993,7 @@ setupSignalCanvas();
 setupNetworkCanvas();
 setupMorphCanvas();
 setupWorkCards();
+setupLeadershipCards();
 updateProgress();
 updateActiveNav();
 updateSystemsThread();

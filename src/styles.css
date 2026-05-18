@@ -1318,7 +1318,7 @@ h3 {
 
 .work-card:is(:hover, :focus, .is-active),
 .publication:hover,
-.leadership-item:hover {
+.leadership-item:is(:hover, .is-active) {
   transform: translateY(-3px);
   background: rgba(255, 255, 255, 0.84);
   border-color: rgba(47, 111, 94, 0.38);
@@ -1441,6 +1441,29 @@ h3 {
 .leadership-section,
 .beyond-section {
   border-top: 1px solid var(--line);
+}
+
+.leadership-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.leadership-section::before {
+  content: "";
+  position: absolute;
+  inset: 0 -100vmax;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(47, 111, 94, 0.12), transparent 22rem),
+    radial-gradient(circle at 82% 22%, rgba(168, 92, 58, 0.1), transparent 24rem),
+    linear-gradient(180deg, rgba(238, 244, 237, 0.5), rgba(247, 247, 242, 0));
+  transition: opacity 420ms var(--ease);
+}
+
+.leadership-section:has(.leadership-item:is(:hover, :focus, .is-active))::before {
+  opacity: 1;
 }
 
 .publication-list {
@@ -1585,6 +1608,7 @@ h3 {
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.6);
+  transition: opacity 280ms ease, transform 320ms var(--ease), background 320ms ease, filter 320ms ease;
 }
 
 .affiliation-logo {
@@ -1647,13 +1671,81 @@ h3 {
 }
 
 .leadership-item {
+  position: relative;
+  overflow: hidden;
   padding: 1.25rem;
   min-height: 230px;
+  outline: none;
+  transition:
+    transform 320ms var(--ease),
+    border-color 320ms ease,
+    background 320ms ease,
+    color 320ms ease,
+    box-shadow 320ms ease,
+    opacity 320ms ease,
+    filter 320ms ease;
+}
+
+.leadership-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 20% 16%, rgba(159, 198, 185, 0.25), transparent 10rem),
+    radial-gradient(circle at 92% 20%, rgba(168, 92, 58, 0.22), transparent 12rem),
+    linear-gradient(135deg, #1d2d29, #14211e 68%, #101817);
+  transition: opacity 320ms ease;
+}
+
+.leadership-item > * {
+  position: relative;
+  z-index: 1;
 }
 
 .leadership-item h3 {
   font-size: 1.22rem;
   margin: 0.55rem 0 0.8rem;
+}
+
+.leadership-grid:has(.leadership-item:is(:hover, :focus, .is-active)) .leadership-item:not(:hover):not(:focus):not(.is-active),
+.leadership-section:has(.leadership-item:is(:hover, :focus, .is-active)) .affiliation-mark {
+  opacity: 0.56;
+  filter: saturate(0.76);
+  transform: scale(0.992);
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.leadership-item:is(:hover, :focus, .is-active) {
+  color: var(--paper);
+  transform: translateY(-7px);
+  border-color: rgba(159, 198, 185, 0.5);
+  background: #14211e;
+  box-shadow: 0 28px 72px rgba(31, 46, 43, 0.18);
+}
+
+.leadership-item:is(:hover, :focus, .is-active)::before {
+  opacity: 1;
+}
+
+.leadership-item:is(:hover, :focus, .is-active) span {
+  color: rgba(159, 198, 185, 0.95);
+}
+
+.leadership-item:is(:hover, :focus, .is-active) h3 {
+  color: var(--paper);
+}
+
+.leadership-item:is(:hover, :focus, .is-active) p {
+  color: rgba(247, 247, 242, 0.76);
+}
+
+.leadership-item:focus-visible {
+  box-shadow:
+    0 0 0 3px rgba(168, 92, 58, 0.2),
+    0 28px 72px rgba(31, 46, 43, 0.18);
 }
 
 .credentials-strip {
