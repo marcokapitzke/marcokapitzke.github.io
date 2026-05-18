@@ -453,3 +453,18 @@ Completed changes:
 - Preserved the card order and hierarchy: cycling in front, solar system in the middle, chess in the rear.
 - Converted the generated PNGs to optimized local JPEG assets under the existing filenames.
 - Updated local and deployed image credits and bumped the asset version for GitHub Pages cache busting.
+
+## Iteration 30: Human Copy Audit
+
+Feedback received:
+
+- Some compact hover insights and technical phrases sounded too generated, especially lines such as "material allocation logic" and "cleanroom discipline."
+- The site should keep the existing high-standard direction but feel more human, specific, and natural.
+
+Completed changes:
+
+- Reworked the Selected Work hover insight lines into more meaningful, human sentences rather than keyword chains.
+- Replaced synthetic-sounding phrases including "cleanroom discipline," "material allocation logic," "AI use cases" in positioning, and several abstract noun stacks.
+- Kept AI present but more understated: practical AI questions, models, and tools close to the operating question.
+- Tightened the Infineon, Columbia, FLUPS, textbook, research output, JCF, publication, leadership, and Beyond the Work copy.
+- Updated the asset version for GitHub Pages cache busting.
