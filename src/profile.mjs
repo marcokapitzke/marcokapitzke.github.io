@@ -19,7 +19,7 @@ export const profile = {
       "I work on problems where careful analysis changes how people understand a system - whether that system is a molecule, an experiment, a manufacturing process, or a market.",
     secondary:
       "My path has moved from ultrafast spectroscopy and 2D quantum materials into semiconductor front-end analytics and a multinational MBA shaped around company missions.",
-    journeyIntro: "This is my path",
+    journeyIntro: "From chemistry to manufacturing",
     journeyNodes: [
       {
         label: "Physical chemistry",

@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-pathviz";
+const assetVersion = "20260518-typecrop";
 
 const escapeHtml = (value = "") =>
   String(value)

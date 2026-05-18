@@ -13,6 +13,7 @@
   --shadow: 0 24px 70px rgba(23, 23, 22, 0.09);
   --max: 1180px;
   --radius: 8px;
+  --serif: Georgia, "Times New Roman", serif;
 }
 
 * {
@@ -233,7 +234,7 @@ textarea {
   height: 82px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: 50% 32%;
+  object-position: 50% 44%;
   border: 1px solid rgba(203, 210, 202, 0.92);
   box-shadow: 0 16px 42px rgba(23, 23, 22, 0.12);
 }
@@ -271,7 +272,7 @@ textarea {
 
 .eyebrow {
   margin: 0 0 0.25rem;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-style: italic;
   text-transform: none;
   font-size: 1rem;
@@ -287,11 +288,11 @@ p {
 
 h1 {
   margin-bottom: 1.35rem;
-  font-size: 3.8rem;
+  font-size: 3.42rem;
   line-height: 1;
   letter-spacing: 0;
-  max-width: 790px;
-  font-family: Georgia, "Times New Roman", serif;
+  max-width: 730px;
+  font-family: var(--serif);
   font-weight: 700;
 }
 
@@ -300,6 +301,8 @@ h2 {
   line-height: 1.05;
   letter-spacing: 0;
   margin-bottom: 1rem;
+  font-family: var(--serif);
+  font-weight: 700;
 }
 
 h3 {
@@ -1266,7 +1269,7 @@ h3 {
 
 @media (max-width: 1040px) {
   h1 {
-    font-size: 3.45rem;
+    font-size: 3.18rem;
   }
 
   h2 {
@@ -1344,7 +1347,7 @@ h3 {
   }
 
   h1 {
-    font-size: 2.55rem;
+    font-size: 2.38rem;
     line-height: 1.02;
   }
 
@@ -1428,7 +1431,7 @@ h3 {
   }
 
   h1 {
-    font-size: 2.18rem;
+    font-size: 2.06rem;
   }
 
   .button {
