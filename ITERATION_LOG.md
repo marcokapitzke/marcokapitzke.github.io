@@ -35,3 +35,10 @@ Planned changes:
 - Add a small "Beyond the work" section.
 - Remove floating source links from the footer.
 - Run checks and browser review before pushing.
+
+## Iteration 4: Editorial Polish and Optimized Portrait
+
+- Reviewed the additional inspiration set for practical lessons: publication thumbnails, contextual talk/work descriptions, a clear research-and-innovation narrative, and clean data-art presentation.
+- Replaced the heavier portrait source with a 512px optimized crop for web use.
+- Added a subtle data and visual thinking band to show that analytical work also has a communication and display layer.
+- Kept the site close to the existing foundation while making the visual and narrative system more memorable.

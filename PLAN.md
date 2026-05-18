@@ -119,6 +119,13 @@ Rationale: the workspace has Node available but no npm/yarn/pnpm. A zero-depende
 - Move metrics into story context instead of leading with dashboard-style proof points.
 - Add DESIGN_BRIEF.md and ITERATION_LOG.md as persistent records of the design direction and review loop.
 
+### Loop 5: Inspiration-Based Polish
+
+- Use selected lessons from Clinton Wang, Thomas Sutter, Arian Kriesch, and Visual Cinnamon without copying their sites.
+- Optimize the supplied portrait into a small web-ready asset.
+- Add a restrained data / visual thinking section to signal taste in analytical display.
+- Keep the site close to the refined foundation while making it more memorable and human.
+
 ## Validation Checklist
 
 - [x] `node src/render.mjs` completes successfully.

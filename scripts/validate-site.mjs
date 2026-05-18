@@ -9,7 +9,7 @@ const requiredFiles = [
   "src/styles.css",
   "public/favicon.svg",
   "public/og-card.svg",
-  "public/portrait-marco.jpeg",
+  "public/portrait-marco-512.jpg",
   "public/CV_MK-13.pdf",
   "README.md",
   "PLAN.md",

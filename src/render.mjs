@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-refine";
+const assetVersion = "20260518-polish";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -104,6 +104,9 @@ const renderSimpleList = (items) =>
   items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
 
 const renderInterestList = (items) =>
+  items.map((item) => `<span>${escapeHtml(item)}</span>`).join("");
+
+const renderDataNotes = (items) =>
   items.map((item) => `<span>${escapeHtml(item)}</span>`).join("");
 
 const renderSources = (items) =>
@@ -262,6 +265,35 @@ ${JSON.stringify(
         </div>
         <div class="focus-grid">
           ${renderFocus(profile.focus)}
+        </div>
+      </section>
+
+      <section class="section-shell visual-thinking-section" aria-labelledby="visual-thinking-title">
+        <div class="visual-thinking-copy reveal">
+          <span>Data & Visual Thinking</span>
+          <h2 id="visual-thinking-title">${escapeHtml(profile.visualThinking.headline)}</h2>
+          <p>${escapeHtml(profile.visualThinking.text)}</p>
+          <div class="data-note-row" aria-label="Visual thinking themes">
+            ${renderDataNotes(profile.visualThinking.notes)}
+          </div>
+        </div>
+        <div class="data-etching reveal" style="--delay: 100ms" aria-hidden="true">
+          <div class="data-etching__axis"></div>
+          <div class="data-etching__wave"></div>
+          <div class="data-etching__bars">
+            <span style="--h: 42%"></span>
+            <span style="--h: 63%"></span>
+            <span style="--h: 51%"></span>
+            <span style="--h: 76%"></span>
+            <span style="--h: 68%"></span>
+            <span style="--h: 88%"></span>
+            <span style="--h: 57%"></span>
+          </div>
+          <div class="data-etching__labels">
+            <span>observe</span>
+            <span>structure</span>
+            <span>translate</span>
+          </div>
         </div>
       </section>
 

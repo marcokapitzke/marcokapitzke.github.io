@@ -2,7 +2,7 @@
 
 ## What Was Built
 
-A polished, dependency-free static personal website for Marco A. Kapitzke. The refined version uses first-person copy, a small portrait, a meaningful journey interaction, richer work descriptions, and a clearer narrative across science, data, manufacturing, business, and people.
+A polished, dependency-free static personal website for Marco A. Kapitzke. The refined version uses first-person copy, an optimized portrait, a meaningful journey interaction, richer work descriptions, and a clearer narrative across science, data, manufacturing, business, and people.
 
 ## Design Concept
 
@@ -20,6 +20,7 @@ The design uses a mostly white editorial system inspired by premium professional
 - ChemPhotoChem VIP paper, JACS accepted co-author work, and J. Mater. Chem. C co-author work
 - JCF Berlin leadership, student mentoring, awards, and community work
 - A subtle "Beyond the work" section covering interests in markets, game theory, data, visual communication, manufacturing systems, movement, and reading
+- A restrained data / visual thinking band that signals care for analytical display without turning the site into a portfolio
 
 ## Review Roles Applied
 
@@ -42,6 +43,7 @@ The design uses a mostly white editorial system inspired by premium professional
 - Desktop and mobile screenshot review
 - Browser console error/warning check
 - Mobile and desktop refinement review after adding portrait and first-person copy
+- Portrait optimized from the original upload into a small 512px web-ready crop
 
 ## Deployment
 

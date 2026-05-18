@@ -29,6 +29,7 @@ The tone should be calm, precise, warm, understated, and human.
 - Keep body copy modern, readable, and sans-serif.
 - Add a small warm portrait, cropped tastefully into a circular or softly rounded format.
 - Make publications more visual through compact cards, a tasteful textbook-cover treatment, and publication thumbnails or markers.
+- Include one subtle data-display moment to show an eye for visual communication and analytical beauty without turning the site into a portfolio.
 - Keep the site premium, whitespace-driven, and memorable without becoming flashy.
 
 ## Interaction Principle

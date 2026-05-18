@@ -6,7 +6,7 @@ export const profile = {
   email: "marco.kapitzke@icloud.com",
   linkedIn: "https://www.linkedin.com/in/marcokapitzke/",
   cvPath: "public/CV_MK-13.pdf",
-  portraitPath: "public/portrait-marco.jpeg",
+  portraitPath: "public/portrait-marco-512.jpg",
   title: "Marco A. Kapitzke | Science, Data & Manufacturing Analytics",
   description:
     "Marco A. Kapitzke works across physical chemistry, data analysis, semiconductor manufacturing analytics, and business translation.",
@@ -97,6 +97,12 @@ export const profile = {
         "The MBA adds a practical layer: turning technical understanding into choices that matter for teams, operations, and markets."
     }
   ],
+  visualThinking: {
+    headline: "I care about how insight is seen, not only how it is computed.",
+    text:
+      "Good analysis has a visual discipline to it. The display should be exact enough for technical work, calm enough for decisions, and honest about uncertainty. I like data work where the shape of the problem becomes visible without making the reader fight the chart.",
+    notes: ["signal", "context", "comparison", "decision"]
+  },
   selectedWork: [
     {
       kicker: "Infineon Technologies AG",
