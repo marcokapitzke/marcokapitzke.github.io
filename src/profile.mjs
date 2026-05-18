@@ -138,7 +138,7 @@ export const profile = {
     headline: "I care about how insight is seen, not only how it is computed.",
     text:
       "Good analysis has a visual discipline to it. The chart should show what was observed, what was modeled, and where uncertainty matters. I like data work where a technical pattern becomes visible enough for someone else to question it, trust it, and act on it.",
-    notes: ["observed data", "model fit", "uncertainty", "decision range"]
+    notes: []
   },
   selectedWork: [
     {

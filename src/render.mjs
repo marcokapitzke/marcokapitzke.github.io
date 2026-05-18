@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-network";
+const assetVersion = "20260518-datagraph";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -146,7 +146,7 @@ const renderNetworkField = () => `
   </div>`;
 
 const renderDataSketch = () => `
-  <svg class="data-sketch" viewBox="0 0 520 320" role="img" aria-label="A calm data sketch showing signal, calibration, uncertainty, and a decision window.">
+  <svg class="data-sketch" viewBox="0 0 520 320" role="img" aria-label="A calm data sketch showing observations, an uncertainty band, and a fitted response curve.">
     <defs>
       <linearGradient id="uncertaintyBand" x1="0" x2="1" y1="0" y2="0">
         <stop offset="0%" stop-color="#2f6f5e" stop-opacity="0.08"></stop>
@@ -155,7 +155,6 @@ const renderDataSketch = () => `
     </defs>
     <path class="data-grid-line" d="M 48 56 H 472 M 48 112 H 472 M 48 168 H 472 M 48 224 H 472"></path>
     <path class="data-grid-line" d="M 108 40 V 252 M 188 40 V 252 M 268 40 V 252 M 348 40 V 252 M 428 40 V 252"></path>
-    <path class="data-axis" d="M 48 252 H 472 M 48 40 V 252"></path>
     <path class="decision-band" d="M 338 56 H 432 V 252 H 338 Z"></path>
     <path class="uncertainty-band" d="M 68 209 C 132 178, 172 134, 228 139 C 282 144, 321 105, 392 94 C 431 88, 458 96, 472 103 L 472 139 C 432 131, 399 124, 360 135 C 306 150, 274 188, 218 178 C 166 169, 126 207, 68 235 Z"></path>
     <path class="calibration-line" d="M 68 222 C 136 190, 170 150, 226 158 C 282 166, 316 128, 384 116 C 424 109, 454 116, 472 122"></path>
@@ -171,11 +170,6 @@ const renderDataSketch = () => `
       <circle cx="401" cy="114" r="4"></circle>
       <circle cx="444" cy="119" r="4"></circle>
     </g>
-    <text x="48" y="286">raw observations</text>
-    <text x="215" y="286">model fit</text>
-    <text x="344" y="286">decision range</text>
-    <text class="axis-label" x="250" y="310">process variable</text>
-    <text class="axis-label axis-label--y" x="18" y="156">response / signal</text>
   </svg>`;
 
 const renderSources = (items) =>
@@ -343,9 +337,10 @@ ${JSON.stringify(
           <span>Data & Visual Thinking</span>
           <h2 id="visual-thinking-title">${escapeHtml(profile.visualThinking.headline)}</h2>
           <p>${escapeHtml(profile.visualThinking.text)}</p>
-          <div class="data-note-row" aria-label="Visual thinking themes">
-            ${renderDataNotes(profile.visualThinking.notes)}
-          </div>
+          ${profile.visualThinking.notes.length ? `
+            <div class="data-note-row" aria-label="Visual thinking themes">
+              ${renderDataNotes(profile.visualThinking.notes)}
+            </div>` : ""}
         </div>
         <div class="data-etching reveal" style="--delay: 100ms" aria-hidden="true">
           ${renderDataSketch()}
