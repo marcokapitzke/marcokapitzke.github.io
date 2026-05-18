@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-selected-work-detail";
+const assetVersion = "20260518-beyond-image-stack";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -180,24 +180,13 @@ const renderDataSketch = () => `
 const renderBeyondStack = () => `
   <div class="beyond-stack" aria-hidden="true">
     <div class="beyond-frame beyond-frame--trail">
-      <span class="beyond-sun"></span>
-      <span class="beyond-path"></span>
-      <span class="mountain mountain--back"></span>
-      <span class="mountain mountain--front"></span>
-      <span class="bike-rider"></span>
+      <img src="public/beyond-biking.jpg?v=${assetVersion}" alt="" loading="lazy" decoding="async">
     </div>
     <div class="beyond-frame beyond-frame--route">
-      <span class="beyond-route-line"></span>
-      <span class="beyond-route-dot beyond-route-dot--one"></span>
-      <span class="beyond-route-dot beyond-route-dot--two"></span>
-      <span class="beyond-route-dot beyond-route-dot--three"></span>
+      <img src="public/beyond-solar.jpg?v=${assetVersion}" alt="" loading="lazy" decoding="async">
     </div>
     <div class="beyond-frame beyond-frame--pages">
-      <span class="chess-board"></span>
-      <span class="chess-piece chess-piece--king"></span>
-      <span class="chess-piece chess-piece--knight"></span>
-      <span class="chess-piece chess-piece--pawn"></span>
-      <span class="chess-line"></span>
+      <img src="public/beyond-chess.jpg?v=${assetVersion}" alt="" loading="lazy" decoding="async">
     </div>
   </div>`;
 

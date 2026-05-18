@@ -1893,414 +1893,109 @@ a.credential-item:focus-visible .credential-mark img {
 
 .beyond-stack {
   position: relative;
-  width: min(100%, 400px);
-  height: 342px;
+  width: min(100%, 424px);
+  height: 452px;
   margin-top: 2.35rem;
+  perspective: 900px;
 }
 
 .beyond-frame {
   position: absolute;
   overflow: hidden;
-  border: 1px solid rgba(31, 46, 43, 0.16);
-  border-radius: 10px;
-  background: #ffffff;
-  box-shadow: 0 24px 54px rgba(31, 46, 43, 0.12);
-  transition: transform 420ms var(--ease), box-shadow 420ms var(--ease);
+  border: 1px solid rgba(31, 46, 43, 0.18);
+  border-radius: 14px;
+  background: #111412;
+  box-shadow:
+    0 26px 58px rgba(31, 46, 43, 0.14),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  isolation: isolate;
+  transition: transform 520ms var(--ease), box-shadow 520ms var(--ease), filter 520ms var(--ease);
+}
+
+.beyond-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(15, 18, 17, 0.04), rgba(15, 18, 17, 0.36)),
+    radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.18), transparent 11rem);
+}
+
+.beyond-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.01);
+  transition: transform 680ms var(--ease);
 }
 
 .beyond-stack:hover .beyond-frame {
-  box-shadow: 0 30px 70px rgba(31, 46, 43, 0.15);
+  box-shadow:
+    0 32px 76px rgba(31, 46, 43, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.beyond-stack:hover .beyond-frame img {
+  transform: scale(1.055);
 }
 
 .beyond-frame--trail {
-  left: 3rem;
+  left: 1.35rem;
   bottom: 0;
-  z-index: 3;
-  width: 276px;
-  height: 164px;
-  transform: rotate(-1.5deg);
-  background:
-    radial-gradient(circle at 16% 72%, rgba(255, 168, 87, 0.78), transparent 34%),
-    radial-gradient(circle at 20% 22%, rgba(255, 213, 140, 0.56), transparent 25%),
-    linear-gradient(180deg, #f2ad76 0%, #91523e 43%, #293a35 78%, #101915 100%);
-}
-
-.beyond-frame--trail::before,
-.beyond-frame--trail::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-}
-
-.beyond-frame--trail::before {
-  left: 0;
-  right: 0;
-  bottom: 2.1rem;
-  height: 112px;
-  background:
-    linear-gradient(130deg, transparent 0 12%, rgba(47, 43, 40, 0.92) 12% 22%, transparent 22%),
-    linear-gradient(142deg, transparent 0 27%, rgba(26, 36, 33, 0.96) 27% 45%, transparent 45%),
-    linear-gradient(155deg, transparent 0 50%, rgba(19, 29, 27, 0.98) 50% 76%, transparent 76%);
-  clip-path: polygon(0 100%, 0 69%, 12% 60%, 26% 30%, 42% 60%, 57% 12%, 73% 63%, 86% 36%, 100% 72%, 100% 100%);
-  opacity: 0.98;
-}
-
-.beyond-frame--trail::after {
-  left: -1rem;
-  right: -1rem;
-  bottom: -0.2rem;
-  height: 62px;
-  background:
-    linear-gradient(165deg, transparent 0 24%, rgba(234, 117, 65, 0.72) 24.4% 26.2%, transparent 26.6%),
-    linear-gradient(155deg, #09110f 0 48%, #1a251f 49% 100%);
-  clip-path: polygon(0 52%, 16% 38%, 31% 47%, 46% 30%, 61% 42%, 77% 22%, 100% 44%, 100% 100%, 0 100%);
-}
-
-.beyond-path {
-  position: absolute;
-  left: 0.9rem;
-  bottom: 2.05rem;
   z-index: 4;
-  width: 112px;
-  height: 36px;
-  border: 0;
-  border-top: 3px solid rgba(255, 185, 97, 0.68);
-  border-radius: 55% 0 0 0;
-  transform: rotate(-7deg);
+  width: 310px;
+  height: 186px;
+  transform: rotate(-1.6deg) translateZ(32px);
 }
 
-.beyond-path::before {
-  content: "";
-  position: absolute;
-  left: 6%;
-  top: 0.4rem;
-  width: 86%;
-  height: 1px;
-  border-top: 1px solid rgba(255, 226, 173, 0.25);
-  border-radius: 50%;
-  transform: rotate(3deg);
-}
-
-.beyond-sun {
-  position: absolute;
-  left: 16%;
-  top: 30%;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: rgba(255, 198, 112, 0.75);
-  box-shadow:
-    0 0 22px rgba(255, 176, 79, 0.54),
-    0 0 72px rgba(255, 180, 98, 0.36);
-}
-
-.mountain {
-  position: absolute;
-  pointer-events: none;
-}
-
-.mountain--back {
-  right: -0.6rem;
-  bottom: 2.8rem;
-  z-index: 2;
-  width: 178px;
-  height: 86px;
-  background: linear-gradient(140deg, rgba(95, 66, 57, 0.45), rgba(18, 30, 28, 0.8));
-  clip-path: polygon(0 100%, 18% 54%, 31% 72%, 44% 24%, 61% 78%, 75% 46%, 100% 100%);
-}
-
-.mountain--front {
-  left: 3.6rem;
-  right: 0;
-  bottom: 1.6rem;
-  z-index: 3;
-  height: 110px;
-  background:
-    linear-gradient(115deg, transparent 0 45%, rgba(255, 218, 174, 0.42) 45.4% 47.4%, transparent 47.8%),
-    linear-gradient(140deg, rgba(23, 31, 30, 0.42), rgba(8, 14, 13, 0.95));
-  clip-path: polygon(0 100%, 18% 66%, 31% 70%, 47% 7%, 66% 77%, 79% 48%, 100% 100%);
-}
-
-.bike-rider {
-  position: absolute;
-  left: 2.3rem;
-  bottom: 2.65rem;
-  z-index: 5;
-  width: 9px;
-  height: 30px;
-  border-radius: 999px 999px 0 0;
-  background: #050908;
-  transform: rotate(-18deg);
-}
-
-.bike-rider::before {
-  content: "";
-  position: absolute;
-  left: -14px;
-  bottom: -9px;
-  width: 17px;
-  height: 17px;
-  border: 2px solid #050908;
-  border-radius: 50%;
-  box-shadow: 28px 8px 0 -2px transparent, 28px 8px 0 0 #050908;
-}
-
-.bike-rider::after {
-  content: "";
-  position: absolute;
-  left: -2px;
-  top: 8px;
-  width: 34px;
-  height: 2px;
-  background: #050908;
-  box-shadow: 10px 12px 0 #050908;
-  transform: rotate(18deg);
+.beyond-frame--trail img {
+  object-position: 38% 52%;
 }
 
 .beyond-frame--route {
-  right: 0;
-  top: 5.75rem;
-  z-index: 2;
-  width: 274px;
-  height: 168px;
-  transform: rotate(4deg);
-  background:
-    radial-gradient(circle at 72% 37%, rgba(255, 205, 104, 0.72) 0 7px, transparent 8px),
-    radial-gradient(circle at 22% 20%, rgba(47, 111, 94, 0.13), transparent 26%),
-    radial-gradient(circle at 80% 28%, rgba(168, 92, 58, 0.12), transparent 24%),
-    radial-gradient(circle at 58% 80%, rgba(94, 90, 127, 0.14), transparent 28%),
-    linear-gradient(135deg, #fbfbf7, #edf4ed);
+  right: 0.25rem;
+  top: 8.35rem;
+  z-index: 3;
+  width: 306px;
+  height: 184px;
+  transform: rotate(4deg) translateZ(6px);
+  filter: saturate(0.92) brightness(0.96);
 }
 
-.beyond-route-line {
-  position: absolute;
-  inset: 8% 8% 27% 24%;
-  border: 1.5px solid rgba(47, 111, 94, 0.36);
-  border-radius: 50%;
-  transform: rotate(-12deg);
-}
-
-.beyond-route-line::before,
-.beyond-route-line::after {
-  content: "";
-  position: absolute;
-  inset: 18% -10%;
-  border: 1px solid rgba(168, 92, 58, 0.22);
-  border-radius: 50%;
-}
-
-.beyond-route-line::after {
-  inset: -18% 17%;
-  border-color: rgba(94, 90, 127, 0.18);
-  transform: rotate(42deg);
-}
-
-.beyond-frame--route::before,
-.beyond-frame--route::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.beyond-frame--route::before {
-  left: 1rem;
-  top: 1rem;
-  width: 3px;
-  height: 3px;
-  background: rgba(47, 111, 94, 0.38);
-  box-shadow:
-    42px 16px 0 rgba(168, 92, 58, 0.36),
-    92px 5px 0 rgba(94, 90, 127, 0.34),
-    168px 22px 0 rgba(47, 111, 94, 0.28),
-    210px 72px 0 rgba(168, 92, 58, 0.3),
-    62px 112px 0 rgba(47, 111, 94, 0.26);
-}
-
-.beyond-frame--route::after {
-  left: 72%;
-  top: 37%;
-  width: 18px;
-  height: 18px;
-  background: rgba(255, 205, 104, 0.32);
-  box-shadow: 0 0 42px rgba(255, 205, 104, 0.32);
-  transform: translate(-50%, -50%);
-}
-
-.beyond-route-dot {
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 6px rgba(47, 111, 94, 0.11);
-}
-
-.beyond-route-dot--one {
-  left: 60%;
-  top: 56%;
-}
-
-.beyond-route-dot--two {
-  left: 76%;
-  top: 60%;
-  background: var(--rust);
-  box-shadow: 0 0 0 6px rgba(168, 92, 58, 0.12);
-}
-
-.beyond-route-dot--three {
-  right: 11%;
-  top: 24%;
+.beyond-frame--route img {
+  object-position: 62% 52%;
 }
 
 .beyond-frame--pages {
   left: 0;
-  top: 0.2rem;
+  top: 0;
   z-index: 1;
-  width: 292px;
+  width: 304px;
   height: 188px;
-  display: grid;
-  place-items: center;
-  transform: rotate(-5deg);
-  background:
-    radial-gradient(circle at 20% 18%, rgba(168, 92, 58, 0.2), transparent 22%),
-    radial-gradient(circle at 76% 75%, rgba(47, 111, 94, 0.24), transparent 24%),
-    linear-gradient(135deg, #0f1110, #1c2421 62%, #101514);
+  transform: rotate(-5deg) translateZ(-18px);
+  filter: saturate(0.82) brightness(0.72);
 }
 
-.beyond-frame--pages span {
-  position: absolute;
-}
-
-.beyond-frame--pages::before {
-  content: "";
-  position: absolute;
-  inset: 1.2rem 1.35rem;
-  width: auto;
-  height: auto;
-  border: 1px solid rgba(217, 231, 223, 0.18);
-  background:
-    linear-gradient(90deg, rgba(217, 231, 223, 0.14) 1px, transparent 1px),
-    linear-gradient(rgba(217, 231, 223, 0.14) 1px, transparent 1px),
-    conic-gradient(from 90deg, rgba(247, 247, 242, 0.08) 25%, rgba(247, 247, 242, 0.03) 0 50%, rgba(247, 247, 242, 0.08) 0 75%, rgba(247, 247, 242, 0.03) 0);
-  background-size: 29px 29px, 29px 29px, 58px 58px;
-  opacity: 0.92;
-  transform: perspective(280px) rotateX(14deg) rotateZ(-7deg);
-  transform-origin: center;
-}
-
-.beyond-frame--pages::after {
-  content: "";
-  position: absolute;
-  left: 1.05rem;
-  top: 1rem;
-  width: 3px;
-  height: 3px;
-  border: 0;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle, rgba(247, 247, 242, 0.7) 0 2px, transparent 3px);
-  box-shadow:
-    52px 19px 0 rgba(247, 247, 242, 0.42),
-    108px 2px 0 rgba(168, 92, 58, 0.62),
-    170px 23px 0 rgba(217, 231, 223, 0.34),
-    218px 7px 0 rgba(47, 111, 94, 0.6),
-    236px 88px 0 rgba(247, 247, 242, 0.34),
-    34px 116px 0 rgba(168, 92, 58, 0.42);
-  opacity: 0.9;
-}
-
-.chess-board {
-  position: absolute;
-  left: 4rem;
-  top: 2.7rem;
-  z-index: 2;
-  width: 142px;
-  height: 102px;
-  border: 1px solid rgba(217, 231, 223, 0.2);
-  background:
-    conic-gradient(from 90deg, rgba(247, 247, 242, 0.12) 25%, rgba(247, 247, 242, 0.035) 0 50%, rgba(247, 247, 242, 0.12) 0 75%, rgba(247, 247, 242, 0.035) 0);
-  background-size: 25% 25%;
-  transform: perspective(250px) rotateX(22deg) rotateZ(-9deg);
-  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.24);
-}
-
-.chess-piece {
-  position: absolute;
-  z-index: 3;
-  width: 18px;
-  height: 28px;
-  border-radius: 999px 999px 5px 5px;
-  background: rgba(247, 247, 242, 0.86);
-  box-shadow: 0 0 0 5px rgba(247, 247, 242, 0.08);
-}
-
-.chess-piece::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -7px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: inherit;
-  transform: translateX(-50%);
-}
-
-.chess-piece--king {
-  left: 7.35rem;
-  top: 4.05rem;
-  background: rgba(247, 247, 242, 0.9);
-}
-
-.chess-piece--knight {
-  left: 10.5rem;
-  top: 5.65rem;
-  height: 22px;
-  background: rgba(168, 92, 58, 0.9);
-}
-
-.chess-piece--pawn {
-  left: 13.2rem;
-  top: 3.35rem;
-  width: 14px;
-  height: 19px;
-  background: rgba(47, 111, 94, 0.92);
-}
-
-.chess-line {
-  position: absolute;
-  left: 7.8rem;
-  top: 5rem;
-  z-index: 4;
-  width: 102px;
-  height: 1.5px;
-  background: rgba(168, 92, 58, 0.78);
-  transform: rotate(23deg);
-}
-
-.chess-line::after {
-  content: "";
-  position: absolute;
-  right: -1px;
-  top: -4px;
-  width: 8px;
-  height: 8px;
-  border-top: 1.5px solid rgba(168, 92, 58, 0.78);
-  border-right: 1.5px solid rgba(168, 92, 58, 0.78);
-  transform: rotate(45deg);
+.beyond-frame--pages img {
+  object-position: 50% 52%;
 }
 
 .beyond-stack:hover .beyond-frame--trail {
-  transform: translateY(-8px) rotate(-3deg);
+  transform: translateY(-9px) rotate(-2.8deg) translateZ(42px);
 }
 
 .beyond-stack:hover .beyond-frame--route {
-  transform: translate(6px, -2px) rotate(2deg);
+  transform: translate(7px, -3px) rotate(2.4deg) translateZ(14px);
+  filter: saturate(1) brightness(1);
 }
 
 .beyond-stack:hover .beyond-frame--pages {
-  transform: translateY(8px) rotate(-0.2deg);
+  transform: translateY(8px) rotate(-1.2deg) translateZ(-8px);
+  filter: saturate(0.92) brightness(0.82);
 }
 
 .interest-cloud {
@@ -2700,20 +2395,29 @@ a.credential-item:focus-visible .credential-mark img {
   }
 
   .beyond-stack {
-    height: 304px;
-    margin-top: 1.6rem;
+    height: 438px;
+    margin-top: 1.7rem;
   }
 
   .beyond-frame--trail {
-    width: min(292px, 82vw);
+    left: 1rem;
+    bottom: 0;
+    width: min(310px, 82vw);
+    height: 186px;
   }
 
   .beyond-frame--route {
-    width: min(264px, 78vw);
+    right: 0;
+    top: 7.75rem;
+    width: min(306px, 82vw);
+    height: 184px;
   }
 
   .beyond-frame--pages {
-    width: min(252px, 72vw);
+    left: 0;
+    top: 0;
+    width: min(304px, 78vw);
+    height: 188px;
   }
 
   .card-index {

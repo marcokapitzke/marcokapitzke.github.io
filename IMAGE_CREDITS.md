@@ -26,3 +26,14 @@ This site uses a small set of locally hosted editorial hover images in the Selec
 
 - `public/portrait-marco-512.jpg`  
   Source: user-provided portrait of Marco A. Kapitzke, cropped and optimized for web display.
+
+## Generated Beyond Work Visuals
+
+- `public/beyond-biking.jpg`
+  Generated for this website with OpenAI image generation from a prompt for a clear editorial mountain-biking scene with visible cyclist, mountain ridge, and restrained sunset lighting.
+
+- `public/beyond-solar.jpg`
+  Generated for this website with OpenAI image generation from a prompt for a recognizable, institutional solar-system inspired orbital visual.
+
+- `public/beyond-chess.jpg`
+  Generated for this website with OpenAI image generation from a prompt for a readable chessboard strategy scene with real pieces and subtle analytical overlays.

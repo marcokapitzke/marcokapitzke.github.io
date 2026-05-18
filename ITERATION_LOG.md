@@ -302,3 +302,20 @@ Completed changes:
 - Kept the default card state quiet and readable, then moved into darker editorial image overlays on hover.
 - Added public image credits in both `IMAGE_CREDITS.md` and a deployed `image-credits.html` page linked from the footer.
 - Updated the asset version for GitHub Pages cache busting.
+
+## Iteration 20: Beyond Work Image Quality
+
+Feedback received:
+
+- The Beyond Work cards were still too low quality and too abstract.
+- The biking card needed an actually visible cyclist and bike, with the sun not covering the subject.
+- The middle card needed to read as a real solar-system/orbital visual.
+- The rear card needed to read clearly as chess rather than a vague dark abstraction.
+
+Completed changes:
+
+- Replaced the CSS-drawn card interiors with three optimized editorial bitmap assets.
+- Added a clear mountain-biking ascent image, a recognizable solar-system image, and a readable chessboard strategy image.
+- Preserved the stacked-card interaction and restrained institutional palette, while making each card’s content legible at the displayed size.
+- Added the generated assets to site validation and image credits.
+- Updated the asset version for GitHub Pages cache busting.
