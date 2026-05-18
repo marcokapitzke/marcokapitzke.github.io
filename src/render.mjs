@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260518-pattern-hero";
+const assetVersion = "20260518-institutional-systems";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -43,12 +43,6 @@ const renderFocus = (items) =>
     .map(
       (item, index) => `
         <article class="focus-card focus-card--${escapeHtml(item.visual)} reveal" style="--delay: ${index * 70}ms">
-          <div class="focus-visual focus-visual--${escapeHtml(item.visual)}" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
           <span class="card-index">0${index + 1}</span>
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.text)}</p>
@@ -358,17 +352,18 @@ ${JSON.stringify(
       </section>
 
       <section class="section-shell split-section" id="about" aria-labelledby="about-title">
-        <div class="section-kicker reveal">
-          <span>Positioning</span>
-          <p>Science, analytics, manufacturing, materials, and leadership.</p>
-          ${renderNetworkField()}
-        </div>
         <div class="section-copy reveal">
+          <span class="section-label">Positioning</span>
           <h2 id="about-title">${escapeHtml(profile.about.headline)}</h2>
           ${profile.about.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
           <ul class="principle-list" aria-label="Working principles">
             ${renderSimpleList(profile.about.principles)}
           </ul>
+        </div>
+        <div class="section-kicker section-kicker--visual reveal">
+          <span>Positioning</span>
+          <p>Science, data analytics, business, markets, and leadership.</p>
+          ${renderNetworkField()}
         </div>
       </section>
 

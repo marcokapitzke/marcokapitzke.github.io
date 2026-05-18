@@ -173,6 +173,22 @@ Rationale: the workspace has Node available but no npm/yarn/pnpm. A zero-depende
 - Move supporting copy, CTAs, and the path interaction below the first scroll so the opening breathes.
 - Turn the ambient particle system into a fuller, site-wide connected field that feels intentional and analytical instead of decorative.
 
+### Loop 12: Institutional Systems Refinement
+
+- Make the opening feel darker, more analytical, and more institutional while preserving Marco's green/rust/neutral identity.
+- Place the first text block in the lower-left and keep it visually compact so the system pattern carries the page.
+- Broaden the positioning language toward science, data analytics, business, markets, and leadership.
+- Replace focus mini-graphs with subtle editorial backgrounds that reinforce each topic.
+- Rework the Beyond visual stack toward markets, macro systems, decision maps, and strategy.
+
+### Loop 13: D. E. Shaw-Inspired Opening and Meaningful Hover Imagery
+
+- Keep the opening content minimal and lower-left, with the surrounding network acting as the primary first-viewport visual system.
+- Make the opening pattern more visible, structured, and scroll-reactive, then allow it to disappear as the page moves into the editorial content.
+- Use broader systems language suitable for deep-tech, quant, analytics, and strategy audiences.
+- Replace generated hover texture with dedicated topic-specific visual assets for data systems, semiconductors, molecular optics, and business / markets.
+- Keep the positioning animation borderless and alive, so it supports the copy without becoming a boxed widget.
+
 ## Validation Checklist
 
 - [x] `node src/render.mjs` completes successfully.

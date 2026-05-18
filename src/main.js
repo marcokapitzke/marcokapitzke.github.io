@@ -48,25 +48,25 @@ function setupScrollConstellation() {
   let rafId = 0;
 
   const tones = {
-    green: "47, 111, 94",
-    rust: "168, 92, 58",
-    violet: "94, 90, 127",
-    ink: "23, 23, 22"
+    green: "170, 207, 188",
+    rust: "219, 154, 118",
+    violet: "176, 171, 204",
+    ink: "238, 241, 235"
   };
 
-  const points = Array.from({ length: 72 }, (_, index) => {
-    const columns = 12;
+  const points = Array.from({ length: 104 }, (_, index) => {
+    const columns = 13;
     const col = index % columns;
     const row = Math.floor(index / columns);
-    const rowOffset = row % 2 ? 0.038 : 0;
+    const rowOffset = row % 2 ? 0.035 : 0;
     const x = (col + 0.48) / columns + rowOffset;
-    const y = (row + 0.38) / 6.65;
-    const toneOrder = ["green", "ink", "green", "rust", "violet", "green"];
+    const y = (row + 0.44) / 8.55;
+    const toneOrder = ["green", "ink", "green", "rust", "green", "violet", "ink"];
 
     return {
       x: Math.min(x, 0.97),
       y,
-      r: 1.05 + ((index * 7) % 8) * 0.13,
+      r: 1.08 + ((index * 7) % 9) * 0.12,
       tone: toneOrder[index % toneOrder.length],
       phase: index * 0.83,
       depth: 0.7 + (index % 5) * 0.16
@@ -85,13 +85,13 @@ function setupScrollConstellation() {
 
   function draw() {
     const progress = Math.min(window.scrollY / Math.max(window.innerHeight * 0.82, 520), 1);
-    const fade = Math.max(0.32, 0.9 - progress * 0.52);
+    const fade = Math.max(0, 1 - progress * 1.24);
     const lineIn = Math.min(Math.max((progress - 0.12) / 0.34, 0), 1);
     const lineOut = Math.max(0, 1 - Math.max(progress - 0.58, 0) / 0.36);
-    const restingMesh = Math.max(0.12, 0.26 - progress * 0.12);
+    const restingMesh = Math.max(0, 0.66 - progress * 0.46);
     const lineOpacity = Math.max(restingMesh, lineIn * lineOut * 0.9);
 
-    document.documentElement.style.setProperty("--constellation-opacity", String(fade * 0.62));
+    document.documentElement.style.setProperty("--constellation-opacity", String(fade * 0.98));
     context.clearRect(0, 0, width, height);
 
     const positioned = points.map((point, index) => {
@@ -112,17 +112,32 @@ function setupScrollConstellation() {
           const a = positioned[i];
           const b = positioned[j];
           const distance = Math.hypot(a.px - b.px, a.py - b.py);
-          const threshold = Math.min(width, height) * 0.18;
+          const threshold = Math.min(width, height) * 0.16;
           if (distance > threshold) continue;
 
           context.beginPath();
-          context.strokeStyle = `rgba(47, 111, 94, ${lineOpacity * Math.max(0.04, 0.26 - distance / threshold * 0.2)})`;
+          context.strokeStyle = `rgba(170, 207, 188, ${fade * lineOpacity * Math.max(0.055, 0.38 - distance / threshold * 0.28)})`;
           context.lineWidth = 1;
           context.moveTo(a.px, a.py);
           context.lineTo(b.px, b.py);
           context.stroke();
         }
       }
+    }
+
+    const route = [5, 18, 31, 45, 59, 73, 88, 102]
+      .map((index) => positioned[index])
+      .filter(Boolean);
+
+    if (route.length > 1) {
+      context.beginPath();
+      route.forEach((point, index) => {
+        if (index === 0) context.moveTo(point.px, point.py);
+        else context.lineTo(point.px, point.py);
+      });
+      context.strokeStyle = `rgba(219, 154, 118, ${fade * 0.34})`;
+      context.lineWidth = 1.4;
+      context.stroke();
     }
 
     const streak = lineIn * lineOut * 34;
@@ -140,8 +155,8 @@ function setupScrollConstellation() {
 
       context.beginPath();
       context.fillStyle = `rgb(${tone})`;
-      context.globalAlpha = fade * (0.36 + lineOpacity * 0.2);
-      context.arc(point.px, point.py, point.r * (1 - progress * 0.18), 0, Math.PI * 2);
+      context.globalAlpha = fade * (0.72 + lineOpacity * 0.22);
+      context.arc(point.px, point.py, point.r * 1.22 * (1 - progress * 0.18), 0, Math.PI * 2);
       context.fill();
     });
 
@@ -200,6 +215,23 @@ function setupReveal() {
   );
 
   elements.forEach((element) => observer.observe(element));
+
+  function revealVisibleElements() {
+    elements.forEach((element) => {
+      if (element.classList.contains("is-visible")) return;
+
+      const rect = element.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight * 0.92 && rect.bottom > window.innerHeight * 0.04;
+      if (!isVisible) return;
+
+      element.classList.add("is-visible");
+      observer.unobserve(element);
+    });
+  }
+
+  requestAnimationFrame(revealVisibleElements);
+  window.addEventListener("hashchange", () => requestAnimationFrame(revealVisibleElements));
+  window.addEventListener("scroll", revealVisibleElements, { passive: true });
 }
 
 function setupSignalCanvas() {
@@ -405,26 +437,21 @@ function setupNetworkCanvas() {
   let rafId = 0;
   let isExpanded = false;
 
-  const points = [
-    { x: 0.12, y: 0.18, vx: 0.34, vy: 0.28, speed: 1.35, color: "#2f6f5e", radius: 4.6 },
-    { x: 0.28, y: 0.16, vx: -0.28, vy: 0.36, speed: 1.9, color: "#a85c3a", radius: 3.8 },
-    { x: 0.52, y: 0.18, vx: 0.31, vy: -0.25, speed: 1.2, color: "#5e5a7f", radius: 4.2 },
-    { x: 0.82, y: 0.24, vx: -0.38, vy: 0.24, speed: 1.65, color: "#2f6f5e", radius: 4.8 },
-    { x: 0.68, y: 0.42, vx: 0.3, vy: 0.34, speed: 1.85, color: "#a85c3a", radius: 3.9 },
-    { x: 0.18, y: 0.48, vx: -0.33, vy: -0.28, speed: 1.1, color: "#5e5a7f", radius: 4.4 },
-    { x: 0.4, y: 0.58, vx: 0.27, vy: -0.38, speed: 1.55, color: "#2f6f5e", radius: 3.7 },
-    { x: 0.78, y: 0.62, vx: -0.24, vy: -0.33, speed: 2, color: "#a85c3a", radius: 4.1 },
-    { x: 0.1, y: 0.78, vx: 0.38, vy: -0.22, speed: 1.25, color: "#2f6f5e", radius: 3.9 },
-    { x: 0.32, y: 0.82, vx: -0.31, vy: -0.27, speed: 1.75, color: "#a85c3a", radius: 3.6 },
-    { x: 0.56, y: 0.78, vx: 0.25, vy: 0.32, speed: 1.4, color: "#5e5a7f", radius: 4.5 },
-    { x: 0.88, y: 0.84, vx: -0.36, vy: -0.3, speed: 1.9, color: "#2f6f5e", radius: 4.2 },
-    { x: 0.48, y: 0.38, vx: -0.3, vy: 0.26, speed: 1.5, color: "#2f6f5e", radius: 3.5 },
-    { x: 0.6, y: 0.55, vx: 0.36, vy: -0.31, speed: 1.95, color: "#5e5a7f", radius: 3.8 },
-    { x: 0.24, y: 0.66, vx: 0.29, vy: 0.34, speed: 1.3, color: "#2f6f5e", radius: 3.6 },
-    { x: 0.72, y: 0.76, vx: -0.34, vy: 0.22, speed: 1.7, color: "#a85c3a", radius: 3.7 },
-    { x: 0.9, y: 0.48, vx: -0.27, vy: 0.38, speed: 1.45, color: "#5e5a7f", radius: 3.9 },
-    { x: 0.06, y: 0.38, vx: 0.33, vy: -0.29, speed: 1.8, color: "#2f6f5e", radius: 3.6 }
-  ];
+  const palette = ["#2f6f5e", "#a85c3a", "#5e5a7f", "#2f6f5e", "#171716", "#6d8f80"];
+  const points = Array.from({ length: 34 }, (_, index) => {
+    const angle = index * 2.37 + (index % 5) * 0.21;
+    const speed = 1.82 + (index % 9) * 0.25;
+
+    return {
+      x: 0.08 + ((index * 37) % 84) / 100,
+      y: 0.08 + ((index * 53) % 84) / 100,
+      vx: Math.cos(angle) * (0.34 + (index % 4) * 0.07),
+      vy: Math.sin(angle) * (0.34 + ((index + 2) % 4) * 0.07),
+      speed,
+      color: palette[index % palette.length],
+      radius: 3.4 + (index % 5) * 0.42
+    };
+  });
 
   function resize() {
     const rect = canvas.getBoundingClientRect();
@@ -437,7 +464,7 @@ function setupNetworkCanvas() {
   }
 
   function drawLinks() {
-    const closeThreshold = Math.min(width, height) * 0.34;
+    const closeThreshold = Math.min(width, height) * 0.28;
 
     for (let i = 0; i < points.length; i += 1) {
       for (let j = i + 1; j < points.length; j += 1) {
@@ -453,8 +480,8 @@ function setupNetworkCanvas() {
         if (!shouldConnect) continue;
 
         const opacity = isExpanded
-          ? Math.max(0.08, 0.2 - distance / Math.max(width, height) * 0.12)
-          : Math.max(0.04, 0.28 - distance / closeThreshold * 0.24);
+          ? Math.max(0.085, 0.26 - distance / Math.max(width, height) * 0.12)
+          : Math.max(0.034, 0.21 - distance / closeThreshold * 0.17);
 
         context.beginPath();
         context.strokeStyle = `rgba(47, 111, 94, ${opacity})`;
@@ -473,7 +500,7 @@ function setupNetworkCanvas() {
       const pulse = 1 + Math.sin(frame * 0.032 + index) * 0.08;
 
       context.beginPath();
-      context.fillStyle = "rgba(255, 255, 255, 0.74)";
+      context.fillStyle = "rgba(255, 255, 255, 0.62)";
       context.arc(x, y, point.radius * 3.2 * pulse, 0, Math.PI * 2);
       context.fill();
 
@@ -491,8 +518,10 @@ function setupNetworkCanvas() {
       point.x += (point.vx * point.speed) / width;
       point.y += (point.vy * point.speed) / height;
 
-      if (point.x < 0.045 || point.x > 0.955) point.vx *= -1;
-      if (point.y < 0.045 || point.y > 0.955) point.vy *= -1;
+      if (point.x < -0.04) point.x = 1.04;
+      if (point.x > 1.04) point.x = -0.04;
+      if (point.y < -0.04) point.y = 1.04;
+      if (point.y > 1.04) point.y = -0.04;
     });
   }
 

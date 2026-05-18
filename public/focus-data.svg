@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 560" role="img" aria-label="Data pipeline, signal trace, and structured observations">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#111413"/>
+      <stop offset="0.62" stop-color="#263b36"/>
+      <stop offset="1" stop-color="#eef4ee"/>
+    </linearGradient>
+    <linearGradient id="trace" x1="0" x2="1">
+      <stop offset="0" stop-color="#d9e7df"/>
+      <stop offset="0.58" stop-color="#2f6f5e"/>
+      <stop offset="1" stop-color="#a85c3a"/>
+    </linearGradient>
+  </defs>
+  <rect width="840" height="560" fill="url(#bg)"/>
+  <g opacity="0.2" stroke="#d9e7df" stroke-width="1">
+    <path d="M0 98H840M0 178H840M0 258H840M0 338H840M0 418H840"/>
+    <path d="M92 0V560M172 0V560M252 0V560M332 0V560M412 0V560M492 0V560M572 0V560M652 0V560M732 0V560"/>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M74 372C146 334 194 270 265 286C329 301 363 230 429 224C508 217 541 137 625 153C680 164 717 198 770 181" stroke="url(#trace)" stroke-width="7"/>
+    <path d="M74 424C152 384 209 352 281 361C352 369 402 326 474 314C565 298 626 323 770 276" stroke="#d9e7df" stroke-opacity="0.42" stroke-width="3"/>
+    <path d="M96 108H243V192H96ZM331 92H478V176H331ZM565 120H712V204H565Z" stroke="#d9e7df" stroke-opacity="0.5" stroke-width="2"/>
+    <path d="M243 150C285 150 289 134 331 134M478 134C520 134 523 162 565 162" stroke="#a85c3a" stroke-opacity="0.7" stroke-width="3"/>
+  </g>
+  <g fill="#fbfbf8" stroke="#111413" stroke-opacity="0.38" stroke-width="2">
+    <circle cx="74" cy="372" r="9"/>
+    <circle cx="194" cy="270" r="9"/>
+    <circle cx="329" cy="301" r="9"/>
+    <circle cx="429" cy="224" r="9"/>
+    <circle cx="625" cy="153" r="9"/>
+    <circle cx="770" cy="181" r="9"/>
+  </g>
+  <g opacity="0.62">
+    <rect x="110" y="125" width="92" height="8" rx="4" fill="#d9e7df"/>
+    <rect x="110" y="149" width="66" height="8" rx="4" fill="#d9e7df"/>
+    <rect x="345" y="109" width="86" height="8" rx="4" fill="#d9e7df"/>
+    <rect x="345" y="133" width="112" height="8" rx="4" fill="#d9e7df"/>
+    <rect x="579" y="137" width="74" height="8" rx="4" fill="#d9e7df"/>
+    <rect x="579" y="161" width="104" height="8" rx="4" fill="#d9e7df"/>
+  </g>
+</svg>

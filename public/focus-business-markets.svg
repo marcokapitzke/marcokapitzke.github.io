@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 560" role="img" aria-label="Markets, strategy map, and decision system">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#111413"/>
+      <stop offset="0.48" stop-color="#263b36"/>
+      <stop offset="1" stop-color="#f1f5ef"/>
+    </linearGradient>
+  </defs>
+  <rect width="840" height="560" fill="url(#bg)"/>
+  <g opacity="0.22" stroke="#d9e7df" stroke-width="1">
+    <path d="M0 84H840M0 164H840M0 244H840M0 324H840M0 404H840M0 484H840"/>
+    <path d="M84 0V560M164 0V560M244 0V560M324 0V560M404 0V560M484 0V560M564 0V560M644 0V560M724 0V560"/>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M76 402C145 372 184 306 253 328C331 352 361 250 431 260C508 270 546 165 618 178C681 189 719 239 771 203" stroke="#d9e7df" stroke-width="6" opacity="0.78"/>
+    <path d="M76 430C151 410 212 386 288 408C377 434 466 390 544 352C622 314 697 326 771 292" stroke="#a85c3a" stroke-width="4" opacity="0.74"/>
+    <path d="M137 148H276V232H137ZM356 96H495V180H356ZM575 148H714V232H575ZM356 300H495V384H356Z" stroke="#d9e7df" stroke-opacity="0.54" stroke-width="2"/>
+    <path d="M276 190C318 190 314 138 356 138M495 138C537 138 533 190 575 190M426 180V300" stroke="#2f6f5e" stroke-opacity="0.72" stroke-width="3"/>
+  </g>
+  <g>
+    <circle cx="137" cy="402" r="8" fill="#2f6f5e"/>
+    <circle cx="253" cy="328" r="8" fill="#a85c3a"/>
+    <circle cx="431" cy="260" r="8" fill="#2f6f5e"/>
+    <circle cx="618" cy="178" r="8" fill="#a85c3a"/>
+    <circle cx="771" cy="203" r="8" fill="#2f6f5e"/>
+  </g>
+  <g fill="#fbfbf8" opacity="0.7">
+    <rect x="154" y="168" width="86" height="8" rx="4"/>
+    <rect x="154" y="194" width="58" height="8" rx="4"/>
+    <rect x="373" y="116" width="76" height="8" rx="4"/>
+    <rect x="373" y="142" width="96" height="8" rx="4"/>
+    <rect x="592" y="168" width="74" height="8" rx="4"/>
+    <rect x="592" y="194" width="92" height="8" rx="4"/>
+    <rect x="373" y="320" width="92" height="8" rx="4"/>
+    <rect x="373" y="346" width="64" height="8" rx="4"/>
+  </g>
+</svg>

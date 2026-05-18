@@ -7,9 +7,9 @@ export const profile = {
   linkedIn: "https://www.linkedin.com/in/marcokapitzke/",
   cvPath: "public/CV_MK-13.pdf",
   portraitPath: "public/portrait-marco-512.jpg",
-  title: "Marco A. Kapitzke | Science, Data & Manufacturing Analytics",
+  title: "Marco A. Kapitzke | Science, Data, Systems & Business",
   description:
-    "Marco A. Kapitzke works across physical chemistry, data analysis, semiconductor manufacturing analytics, and business translation.",
+    "Marco A. Kapitzke works across physical chemistry, data analysis, semiconductor systems, business translation, and analytical decision-making.",
   hero: {
     eyebrow: "Marco A. Kapitzke",
     identity:
@@ -18,8 +18,8 @@ export const profile = {
     lead:
       "I work on problems where careful analysis changes how people understand a system - whether that system is a molecule, an experiment, a manufacturing process, or a market.",
     secondary:
-      "My path has moved from ultrafast spectroscopy and 2D quantum materials into semiconductor front-end analytics and a multinational MBA shaped around company missions.",
-    journeyIntro: "From chemistry to manufacturing",
+      "My path has moved from ultrafast spectroscopy and 2D quantum materials into semiconductor analytics, business questions, and systems where technical detail has to translate into decisions.",
+    journeyIntro: "From chemistry to systems",
     journeyNodes: [
       {
         label: "Physical chemistry",
@@ -32,7 +32,7 @@ export const profile = {
           "Building ultrafast fluorescence instrumentation taught me to connect optics, mechanics, electronics, software, and patience."
       },
       {
-        label: "Data analytics",
+        label: "Data systems",
         detail:
           "I developed Python analysis tools because experiments only become useful when the signal is reliable, calibrated, and readable."
       },
@@ -42,9 +42,9 @@ export const profile = {
           "At Infineon, the system became a fab: wafer processes, material flows, databases, and front-end operational decisions."
       },
       {
-        label: "Business",
+        label: "Business & markets",
         detail:
-          "The MBA adds the translation layer: which analysis matters, who needs it, and how it changes execution."
+          "The MBA adds the translation layer: which analysis matters, who needs it, and how it changes execution, markets, and strategy."
       }
     ]
   },
@@ -52,7 +52,7 @@ export const profile = {
     headline: "The common thread is not a field. It is a way of looking.",
     paragraphs: [
       "I am drawn to systems that are technically demanding but still need to become understandable to people who make decisions. That can mean an optical experiment, a semiconductor process, a dataset, or a strategic question.",
-      "In research, I learned to build instruments, test assumptions, and make noisy signals trustworthy. In manufacturing analytics, I am applying the same mindset to front-end semiconductor operations: structure the data, understand the process, and make the uncertainty explicit enough to work with.",
+      "In research, I learned to build instruments, test assumptions, and make noisy signals trustworthy. In analytics and business settings, I apply the same mindset to systems where data, operations, markets, and people have to be understood together.",
       "I care about clarity, but not in the shallow sense of simplifying everything. The work I enjoy most keeps the depth intact while making the next step easier to see."
     ],
     principles: [
@@ -118,13 +118,13 @@ export const profile = {
   },
   focus: [
     {
-      title: "Data-driven process understanding",
+      title: "Data analytics and decision systems",
       text:
-        "I like using data to make complex processes more observable, especially when the answer has to be useful beyond the analysis itself.",
+        "I like using data to make complex systems more observable, especially when the answer has to be useful beyond the analysis itself.",
       visual: "data"
     },
     {
-      title: "Semiconductor manufacturing analytics",
+      title: "Semiconductor and operating systems",
       text:
         "At Infineon, I work close to front-end operations, wafer-level process steps, fab databases, and material-consumption questions.",
       visual: "semiconductor"
@@ -136,9 +136,9 @@ export const profile = {
       visual: "materials"
     },
     {
-      title: "Business translation",
+      title: "Business, markets, and leadership",
       text:
-        "The MBA adds a practical layer: turning technical understanding into choices that matter for teams, operations, and markets.",
+        "The MBA adds a practical layer: turning technical understanding into choices that matter for teams, operating models, markets, and strategy.",
       visual: "business"
     }
   ],

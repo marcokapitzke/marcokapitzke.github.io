@@ -156,3 +156,40 @@ Completed changes:
 - Rebuilt the hero into a full first viewport with only Marco's name, identity, portrait, and headline visible.
 - Moved the explanatory copy, CTAs, and interactive path map into the next scroll section.
 - Reworked the ambient canvas into a fuller field of connected points that remains subtle across the site and responds to scroll with line/stroke changes.
+
+## Iteration 11: Institutional, Broader Systems Pass
+
+Feedback received:
+
+- Move closer to the D. E. Shaw layout logic: compact opening statement in the lower-left, with the pattern doing more visual work.
+- Make the opening darker, more institutional, and more analytical while keeping Marco's color palette.
+- Broaden positioning beyond manufacturing toward science, data analytics, business, markets, and leadership.
+- Let the positioning network fill the visual side and move with more varied energy.
+- Remove meaningless focus-card mini-graphs; replace them with subtle content-relevant background imagery on hover.
+- Make the Beyond visual layer reference markets, macro, decision systems, and strategy more clearly.
+
+Completed changes:
+
+- Repositioned the hero statement as a smaller bottom-left block on a dark first viewport.
+- Increased the visibility and structure of the opening network and made it fade out as the visitor scrolls.
+- Reordered the positioning section so the copy leads and the animated system field occupies the right side.
+- Rebuilt the positioning network as a borderless wraparound field with more nodes and varied movement.
+- Removed focus-card mini-graphs and replaced them with low-opacity editorial background systems for data, semiconductors, physical chemistry, and markets / leadership.
+- Reworked the leading Beyond card into a market / supply-chain / decision-map visual.
+
+## Iteration 12: Institutional Systems Polish
+
+Feedback received:
+
+- The first viewport should feel closer to a D. E. Shaw-style opening: compact statement, bottom-left placement, and a visible analytical pattern that withdraws on scroll.
+- The visual language should address deep-tech, quant, strategy, and analytics audiences, not only manufacturing.
+- Focus-card hover visuals should read like meaningful editorial imagery rather than random graphs or decorative textures.
+- The positioning network should feel more alive, fill its side of the section, and avoid a boxed-off toy feeling.
+
+Completed changes:
+
+- Reduced the hero text scale and lockup width while keeping Marco's name, current identity, portrait, and reflective headline intact.
+- Strengthened the opening constellation into a denser connected field with a faint path trace and stronger scroll fade.
+- Added purpose-built focus hover assets for data systems, semiconductor wafer/process work, molecular optics/materials, and markets/strategy.
+- Moved the positioning label to the copy side and kept the right side as a borderless moving systems field.
+- Increased node count and speed variation in the positioning animation, with wraparound motion rather than hard box edges.

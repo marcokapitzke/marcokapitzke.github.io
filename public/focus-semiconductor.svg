@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 560" role="img" aria-label="Wafer map and semiconductor front-end process grid">
+  <defs>
+    <radialGradient id="wafer" cx="50%" cy="45%" r="58%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.52" stop-color="#d9e7df"/>
+      <stop offset="1" stop-color="#8aa99d"/>
+    </radialGradient>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8faf6"/>
+      <stop offset="0.55" stop-color="#dfe9e3"/>
+      <stop offset="1" stop-color="#111413"/>
+    </linearGradient>
+  </defs>
+  <rect width="840" height="560" fill="url(#bg)"/>
+  <g opacity="0.2" stroke="#171716" stroke-width="1">
+    <path d="M0 96H840M0 176H840M0 256H840M0 336H840M0 416H840"/>
+    <path d="M100 0V560M180 0V560M260 0V560M340 0V560M420 0V560M500 0V560M580 0V560M660 0V560M740 0V560"/>
+  </g>
+  <circle cx="420" cy="280" r="216" fill="url(#wafer)" stroke="#2f6f5e" stroke-opacity="0.45" stroke-width="3"/>
+  <circle cx="420" cy="280" r="158" fill="none" stroke="#2f6f5e" stroke-opacity="0.32" stroke-width="2"/>
+  <circle cx="420" cy="280" r="88" fill="none" stroke="#a85c3a" stroke-opacity="0.28" stroke-width="2"/>
+  <g opacity="0.46" stroke="#171716" stroke-width="2">
+    <path d="M204 280H636M420 64V496M267 127L573 433M573 127L267 433"/>
+  </g>
+  <g opacity="0.5" fill="none" stroke="#2f6f5e" stroke-width="2">
+    <path d="M300 190H378V246H300ZM390 190H468V246H390ZM480 190H558V246H480Z"/>
+    <path d="M300 258H378V314H300ZM390 258H468V314H390ZM480 258H558V314H480Z"/>
+    <path d="M300 326H378V382H300ZM390 326H468V382H390ZM480 326H558V382H480Z"/>
+  </g>
+  <path d="M94 450C178 398 224 394 302 420C379 446 465 493 552 444C625 403 676 358 754 389" fill="none" stroke="#a85c3a" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+  <g fill="#111413">
+    <circle cx="302" cy="420" r="8"/>
+    <circle cx="552" cy="444" r="8"/>
+    <circle cx="754" cy="389" r="8"/>
+  </g>
+</svg>

@@ -35,17 +35,22 @@ The tone should be calm, precise, warm, understated, and human.
 - Add one restrained scroll-reactive ambient graphic near the opening: dots resolving briefly into lines and fading as the page moves from introduction into content.
 - Let the opening behave like a first impression rather than a dashboard: identity and one strong statement first, then details after the first scroll.
 - The ambient pattern should be a coherent field of connected points that suggests analytical systems, not isolated decorative dots.
+- The opening can be darker and more institutional than the rest of the page; it should feel appropriate for deep-tech, quant, and strategy audiences.
+- Visuals should trace a broader arc: science, data, systems, business, markets, and leadership.
+- Avoid mini-graphs that read as decoration. Use visual layers only when they reinforce the topic they sit behind.
 - Keep the portrait warm and slightly larger, but avoid making the hero feel like a social profile.
 - Do not frame the portrait with a heavy white ring; the photo itself should do the humanizing work.
 - Use award marks where they help credibility, but scale them like editorial marks rather than loud badges.
 - Make data and focus visuals readable at a glance: wafer, molecular lattice, fitted signal, decision curve, and arrow axes should be visually evident without explanatory labels.
 - Keep the site premium, whitespace-driven, and memorable without becoming flashy.
+- The first viewport may lean closer to the institutional D. E. Shaw reference: dark field, compact bottom-left identity, visible analytical pattern, and a quiet transition into content.
+- Focus-card hover backgrounds should be recognizable topic imagery, not miniature charts. Use purpose-built assets or photo-like editorial systems that suggest data infrastructure, wafer/process work, molecular optics, and business / market systems.
 
 ## Interaction Principle
 
 Every interaction must carry meaning. The graph / wave element should represent Marco's path and interests rather than decorative motion.
 
-The hero interaction should connect:
+The path interaction should connect:
 
 - physical chemistry
 - instrumentation
@@ -53,9 +58,9 @@ The hero interaction should connect:
 - semiconductors
 - business translation
 
-The visible node controls should read like a confident path, not like instructions or prompt language. Hovering or focusing the numbered controls should reveal short fragments of the path and update the visual. The canvas itself should not behave like a toy; the interaction belongs to the bottom path bar.
+The visible node controls should read like a confident path, not like instructions or prompt language. Hovering or focusing the numbered controls should reveal short fragments of the path and update the visual. Hovering directly over the path nodes may trigger the same state, but the behavior should stay calm and explanatory.
 
-The positioning section should use the empty left column for a quiet scientific/data visual inspired by optics, signal extraction, and analytical display. It should support the copy about seeing systems clearly.
+The positioning section should use its visual side for a quiet, borderless system field inspired by connected research, data, business, markets, and leadership contexts. It should support the copy about seeing systems clearly.
 
 ## Content Priorities
 
