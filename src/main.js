@@ -502,6 +502,7 @@ function setupSignalCanvas() {
   }
 
   canvas.addEventListener("pointermove", setJourneyFromCanvasPointer);
+  canvas.addEventListener("pointerdown", setJourneyFromCanvasPointer);
   canvas.addEventListener("click", setJourneyFromCanvasPointer);
 
   canvas.addEventListener("pointerleave", () => {
@@ -637,6 +638,13 @@ function setupNetworkCanvas() {
 
   field?.addEventListener("pointerleave", () => {
     isExpanded = false;
+    if (prefersReducedMotion) draw();
+  });
+
+  field?.addEventListener("pointerdown", (event) => {
+    if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
+
+    isExpanded = !isExpanded;
     if (prefersReducedMotion) draw();
   });
 
@@ -941,6 +949,49 @@ function setupWorkCards() {
   });
 }
 
+function setupFocusCards() {
+  const cards = [...document.querySelectorAll(".focus-card")];
+  if (!cards.length) return;
+
+  function clearActive(except = null) {
+    cards.forEach((card) => {
+      if (card === except) return;
+      card.classList.remove("is-active");
+      card.setAttribute("aria-pressed", "false");
+    });
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener("pointerenter", () => clearActive(card));
+
+    card.addEventListener("click", () => {
+      const wasActive = card.classList.contains("is-active");
+      clearActive(card);
+      card.classList.toggle("is-active", !wasActive);
+      card.setAttribute("aria-pressed", String(!wasActive));
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        card.classList.remove("is-active");
+        card.setAttribute("aria-pressed", "false");
+        return;
+      }
+
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      const wasActive = card.classList.contains("is-active");
+      clearActive(card);
+      card.classList.toggle("is-active", !wasActive);
+      card.setAttribute("aria-pressed", String(!wasActive));
+    });
+  });
+
+  document.addEventListener("pointerdown", (event) => {
+    if (!event.target.closest(".focus-card")) clearActive();
+  });
+}
+
 function setupLeadershipCards() {
   const cards = [...document.querySelectorAll(".leadership-item")];
   if (!cards.length) return;
@@ -993,14 +1044,26 @@ function setupLeadershipCards() {
   });
 }
 
+function setupBeyondStack() {
+  const stack = document.querySelector(".beyond-stack");
+  if (!stack) return;
+
+  stack.addEventListener("pointerdown", (event) => {
+    if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
+    stack.classList.toggle("is-active");
+  });
+}
+
 setupNavigation();
 setupReveal();
 setupScrollConstellation();
 setupSignalCanvas();
 setupNetworkCanvas();
 setupMorphCanvas();
+setupFocusCards();
 setupWorkCards();
 setupLeadershipCards();
+setupBeyondStack();
 updateProgress();
 updateActiveNav();
 updateSystemsThread();

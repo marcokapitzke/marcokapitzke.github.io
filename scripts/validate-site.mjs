@@ -35,6 +35,7 @@ const requiredSnippets = [
   profile.linkedIn,
   "Manufacturing Analytics",
   "ChemPhotoChem",
+  "Mathe in der (Bio-)Chemie II",
   "JungesChemieForum",
   "Download CV",
   "application/ld+json",

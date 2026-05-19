@@ -262,6 +262,17 @@ export const profile = {
       visualNote: "DANS study"
     },
     {
+      type: "Textbook manuscript · in preparation",
+      title: "Mathe in der (Bio-)Chemie II",
+      venue: "Springer Spektrum, in preparation",
+      note:
+        "Second part of the textbook series, continuing the compact, example-driven approach to mathematics for chemistry and biochemistry students.",
+      href: "",
+      visual: "book",
+      visualTitle: "Springer",
+      visualNote: "Part II · in prep"
+    },
+    {
       type: "Co-author · accepted",
       title: "Accepted Journal of the American Chemical Society paper",
       venue: "Journal of the American Chemical Society, 2026",

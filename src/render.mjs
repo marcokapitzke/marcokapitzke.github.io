@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260519-exceptional-polish";
+const assetVersion = "20260519-mobile-polish";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -42,7 +42,7 @@ const renderFocus = (items) =>
   items
     .map(
       (item, index) => `
-        <article class="focus-card focus-card--${escapeHtml(item.visual)} reveal" style="--delay: ${index * 70}ms">
+        <article class="focus-card focus-card--${escapeHtml(item.visual)} reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Show visual context for ${escapeHtml(item.title)}" style="--delay: ${index * 70}ms">
           <span class="card-index">0${index + 1}</span>
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.text)}</p>

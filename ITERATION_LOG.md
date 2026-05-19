@@ -515,3 +515,20 @@ Completed changes:
 - Pass 3, polish: refined the Selected Work heading to "Where the work has had to hold up" and kept the image-credit language clear about contextual imagery.
 - Updated CSS for the new source-note layout, including a two-column desktop view and one-column mobile view.
 - Bumped the asset version for GitHub Pages cache busting.
+
+## Iteration 34: Mobile Interaction Pass
+
+Feedback received:
+
+- The desktop version is strong, but the iPhone formatting and interaction behavior should feel equally deliberate.
+- Add the forthcoming second textbook, `Mathe in der (Bio-)Chemie II`, as the second item in the Publications & Writing list.
+
+Completed changes:
+
+- Added `Mathe in der (Bio-)Chemie II` as a textbook manuscript in preparation directly after the first-author DANS manuscript.
+- Converted Professional Focus cards from hover-only visuals into tap-accessible interactive cards with `role="button"` and `aria-pressed` state.
+- Added touch / pen interaction support for the positioning network, hero journey canvas nodes, and Beyond the Work image stack.
+- Reworked the mobile hero journey panel so the node controls become a horizontal snap row instead of crowding the caption.
+- Improved mobile publication cards by keeping the visual tile compact beside the title and letting the explanation span the full width.
+- Added iPhone-oriented CSS safeguards: viewport-height fallbacks, horizontal overflow protection, text-size adjustment, and larger mobile signal-panel spacing.
+- Added the new textbook title to the validation script and bumped the asset version for GitHub Pages cache busting.

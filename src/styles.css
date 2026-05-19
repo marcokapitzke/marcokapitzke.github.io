@@ -24,6 +24,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--paper);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -35,6 +36,8 @@ body {
     var(--paper);
   line-height: 1.55;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 body.nav-open {
@@ -349,6 +352,7 @@ main,
 }
 
 .hero {
+  min-height: 100vh;
   min-height: 100svh;
   padding: 0 0 5.8rem;
   color: var(--paper);
@@ -356,6 +360,7 @@ main,
 
 .hero__intro {
   position: relative;
+  min-height: calc(100vh - 76px);
   min-height: calc(100svh - 76px);
   display: flex;
   flex-direction: column;
@@ -702,6 +707,7 @@ h3 {
   overflow-wrap: anywhere;
   hyphens: auto;
   cursor: pointer;
+  touch-action: manipulation;
   padding: 0.45rem 0.55rem;
   transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
 }
@@ -921,17 +927,22 @@ h3 {
   z-index: 1;
 }
 
-.focus-card:hover {
+.focus-card:is(:hover, :focus-visible, .is-active) {
   background: rgba(255, 255, 255, 0.86);
   transform: translateY(-3px);
 }
 
-.focus-card:hover::before {
+.focus-card:is(:hover, :focus-visible, .is-active)::before {
   opacity: 0.54;
 }
 
-.focus-card:hover::after {
+.focus-card:is(:hover, :focus-visible, .is-active)::after {
   opacity: 1;
+}
+
+.focus-card:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(168, 92, 58, 0.18);
 }
 
 .focus-card--data::before {
@@ -1248,6 +1259,7 @@ h3 {
   flex-direction: column;
   padding: 1.25rem;
   outline: none;
+  touch-action: manipulation;
 }
 
 .work-card::before,
@@ -2063,13 +2075,15 @@ a.credential-item:focus-visible .credential-mark img {
   transition: transform 680ms var(--ease);
 }
 
-.beyond-stack:hover .beyond-frame {
+.beyond-stack:hover .beyond-frame,
+.beyond-stack.is-active .beyond-frame {
   box-shadow:
     0 32px 76px rgba(31, 46, 43, 0.18),
     inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-.beyond-stack:hover .beyond-frame img {
+.beyond-stack:hover .beyond-frame img,
+.beyond-stack.is-active .beyond-frame img {
   transform: scale(1.055);
 }
 
@@ -2114,16 +2128,19 @@ a.credential-item:focus-visible .credential-mark img {
   object-position: 68% 46%;
 }
 
-.beyond-stack:hover .beyond-frame--trail {
+.beyond-stack:hover .beyond-frame--trail,
+.beyond-stack.is-active .beyond-frame--trail {
   transform: translateY(-9px) rotate(-2.8deg) translateZ(42px);
 }
 
-.beyond-stack:hover .beyond-frame--route {
+.beyond-stack:hover .beyond-frame--route,
+.beyond-stack.is-active .beyond-frame--route {
   transform: translate(7px, -3px) rotate(2.4deg) translateZ(14px);
   filter: saturate(1) brightness(1);
 }
 
-.beyond-stack:hover .beyond-frame--pages {
+.beyond-stack:hover .beyond-frame--pages,
+.beyond-stack.is-active .beyond-frame--pages {
   transform: translateY(8px) rotate(-1.2deg) translateZ(-8px);
   filter: saturate(0.92) brightness(0.82);
 }
@@ -2443,6 +2460,7 @@ a.credential-item:focus-visible .credential-mark img {
   }
 
   .hero__intro {
+    min-height: calc(100vh - 68px);
     min-height: calc(100svh - 68px);
   }
 
@@ -2522,11 +2540,13 @@ a.credential-item:focus-visible .credential-mark img {
   }
 
   .hero {
+    min-height: 100vh;
     min-height: 100svh;
     padding-top: 0;
   }
 
   .hero__intro {
+    min-height: calc(100vh - 68px);
     min-height: calc(100svh - 68px);
     padding: 3.2rem 0 4.4rem;
   }
@@ -2584,12 +2604,22 @@ a.credential-item:focus-visible .credential-mark img {
     padding-right: 0;
   }
 
-  .signal-panel {
-    min-height: 430px;
+  .signal-labels {
+    grid-template-columns: repeat(5, minmax(92px, 1fr));
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding-bottom: 0.25rem;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
   }
 
-  .signal-labels {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .signal-labels::-webkit-scrollbar {
+    display: none;
+  }
+
+  .journey-node {
+    min-height: 46px;
+    scroll-snap-align: start;
   }
 
   .signal-panel canvas {
@@ -2597,7 +2627,10 @@ a.credential-item:focus-visible .credential-mark img {
   }
 
   .journey-caption {
-    bottom: 8.6rem;
+    bottom: 5.8rem;
+    min-height: 4.1rem;
+    align-items: flex-start;
+    font-size: 0.9rem;
   }
 
   .network-field,
@@ -2613,6 +2646,34 @@ a.credential-item:focus-visible .credential-mark img {
 
   .focus-card {
     min-height: 286px;
+  }
+
+  .focus-card::before {
+    opacity: 0.12;
+  }
+
+  .work-card:is(:hover, :focus, .is-active) .work-card__insight {
+    max-height: 6rem;
+  }
+
+  .publication {
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 0.7rem 0.9rem;
+    padding: 1rem;
+  }
+
+  .publication__visual {
+    width: 82px;
+    height: 92px;
+    grid-row: span 2;
+  }
+
+  .publication__venue {
+    margin: 0;
+  }
+
+  .publication > p:last-child {
+    grid-column: 1 / -1;
   }
 
   .beyond-stack {
@@ -2673,7 +2734,16 @@ a.credential-item:focus-visible .credential-mark img {
   }
 
   .signal-panel {
-    min-height: 380px;
+    min-height: 450px;
+  }
+
+  .signal-panel__top {
+    display: grid;
+    gap: 0.14rem;
+  }
+
+  .signal-panel canvas {
+    top: 4.4rem;
   }
 
   .profile-lockup {
