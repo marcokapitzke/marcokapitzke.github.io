@@ -776,11 +776,15 @@ h3 {
     radial-gradient(circle at 50% 50%, rgba(47, 111, 94, 0.08), transparent 58%),
     transparent;
   overflow: hidden;
+  cursor: pointer;
+  touch-action: manipulation;
 }
 
 .network-field canvas {
   width: 100%;
   height: clamp(620px, 58vw, 760px);
+  cursor: pointer;
+  touch-action: manipulation;
 }
 
 .section-kicker--visual {

@@ -544,3 +544,15 @@ Completed changes:
 - Separated mouse hover behavior from touch / pen tap behavior so a touch-generated hover state cannot immediately toggle the morph back off.
 - Added touch and legacy click fallbacks for the cube-to-sphere interaction.
 - Marked the morph canvas area as a tap-friendly interaction surface and bumped the asset version for cache busting.
+
+## Iteration 36: Mobile Network Tap Fix
+
+Feedback received:
+
+- On iPhone, tapping the positioning network did not reliably reveal all node connections.
+
+Completed changes:
+
+- Separated mouse hover behavior from touch / pen tap behavior for the positioning network, matching the cube interaction fix.
+- Added touch and legacy click fallbacks for the all-connections state.
+- Marked the network field and canvas as tap-friendly interaction surfaces and bumped the asset version for cache busting.

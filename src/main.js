@@ -631,21 +631,40 @@ function setupNetworkCanvas() {
     if (!prefersReducedMotion) rafId = requestAnimationFrame(draw);
   }
 
-  field?.addEventListener("pointerenter", () => {
-    isExpanded = true;
+  function setExpanded(value) {
+    isExpanded = value;
     if (prefersReducedMotion) draw();
+  }
+
+  function toggleExpanded() {
+    isExpanded = !isExpanded;
+    if (prefersReducedMotion) draw();
+  }
+
+  field?.addEventListener("pointerenter", (event) => {
+    if (event.pointerType === "touch" || event.pointerType === "pen") return;
+    setExpanded(true);
   });
 
-  field?.addEventListener("pointerleave", () => {
-    isExpanded = false;
-    if (prefersReducedMotion) draw();
+  field?.addEventListener("pointerleave", (event) => {
+    if (event.pointerType === "touch" || event.pointerType === "pen") return;
+    setExpanded(false);
   });
 
   field?.addEventListener("pointerdown", (event) => {
     if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
 
-    isExpanded = !isExpanded;
-    if (prefersReducedMotion) draw();
+    toggleExpanded();
+  });
+
+  field?.addEventListener("touchstart", () => {
+    if ("PointerEvent" in window) return;
+    toggleExpanded();
+  }, { passive: true });
+
+  field?.addEventListener("click", () => {
+    if ("PointerEvent" in window) return;
+    toggleExpanded();
   });
 
   window.addEventListener("resize", () => {
