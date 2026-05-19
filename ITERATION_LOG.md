@@ -532,3 +532,15 @@ Completed changes:
 - Improved mobile publication cards by keeping the visual tile compact beside the title and letting the explanation span the full width.
 - Added iPhone-oriented CSS safeguards: viewport-height fallbacks, horizontal overflow protection, text-size adjustment, and larger mobile signal-panel spacing.
 - Added the new textbook title to the validation script and bumped the asset version for GitHub Pages cache busting.
+
+## Iteration 35: Mobile Cube Tap Fix
+
+Feedback received:
+
+- On iPhone, tapping the Data & Visual Thinking cube did not reliably morph it into the sphere.
+
+Completed changes:
+
+- Separated mouse hover behavior from touch / pen tap behavior so a touch-generated hover state cannot immediately toggle the morph back off.
+- Added touch and legacy click fallbacks for the cube-to-sphere interaction.
+- Marked the morph canvas area as a tap-friendly interaction surface and bumped the asset version for cache busting.

@@ -1040,7 +1040,8 @@ h3 {
   position: relative;
   min-height: 404px;
   overflow: visible;
-  cursor: default;
+  cursor: pointer;
+  touch-action: manipulation;
 }
 
 .morph-sketch,
@@ -1053,7 +1054,8 @@ h3 {
 .morph-sketch {
   position: absolute;
   inset: 0;
-  cursor: default;
+  cursor: pointer;
+  touch-action: manipulation;
 }
 
 .data-grid-line {

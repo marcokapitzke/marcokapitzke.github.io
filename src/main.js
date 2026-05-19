@@ -884,17 +884,39 @@ function setupMorphCanvas() {
     if (!prefersReducedMotion) rafId = requestAnimationFrame(draw);
   }
 
-  stage?.addEventListener("pointerenter", () => {
-    targetMorph = 1;
-  });
+  function setMorph(value) {
+    targetMorph = value;
+    if (prefersReducedMotion) draw();
+  }
 
-  stage?.addEventListener("pointerleave", () => {
-    targetMorph = 0;
-  });
-
-  stage?.addEventListener("pointerdown", () => {
+  function toggleMorph() {
     targetMorph = targetMorph > 0.5 ? 0 : 1;
     if (prefersReducedMotion) draw();
+  }
+
+  stage?.addEventListener("pointerenter", (event) => {
+    if (event.pointerType === "touch" || event.pointerType === "pen") return;
+    setMorph(1);
+  });
+
+  stage?.addEventListener("pointerleave", (event) => {
+    if (event.pointerType === "touch" || event.pointerType === "pen") return;
+    setMorph(0);
+  });
+
+  stage?.addEventListener("pointerdown", (event) => {
+    if (event.pointerType === "mouse") return;
+    toggleMorph();
+  });
+
+  stage?.addEventListener("touchstart", () => {
+    if ("PointerEvent" in window) return;
+    toggleMorph();
+  }, { passive: true });
+
+  stage?.addEventListener("click", () => {
+    if ("PointerEvent" in window) return;
+    toggleMorph();
   });
 
   window.addEventListener("resize", () => {
