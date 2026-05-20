@@ -125,103 +125,6 @@ textarea {
   transition: opacity 180ms ease;
 }
 
-.systems-thread {
-  --thread-opacity: 0;
-  --thread-progress: 0;
-  position: fixed;
-  right: max(1rem, calc((100vw - var(--max)) / 2 - 8rem));
-  top: 50%;
-  z-index: 4;
-  width: 112px;
-  padding-left: 1.18rem;
-  color: rgba(23, 23, 22, 0.52);
-  opacity: var(--thread-opacity);
-  transform: translateY(-50%);
-  pointer-events: none;
-  transition: opacity 220ms ease;
-}
-
-.systems-thread p {
-  margin: 0 0 0.75rem;
-  color: rgba(47, 111, 94, 0.72);
-  font-size: 0.64rem;
-  font-weight: 800;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.systems-thread ol {
-  position: relative;
-  display: grid;
-  gap: 0.72rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.systems-thread__rail {
-  position: absolute;
-  left: 0.18rem;
-  top: 1.78rem;
-  bottom: 0.18rem;
-  width: 1px;
-  background: rgba(47, 111, 94, 0.16);
-  overflow: hidden;
-}
-
-.systems-thread__rail span {
-  display: block;
-  width: 100%;
-  height: calc(var(--thread-progress) * 100%);
-  background: linear-gradient(180deg, rgba(47, 111, 94, 0.88), rgba(168, 92, 58, 0.78));
-}
-
-.systems-thread li {
-  position: relative;
-  display: grid;
-  grid-template-columns: 2.2rem minmax(0, 1fr);
-  gap: 0.44rem;
-  align-items: baseline;
-  min-height: 1.28rem;
-  transition: color 180ms ease, transform 180ms ease;
-}
-
-.systems-thread li::before {
-  content: "";
-  position: absolute;
-  left: -1.17rem;
-  top: 0.45rem;
-  width: 5px;
-  height: 5px;
-  border: 1px solid rgba(47, 111, 94, 0.55);
-  border-radius: 50%;
-  background: var(--paper);
-  transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-}
-
-.systems-thread li.is-active {
-  color: var(--ink);
-  transform: translateX(2px);
-}
-
-.systems-thread li.is-active::before {
-  background: var(--rust);
-  border-color: rgba(168, 92, 58, 0.9);
-  box-shadow: 0 0 0 8px rgba(168, 92, 58, 0.08);
-  transform: scale(1.16);
-}
-
-.systems-thread span {
-  color: rgba(168, 92, 58, 0.72);
-  font-family: var(--serif);
-  font-size: 0.74rem;
-}
-
-.systems-thread b {
-  font-size: 0.7rem;
-  line-height: 1.1;
-}
-
 .site-header,
 main,
 .site-footer {
@@ -2451,12 +2354,6 @@ a.credential-item:focus-visible .credential-mark img {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
-  }
-}
-
-@media (max-width: 1360px) {
-  .systems-thread {
-    display: none;
   }
 }
 

@@ -556,3 +556,15 @@ Completed changes:
 - Separated mouse hover behavior from touch / pen tap behavior for the positioning network, matching the cube interaction fix.
 - Added touch and legacy click fallbacks for the all-connections state.
 - Marked the network field and canvas as tap-friendly interaction surfaces and bumped the asset version for cache busting.
+
+## Iteration 37: Remove Systems Thread
+
+Feedback received:
+
+- The side "Systems thread" idea was interesting, but should be removed to keep the page cleaner.
+
+Completed changes:
+
+- Removed the Systems thread markup from the generated page.
+- Removed the related scroll-position JavaScript and CSS.
+- Bumped the asset version for GitHub Pages cache busting.

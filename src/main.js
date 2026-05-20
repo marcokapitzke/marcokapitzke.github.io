@@ -6,8 +6,6 @@ const navAnchors = [...document.querySelectorAll(".nav-links a[href^='#']")];
 const sections = navAnchors
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
-const systemsThread = document.querySelector("[data-systems-thread]");
-const threadSteps = systemsThread ? [...systemsThread.querySelectorAll("[data-thread-target]")] : [];
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -36,30 +34,6 @@ function updateActiveNav() {
 
   navAnchors.forEach((link) => {
     link.classList.toggle("is-active", link.getAttribute("href") === `#${current.id}`);
-  });
-}
-
-function updateSystemsThread() {
-  if (!systemsThread || !threadSteps.length) return;
-
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  const pageProgress = scrollable > 0 ? window.scrollY / scrollable : 0;
-  const reveal = Math.min(
-    Math.max((window.scrollY - window.innerHeight * 0.72) / Math.max(window.innerHeight * 0.34, 1), 0),
-    1
-  );
-  const markerY = window.scrollY + window.innerHeight * 0.42;
-  let activeIndex = 0;
-
-  threadSteps.forEach((step, index) => {
-    const target = document.getElementById(step.dataset.threadTarget);
-    if (target && target.offsetTop <= markerY) activeIndex = index;
-  });
-
-  systemsThread.style.setProperty("--thread-opacity", String(reveal * 0.92));
-  systemsThread.style.setProperty("--thread-progress", String(Math.min(Math.max(pageProgress, 0), 1)));
-  threadSteps.forEach((step, index) => {
-    step.classList.toggle("is-active", index === activeIndex);
   });
 }
 
@@ -1107,12 +1081,8 @@ setupLeadershipCards();
 setupBeyondStack();
 updateProgress();
 updateActiveNav();
-updateSystemsThread();
 
 window.addEventListener("scroll", () => {
   updateProgress();
   updateActiveNav();
-  updateSystemsThread();
 });
-
-window.addEventListener("resize", updateSystemsThread);
