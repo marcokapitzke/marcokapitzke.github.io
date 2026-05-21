@@ -225,6 +225,16 @@ export const profile = {
         "Writing the textbook was a different kind of technical work: making abstract mathematics usable for chemistry and biochemistry students without diluting the ideas. The book reached more than 10,000 students across Germany within one year.",
       visual: "textbook",
       insight: "The work was to explain the hard parts without pretending they are easy.",
+      labLinks: [
+        {
+          label: "Band I",
+          href: "https://marcokapitzke.github.io/MatheinderChemie/"
+        },
+        {
+          label: "Band II",
+          href: "https://marcokapitzke.github.io/MatheinderChemieII/"
+        }
+      ],
       tags: ["Textbook author", "Teaching", "10,000+ students"]
     },
     {

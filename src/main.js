@@ -937,7 +937,8 @@ function setupWorkCards() {
   cards.forEach((card) => {
     card.addEventListener("pointerenter", () => clearActive(card));
 
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (event) => {
+      if (event.target.closest(".work-card__lab-links a")) return;
       const wasActive = card.classList.contains("is-active");
       clearActive(card);
       card.classList.toggle("is-active", !wasActive);

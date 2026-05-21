@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260521-remove-systems-thread";
+const assetVersion = "20260521-mathlab-links";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -38,6 +38,20 @@ const renderJourneyNodes = (items) =>
 const renderTags = (tags) =>
   tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
 
+const renderLabLinks = (links = []) =>
+  links.length
+    ? `
+          <div class="work-card__lab-links" aria-label="Interactive MathLab websites">
+            <span>Explore MathLab</span>
+            ${links
+              .map(
+                (link) =>
+                  `<a href="${escapeHtml(link.href)}"${linkAttributes(link.href)}>${escapeHtml(link.label)}</a>`
+              )
+              .join("")}
+          </div>`
+    : "";
+
 const renderFocus = (items) =>
   items
     .map(
@@ -61,6 +75,7 @@ const renderSelectedWork = (items) =>
           </div>
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.text)}</p>
+          ${renderLabLinks(item.labLinks)}
           ${item.insight ? `<p class="work-card__insight">${escapeHtml(item.insight)}</p>` : ""}
           <div class="tag-row" aria-label="Relevant themes">${renderTags(item.tags)}</div>
         </article>`
