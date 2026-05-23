@@ -1,7 +1,7 @@
 import { writeFile } from "node:fs/promises";
 import { profile } from "./profile.mjs";
 
-const assetVersion = "20260521-mathlab-links";
+const assetVersion = "20260523-image-credits";
 
 const escapeHtml = (value = "") =>
   String(value)
@@ -508,7 +508,7 @@ ${JSON.stringify(
         <div class="footer-links" aria-label="Footer links">
           <a href="mailto:${escapeHtml(profile.email)}">Email</a>
           <a href="${escapeHtml(profile.linkedIn)}" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="image-credits.html">Sources & credits</a>
+          <a href="image-credits.html">Image credits</a>
           <a href="#top">Back to top</a>
         </div>
       </div>

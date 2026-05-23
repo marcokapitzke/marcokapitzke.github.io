@@ -568,3 +568,17 @@ Completed changes:
 - Removed the Systems thread markup from the generated page.
 - Removed the related scroll-position JavaScript and CSS.
 - Bumped the asset version for GitHub Pages cache busting.
+
+## Iteration 38: Simplify Image Credits Page
+
+Feedback received:
+
+- The "Traceable facts, careful visuals" framing and professional source notes felt cringey on the public site.
+- Keep the image sources.
+
+Completed changes:
+
+- Removed the source-audit headline, explanatory paragraph, and professional source-note cards from `image-credits.html`.
+- Restored the page framing to a simple image credits page with editorial image sources only.
+- Changed the footer link text back to "Image credits".
+- Bumped the asset version for GitHub Pages cache busting.
