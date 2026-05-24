@@ -582,3 +582,15 @@ Completed changes:
 - Restored the page framing to a simple image credits page with editorial image sources only.
 - Changed the footer link text back to "Image credits".
 - Bumped the asset version for GitHub Pages cache busting.
+
+## Iteration 39: Education Background Fix
+
+Feedback received:
+
+- The darker background color in the Education & Work Experience section had a visible bug.
+
+Completed changes:
+
+- Replaced the old box-shadow-based full-bleed dark band with a real full-bleed pseudo-background.
+- Moved the gradient and texture layers into separate pseudo-elements so the section background renders consistently across the viewport.
+- Bumped the asset version for GitHub Pages cache busting.

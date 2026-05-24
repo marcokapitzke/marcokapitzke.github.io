@@ -711,23 +711,32 @@ h3 {
 
 .credentials-section {
   position: relative;
-  overflow: hidden;
+  isolation: isolate;
+  overflow: visible;
   margin-top: 2.6rem;
   padding-top: 5rem;
   padding-bottom: 5.2rem;
   color: var(--paper);
+  background: transparent;
+}
+
+.credentials-section::after {
+  content: "";
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -2;
+  pointer-events: none;
   background:
     radial-gradient(circle at 12% 18%, rgba(79, 136, 119, 0.28), transparent 24rem),
     radial-gradient(circle at 86% 22%, rgba(189, 124, 89, 0.18), transparent 23rem),
     linear-gradient(135deg, #25322f, #20302b 58%, #192520);
-  box-shadow: 0 0 0 100vmax #20302b;
-  clip-path: inset(0 -100vmax);
 }
 
 .credentials-section::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
   pointer-events: none;
   background:
     linear-gradient(rgba(217, 231, 223, 0.045) 1px, transparent 1px),
